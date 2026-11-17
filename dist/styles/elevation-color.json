@@ -10228,7 +10228,7 @@
           ],
           [
             "image",
-            "star_11",
+            "dot_capital",
             {
               "params": {
                 "color": [
@@ -10241,8 +10241,21 @@
                     ],
                     "dark"
                   ],
-                  "#e1e8ea",
-                  "#444"
+                  "#c0cdd0",
+                  "#000"
+                ],
+                "border": [
+                  "case",
+                  [
+                    "==",
+                    [
+                      "global-state",
+                      "color-scheme"
+                    ],
+                    "dark"
+                  ],
+                  "#22303a",
+                  "#fff"
                 ]
               }
             }
@@ -10816,6 +10829,7 @@
       "dog_park_11": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\"><rect width=\"15\" height=\"15\" x=\"1\" y=\"1\" fill=\"{{border}}\" stroke=\"{{border}}\" stroke-linejoin=\"round\" stroke-width=\"2\" rx=\"7.5\" ry=\"7.5\"/><rect width=\"15\" height=\"15\" x=\"1\" y=\"1\" fill=\"{{background}}\" rx=\"7.5\" ry=\"7.5\"/><path fill=\"{{color}}\" d=\"M10.5 4s-.346.037-.5.5l-.5 2 2 1.5H13c1 0 1-1 1-1l-1.5-1.5C12 5 11.5 5 11 5v-.5s0-.5-.5-.5m-5 1s-.353-.007-.723.178S4 5.833 4 6.5v2c0 1 0 1.5-.5 1.5 0 0-.5 0-.5.5v2s0 .5.5.5.5-.5.5-.5V11c.354 0 .69-.137 1-.299V12.5s0 .5.5.5.5-.5.5-.5V10h3l.664 1.992C10 13 10.5 13 10.5 13h.5s.5 0 .5-.5-.5-.5-.5-.5V9.5c0-.89-.632-1.255-1-1.5L8.498 7H5v-.5c0-.333.092-.362.223-.428C5.353 6.007 5.5 6 5.5 6c.676.01.676-1.01 0-1\"/></svg>",
       "dot_11": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"11\" height=\"11\" viewBox=\"0 0 11 11\"><path fill=\"{{border}}\" d=\"M5.5 9.8c-2.4 0-4.2-1.9-4.2-4.2s1.9-4.2 4.2-4.2 4.2 1.9 4.2 4.2-1.8 4.2-4.2 4.2\" opacity=\".25\"/><path fill=\"{{border}}\" d=\"M5.5 9.2c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8 3.8 1.7 3.8 3.8-1.7 3.8-3.8 3.8\" opacity=\".5\"/><path fill=\"{{border}}\" d=\"M5.5 8.8c-1.8 0-3.2-1.5-3.2-3.2s1.5-3.2 3.2-3.2 3.2 1.5 3.2 3.2-1.4 3.2-3.2 3.2\" opacity=\".75\"/><circle cx=\"5.5\" cy=\"5.5\" r=\"2.8\" fill=\"{{border}}\"/><circle fill=\"{{color}}\" cx=\"5.5\" cy=\"5.5\" r=\"2.2\"/></svg>",
       "dot_9": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"9\" height=\"9\" viewBox=\"3.5 3.5 9 9\"><path fill=\"{{border}}\" d=\"M8 11.5c-1.9 0-3.5-1.6-3.5-3.5S6.1 4.5 8 4.5s3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5\" opacity=\".25\"/><path fill=\"{{border}}\" d=\"M8 11c-1.7 0-3-1.4-3-3s1.3-3 3-3 3 1.3 3 3-1.4 3-3 3\" opacity=\".5\"/><path fill=\"{{border}}\" d=\"M8 10.5c-1.4 0-2.5-1.1-2.5-2.5S6.6 5.5 8 5.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5\" opacity=\".75\"/><circle cx=\"8\" cy=\"8\" r=\"2\" fill=\"{{border}}\"/><circle fill=\"{{color}}\" cx=\"8\" cy=\"8\" r=\"1.5\"/></svg>",
+      "dot_capital": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 13 13\"><circle cx=\"6.5\" cy=\"6.5\" r=\"6.2\" fill=\"{{border}}\"/><circle fill=\"{{color}}\" cx=\"6.5\" cy=\"6.5\" r=\"5\"/><circle cx=\"6.5\" cy=\"6.5\" r=\"3.6\" fill=\"{{border}}\"/><circle fill=\"{{color}}\" cx=\"6.5\" cy=\"6.5\" r=\"2.2\"/></svg>",
       "drinking_water_11": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\"><rect width=\"15\" height=\"15\" x=\"1\" y=\"1\" fill=\"{{border}}\" stroke=\"{{border}}\" stroke-linejoin=\"round\" stroke-width=\"2\" rx=\"7.5\" ry=\"7.5\"/><rect width=\"15\" height=\"15\" x=\"1\" y=\"1\" fill=\"{{background}}\" rx=\"7.5\" ry=\"7.5\"/><path fill=\"{{color}}\" d=\"M13 6H8a.5.5 0 0 0-.5.5V8h-2V5.51A1.5 1.5 0 0 1 6.99 4H13zm-5.62 5.56L6.49 10l-.89 1.55a1 1 0 0 0-.11.45 1 1 0 0 0 2 0 1 1 0 0 0-.11-.44\"/></svg>",
       "embassy_11": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\"><rect width=\"15\" height=\"15\" x=\"1\" y=\"1\" fill=\"{{border}}\" stroke=\"{{border}}\" stroke-linejoin=\"round\" stroke-width=\"2\" rx=\"7.5\" ry=\"7.5\"/><rect width=\"15\" height=\"15\" x=\"1\" y=\"1\" fill=\"{{background}}\" rx=\"7.5\" ry=\"7.5\"/><path fill=\"{{color}}\" d=\"M8.5 5a4.07 4.07 0 0 0-2.41 1.06.36.36 0 0 0-.09.24v3.32a.34.34 0 0 0 .57.27 3.23 3.23 0 0 1 1.93-.67c1.11 0 1.35.78 2.5.78a3.08 3.08 0 0 0 1.83-.84.36.36 0 0 0 .17-.32V5.37a.35.35 0 0 0-.5-.37 3.13 3.13 0 0 1-1.5.67C9.85 5.67 9.65 5 8.5 5m-4-.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2m.5 3v6a.5.5 0 0 1-1 0v-6a.5.5 0 0 1 1 0\"/></svg>",
       "entrance_11": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 15 15\"><rect width=\"15\" height=\"15\" fill=\"{{background}}\" rx=\"0\" ry=\"0\"/><path fill=\"{{color}}\" d=\"M6 4.25a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0M11.27 6H9.88a.73.73 0 0 0-.52.21l-4 4a.73.73 0 0 1-.51.21H3.73a.73.73 0 1 0 0 1.46h1.89a.73.73 0 0 0 .51-.21l4-4a.73.73 0 0 1 .48-.17h.66a.73.73 0 0 0 .73-.73.73.73 0 0 0-.73-.77m-4.52-.5a.75.75 0 0 0-.75.75V8l1.5-1.5v-.25a.75.75 0 0 0-.75-.75\"/></svg>",

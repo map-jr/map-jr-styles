@@ -48,16 +48,14 @@ export function build(style, icons) {
     transit.filter = ['all', ['in', 'class', 'bus', 'railway', 'airport']];
     // Street furniture and parking for two wheels are not worth a label.
     for (const id of ['poi_z16', 'poi_z15', 'poi_z14']) layer(style, id).filter.push(['!in', 'class', ...FURNITURE]);
-    // The capital of a country: a layer above the other cities, with a star in place of the dot.
+    // The capital of a country: a layer above the other cities, with a ringed dot in place of the dot.
     const city = layer(style, 'place_city_rank_0_3'), capital = structuredClone(city);
     Object.assign(capital, {id: 'place_capital', filter: ['all', ['==', 'class', 'city'], ['==', 'capital', 2]]});
-    capital.layout['icon-image'] = {stops: [[0, 'star_11'], [8, '']]};
+    capital.layout['icon-image'] = {stops: [[0, 'dot_capital'], [8, '']]};
     for (const id of ['place_city_rank_0_3', 'place_city_rank_4+']) layer(style, id).filter.push(['!=', 'capital', 2]);
     style.layers.splice(style.layers.indexOf(city) + 1, 0, capital);
 
     useIcons(style, icons, ICON_DARK, PLATE.dark);
-    // (The star has the color of the name.)
-    capital.layout['icon-image'][2][2].params.color = structuredClone(capital.paint['text-color']);
     names(style);
 
     // Stations from zoom 12; bus and tram stops only when close in.

@@ -32,6 +32,7 @@ CI runs it.
 icons/upstream/*.svg   the SVG sources of the OpenFreeMap sprite (ofm_f384), one file for each icon
 icons/extra.json       POI classes the sprite has no icon for: new icons from Maki glyphs, and aliases
 icons/extra/*.svg      the new icons (npm run update-icons)
+icons/custom/*.svg     icons drawn for this repository
 shields/*.svg          road shield templates, written by hand
 shields/shields.mjs    how each shield stretches, and the networks whose look is set by hand
 shields/networks.json  the look of each road network, from OSM Americana (npm run update-shields)

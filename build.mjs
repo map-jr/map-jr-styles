@@ -5,7 +5,7 @@ import {buildIcons} from './lib/icons.mjs';
 import {readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync} from 'node:fs';
 
 const check = process.argv.includes('--check'), out = {};
-const icons = buildIcons(['icons/upstream', 'icons/extra'], JSON.parse(readFileSync('icons/extra.json', 'utf8')));
+const icons = buildIcons(['icons/upstream', 'icons/extra', 'icons/custom'], JSON.parse(readFileSync('icons/extra.json', 'utf8')));
 out['icons/icons.min.json'] = JSON.stringify(icons.min);
 out['icons/icons.template.json'] = JSON.stringify(icons.template);
 out['icons/icons.defaults.json'] = JSON.stringify(icons.defaults);
