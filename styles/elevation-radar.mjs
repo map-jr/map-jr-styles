@@ -1,6 +1,6 @@
 // "Elevation · radar": a quiet neutral base for an overlay (a county or zip code choropleth, snowfall), with relief and peaks
 // for context. No hue except the peaks, and labels that survive a tint on top.
-import {useIcons, retune, scheme, peaks, layer} from '../lib/style.mjs';
+import {useIcons, retune, scheme, peaks, layer, names} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
 export const source = 'styles/src/elevation-radar.json';
@@ -30,7 +30,11 @@ const PAIRS = {
 export function build(style, icons) {
     useIcons(style, icons, ICON_DARK, PLATE.dark);
     peaks(style);
+    names(style);
     retune(style, PAIRS);
+    // No boundary lines across the sea, and a disputed border only as the dashed line of its own layer.
+    for (const id of ['admin_sub', 'admin_disputed', 'admin_country']) layer(style, id).filter = ['all', layer(style, id).filter, ['!=', 'maritime', 1]];
+    layer(style, 'admin_country').filter.push(['!=', 'disputed', 1]);
     Object.assign(layer(style, 'terrain-rgb-terrarium').paint, {
         'hillshade-highlight-color': scheme('#7b858e', '#FFFFFF'), 'hillshade-accent-color': scheme('#000000', '#000000'),
         'hillshade-exaggeration': ['interpolate', ['linear'], ['zoom'], 10, scheme(0.45, 0.2), 16, scheme(0.3, 0.1)],
@@ -38,4 +42,5 @@ export function build(style, icons) {
     // Light: the airport label was a near-white grey on white.
     const airport = layer(style, 'label_airport').paint;
     airport['text-color'][3] = 'rgb(141, 148, 156)'; airport['text-halo-color'][3] = 'rgba(255, 255, 255, 0.75)';
+    delete style.name;
 }

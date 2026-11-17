@@ -1232,11 +1232,19 @@
       "source-layer": "boundary",
       "minzoom": 3,
       "filter": [
-        "in",
-        "admin_level",
-        4,
-        6,
-        8
+        "all",
+        [
+          "in",
+          "admin_level",
+          4,
+          6,
+          8
+        ],
+        [
+          "!=",
+          "maritime",
+          1
+        ]
       ],
       "layout": {
         "visibility": "visible"
@@ -1271,18 +1279,26 @@
       "filter": [
         "all",
         [
-          "<=",
-          "admin_level",
-          2
+          "all",
+          [
+            "<=",
+            "admin_level",
+            2
+          ],
+          [
+            "==",
+            "$type",
+            "LineString"
+          ],
+          [
+            "==",
+            "disputed",
+            1
+          ]
         ],
         [
-          "==",
-          "$type",
-          "LineString"
-        ],
-        [
-          "==",
-          "disputed",
+          "!=",
+          "maritime",
           1
         ]
       ],
@@ -1321,18 +1337,31 @@
       "filter": [
         "all",
         [
-          "<=",
-          "admin_level",
-          2
+          "all",
+          [
+            "<=",
+            "admin_level",
+            2
+          ],
+          [
+            "==",
+            "$type",
+            "LineString"
+          ],
+          [
+            "!has",
+            "claimed_by"
+          ]
         ],
         [
-          "==",
-          "$type",
-          "LineString"
+          "!=",
+          "maritime",
+          1
         ],
         [
-          "!has",
-          "claimed_by"
+          "!=",
+          "disputed",
+          1
         ]
       ],
       "layout": {
@@ -1376,7 +1405,61 @@
           "Noto Sans Regular"
         ],
         "text-size": 11,
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "visibility": "visible",
         "text-anchor": "top",
         "text-offset": [
@@ -1452,7 +1535,61 @@
             ]
           ]
         },
-        "text-field": "{name:latin} {name:nonlatin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              " ",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "visibility": "visible",
         "text-transform": "uppercase",
         "symbol-placement": "line",
@@ -2093,7 +2230,61 @@
             ]
           ]
         },
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "visibility": "visible",
         "text-anchor": "center",
         "text-max-width": 6
@@ -2164,7 +2355,61 @@
             ]
           ]
         },
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-max-width": 10
       },
       "paint": {
@@ -2237,7 +2482,35 @@
             ]
           ]
         },
-        "text-field": "{name:latin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "coalesce",
+            [
+              "get",
+              "name_en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+              "get",
+              "name"
+            ]
+          ]
+        ],
         "visibility": "visible",
         "text-max-width": 10
       },
@@ -2311,7 +2584,35 @@
             ]
           ]
         },
-        "text-field": "{name:latin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "coalesce",
+            [
+              "get",
+              "name_en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+              "get",
+              "name"
+            ]
+          ]
+        ],
         "visibility": "visible",
         "text-max-width": 10
       },
@@ -2347,13 +2648,15 @@
       }
     }
   ],
-  "name": "Radar · adaptive",
   "state": {
     "color-scheme": {
       "default": "light"
     },
     "elevation-unit": {
       "default": "ft"
+    },
+    "language": {
+      "default": ""
     }
   },
   "metadata": {

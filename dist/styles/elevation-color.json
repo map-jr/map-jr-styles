@@ -4792,7 +4792,61 @@
         ]
       ],
       "layout": {
-        "text-field": "{name}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              " ",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Regular"
         ],
@@ -5046,7 +5100,61 @@
           }
         ],
         "text-anchor": "left",
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Semibold"
         ],
@@ -5182,7 +5290,61 @@
           }
         ],
         "text-anchor": "left",
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Semibold"
         ],
@@ -5871,7 +6033,61 @@
           }
         ],
         "text-anchor": "top",
-        "text-field": "{name}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Italic"
         ],
@@ -6410,7 +6626,61 @@
           }
         ],
         "text-anchor": "top",
-        "text-field": "{name}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Semibold Italic"
         ],
@@ -6953,7 +7223,61 @@
           }
         ],
         "text-anchor": "top",
-        "text-field": "{name}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Italic"
         ],
@@ -7497,7 +7821,61 @@
           }
         ],
         "text-anchor": "top",
-        "text-field": "{name}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Italic"
         ],
@@ -7556,7 +7934,61 @@
       "layout": {
         "symbol-placement": "line",
         "text-anchor": "center",
-        "text-field": "{name}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              " ",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Regular"
         ],
@@ -7627,7 +8059,61 @@
       "layout": {
         "symbol-placement": "line",
         "text-anchor": "center",
-        "text-field": "{name}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              " ",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Semibold"
         ],
@@ -8836,7 +9322,61 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Semibold"
         ],
@@ -8901,7 +9441,61 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Regular"
         ],
@@ -9008,7 +9602,61 @@
           ""
         ],
         "text-anchor": "bottom",
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Regular"
         ],
@@ -9082,6 +9730,11 @@
           ">=",
           "rank",
           4
+        ],
+        [
+          "!=",
+          "capital",
+          2
         ]
       ],
       "layout": {
@@ -9128,7 +9781,61 @@
           ""
         ],
         "text-anchor": "bottom",
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Semibold"
         ],
@@ -9199,7 +9906,35 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "coalesce",
+            [
+              "get",
+              "name_en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+              "get",
+              "name"
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Bold"
         ],
@@ -9293,6 +10028,11 @@
           "<=",
           "rank",
           3
+        ],
+        [
+          "!=",
+          "capital",
+          2
         ]
       ],
       "layout": {
@@ -9339,7 +10079,233 @@
           ""
         ],
         "text-anchor": "bottom",
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
+        "text-font": [
+          "Open Sans Bold"
+        ],
+        "text-max-width": 8,
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [
+              4,
+              13
+            ],
+            [
+              7,
+              18
+            ],
+            [
+              11,
+              22
+            ]
+          ]
+        },
+        "icon-allow-overlap": true,
+        "icon-optional": false,
+        "icon-offset": [
+          0,
+          0
+        ],
+        "text-variable-anchor": [
+          "bottom",
+          "top"
+        ],
+        "text-radial-offset": 0.3
+      },
+      "paint": {
+        "text-color": [
+          "case",
+          [
+            "==",
+            [
+              "global-state",
+              "color-scheme"
+            ],
+            "dark"
+          ],
+          "#e1e8ea",
+          "#444"
+        ],
+        "text-halo-color": [
+          "case",
+          [
+            "==",
+            [
+              "global-state",
+              "color-scheme"
+            ],
+            "dark"
+          ],
+          "#22303a",
+          "rgba(255,255,255,0.8)"
+        ],
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "place_capital",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 4,
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "city"
+        ],
+        [
+          "==",
+          "capital",
+          2
+        ]
+      ],
+      "layout": {
+        "icon-image": [
+          "step",
+          [
+            "zoom"
+          ],
+          [
+            "image",
+            "star_11",
+            {
+              "params": {
+                "color": [
+                  "case",
+                  [
+                    "==",
+                    [
+                      "global-state",
+                      "color-scheme"
+                    ],
+                    "dark"
+                  ],
+                  "#e1e8ea",
+                  "#444"
+                ]
+              }
+            }
+          ],
+          8,
+          ""
+        ],
+        "text-anchor": "bottom",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "case",
+            [
+              "all",
+              [
+                "has",
+                "name:nonlatin"
+              ],
+              [
+                "has",
+                "name:latin"
+              ]
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name:latin"
+              ],
+              "\n",
+              [
+                "get",
+                "name:nonlatin"
+              ]
+            ],
+            [
+              "coalesce",
+              [
+                "get",
+                "name_en"
+              ],
+              [
+                "get",
+                "name:latin"
+              ],
+              [
+                "get",
+                "name"
+              ]
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Bold"
         ],
@@ -9422,7 +10388,35 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "coalesce",
+            [
+              "get",
+              "name_en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+              "get",
+              "name"
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Regular"
         ],
@@ -9480,7 +10474,35 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "coalesce",
+            [
+              "get",
+              "name_en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+              "get",
+              "name"
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Italic"
         ],
@@ -9549,7 +10571,35 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "coalesce",
+            [
+              "get",
+              "name_en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+              "get",
+              "name"
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Regular"
         ],
@@ -9619,7 +10669,35 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            [
+              "concat",
+              "name:",
+              [
+                "global-state",
+                "language"
+              ]
+            ]
+          ],
+          [
+            "coalesce",
+            [
+              "get",
+              "name_en"
+            ],
+            [
+              "get",
+              "name:latin"
+            ],
+            [
+              "get",
+              "name"
+            ]
+          ]
+        ],
         "text-font": [
           "Open Sans Semibold"
         ],
@@ -9675,10 +10753,12 @@
     "exaggeration": 0.5
   },
   "sky": {},
-  "name": "Elevation Color · adaptive",
   "state": {
     "color-scheme": {
       "default": "light"
+    },
+    "language": {
+      "default": ""
     },
     "elevation-unit": {
       "default": "ft"

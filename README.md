@@ -73,12 +73,13 @@ and writes `shields/networks.json`. It keeps the networks of a country, state or
 county and city networks. A shield that Americana draws from artwork (most US states, Mexico, Korea) gets the pill or
 the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look.
 
-**Global state.** The two styles of this repository read two properties of the global state of the map:
+**Global state.** The two styles of this repository read three properties of the global state of the map:
 
 | Property | Values | Effect |
 |---|---|---|
 | `color-scheme` | `light` (default), `dark` | The branch of the style. map-jr-gl sets it from `colorScheme`. |
 | `elevation-unit` | `ft` (default), `m` | The unit of the elevation in peak labels. Set it with `globalState: {'elevation-unit': 'm'}`. |
+| `language` | none (default), or a language code of the tiles such as `de`, `fr`, `ja` | The language of the names, for each feature that has a name in it. Without it, a place with a name in a script other than Latin shows its Latin name and that name, and other names are English. |
 
 **OpenFreeMap styles.** `styles/openfreemap.mjs` builds the five styles of OpenFreeMap with `inlineSprite`: the
 images that a layer can ask for go into the style as plain SVG, and the layers are not changed.
