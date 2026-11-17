@@ -10,9 +10,9 @@ const PAIRS = {
     '#18252d|rgba(255, 250, 248, 1)':'#34444e',
     '#0b2638|rgba(153, 213, 255, 1)':'#3d74a3',
     '#80b7d1|#5d60be':'#c2c9ff',
-    '#203b35|rgba(148, 228, 93, 1)':'#3f8a4c','#203b35|rgba(143, 221, 90, 1)':'#4a9455',
-    '#203b35|rgba(212, 240, 183, 1)':'#44805a','#203b35|rgba(95, 208, 100, 1)':'#5aa870',
-    '#203b35|rgba(227, 239, 210, 1)':'#4b8663','#203b35|rgba(206, 235, 173, 1)':'#437358',
+    '#203b35|rgba(148, 228, 93, 1)':'#4fb35a','#203b35|rgba(143, 221, 90, 1)':'#5cbd66',
+    '#203b35|rgba(212, 240, 183, 1)':'#4fa468','#203b35|rgba(95, 208, 100, 1)':'#6cc884',
+    '#203b35|rgba(227, 239, 210, 1)':'#5aaa78','#203b35|rgba(206, 235, 173, 1)':'#4f9068',
     '#413e32|rgba(239, 230, 179, 0.4)':'rgba(226, 208, 132, 0.16)',
     '#46323e|rgba(246, 197, 227, 0.2)':'rgba(234, 150, 200, 0.13)',
     '#494338|rgba(247, 239, 195, 0.3)':'rgba(232, 214, 150, 0.18)',
@@ -79,7 +79,7 @@ export function build(style, icons) {
     retune(style, PAIRS, OLD);
 
     const relief = layer(style, 'natural_earth').paint;
-    Object.assign(relief, {'raster-saturation': scheme(0, 0), 'raster-brightness-max': scheme(0.62, 1), 'raster-brightness-min': scheme(0.06, 0)});
+    Object.assign(relief, {'raster-saturation': scheme(0.35, 0), 'raster-brightness-max': scheme(0.66, 1), 'raster-brightness-min': scheme(0.06, 0)});
     // The default highlight is white, which embosses every ridge on a dark map; and shadows have less room there,
     // so the dark branch leans harder on the relief.
     Object.assign(layer(style, 'terrain-rgb-terrarium').paint, {

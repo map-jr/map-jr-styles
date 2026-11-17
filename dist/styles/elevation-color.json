@@ -67,7 +67,19 @@
             ]
           ]
         },
-        "raster-saturation": 0,
+        "raster-saturation": [
+          "case",
+          [
+            "==",
+            [
+              "global-state",
+              "color-scheme"
+            ],
+            "dark"
+          ],
+          0.35,
+          0
+        ],
         "raster-contrast": 0.3,
         "raster-brightness-max": [
           "case",
@@ -79,7 +91,7 @@
             ],
             "dark"
           ],
-          0.62,
+          0.66,
           1
         ],
         "raster-brightness-min": [
@@ -113,7 +125,7 @@
             ],
             "dark"
           ],
-          "#44805a",
+          "#4fa468",
           "rgba(212, 240, 183, 1)"
         ],
         "fill-opacity": {
@@ -138,7 +150,7 @@
             ],
             "dark"
           ],
-          "#5aa870",
+          "#6cc884",
           "rgba(95, 208, 100, 1)"
         ]
       }
@@ -163,7 +175,7 @@
             ],
             "dark"
           ],
-          "#4b8663",
+          "#5aaa78",
           "rgba(227, 239, 210, 1)"
         ],
         "line-width": {
@@ -205,7 +217,7 @@
             ],
             "dark"
           ],
-          "#3f8a4c",
+          "#4fb35a",
           "rgba(148, 228, 93, 1)"
         ],
         "fill-opacity": {
@@ -247,7 +259,7 @@
             ],
             "dark"
           ],
-          "#4a9455",
+          "#5cbd66",
           "rgba(143, 221, 90, 1)"
         ],
         "fill-opacity": 0.4
@@ -404,7 +416,7 @@
             ],
             "dark"
           ],
-          "#437358",
+          "#4f9068",
           "rgba(206, 235, 173, 1)"
         ],
         "fill-opacity": 1
