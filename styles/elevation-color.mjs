@@ -7,7 +7,7 @@ export const source = 'styles/src/elevation-color.json';
 // New dark values, by "dark|light" of the source style.
 const PAIRS = {
     
-    '#18252d|rgba(255, 250, 248, 1)':'#34444e',
+    '#18252d|rgba(255, 250, 248, 1)':'#3b5247',
     '#0b2638|rgba(153, 213, 255, 1)':'#3d74a3',
     '#80b7d1|#5d60be':'#c2c9ff',
     '#203b35|rgba(148, 228, 93, 1)':'#4fb35a','#203b35|rgba(143, 221, 90, 1)':'#5cbd66',
@@ -35,7 +35,7 @@ const PAIRS = {
     '#c0cdd0|#666':'#bcc7cb','#c0cdd0|#765':'#d0c6bb',
     '#dfbe92|#666':'#c3ccd0','#dfbe92|rgba(165, 71, 8, 1)':'#f6b071',
     '#c0cdd0|#333':'#e1e8ea','#c0cdd0|#444':'#e1e8ea',
-    '#070f19|hsl(39, 21%, 33%)':'#162129',
+    '#070f19|hsl(39, 21%, 33%)':'#15231d',
 };
 // Dark values that have no pair above.
 const OLD = {'#152029': '#27343c', '#17232c': '#22303a', '#82929c': '#9eabb3', '#e4e9e9': '#eef2f2'};
@@ -83,7 +83,7 @@ export function build(style, icons) {
     // The default highlight is white, which embosses every ridge on a dark map; and shadows have less room there,
     // so the dark branch leans harder on the relief.
     Object.assign(layer(style, 'terrain-rgb-terrarium').paint, {
-        'hillshade-highlight-color': scheme('#8fa2ad', '#FFFFFF'), 'hillshade-accent-color': scheme('#10191f', '#000000'),
+        'hillshade-highlight-color': scheme('#9cb5a6', '#FFFFFF'), 'hillshade-accent-color': scheme('#10191f', '#000000'),
         'hillshade-exaggeration': ['interpolate', ['linear'], ['zoom'], 10, scheme(0.4, 0.25), 12, scheme(0.22, 0.1), 16, scheme(0.16, 0.08)],
     });
     // Light: airports were the same tone as the ground.

@@ -40,7 +40,7 @@
             ],
             "dark"
           ],
-          "#34444e",
+          "#3b5247",
           "rgba(255, 250, 248, 1)"
         ]
       }
@@ -312,7 +312,7 @@
             ],
             "dark"
           ],
-          "#162129",
+          "#15231d",
           "hsl(39, 21%, 33%)"
         ],
         "hillshade-illumination-direction": 315,
@@ -377,7 +377,7 @@
             ],
             "dark"
           ],
-          "#8fa2ad",
+          "#9cb5a6",
           "#FFFFFF"
         ],
         "hillshade-accent-color": [
