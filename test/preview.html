@@ -1,0 +1,7 @@
+<!doctype html><body style="margin:0;display:flex"><div id="a" style="width:700px;height:520px"></div><div id="b" style="width:700px;height:520px"></div>
+<script type="module">
+import {createMap} from './lib/map-jr-gl.dev.js';
+const q = new URLSearchParams(location.search), style = await (await fetch(q.get('s'))).json();
+window.errors = [];
+for (const [id, colorScheme] of [['a', 'light'], ['b', 'dark']]) createMap(document.getElementById(id), {style: structuredClone(style), colorScheme, initialView: {center: [+q.get('lng'), +q.get('lat')], zoom: +q.get('z')}, onError: e => window.errors.push(String(e.error?.message ?? e))});
+</script>
