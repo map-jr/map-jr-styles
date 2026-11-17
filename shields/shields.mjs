@@ -29,11 +29,20 @@ const MANUAL = [
     {shape: 'us_highway', plate: true, networks: ['US:US']},
     // (Most states have a shield of their own in Americana. Here each gets the pill, as the source styles did.)
     {shape: 'pill', plate: true, networks: US_STATES},
+    // White on blue is the sign of the Autobahn; the shade is the blue of Americana.
     {shape: 'hex', background: BLUE, border: '#ffffff', text: '#ffffff', networks: ['BAB']},
+    // In Americana: an upright octagon (Italy), a fishhead (New Zealand) and an upright hexagon (Serbia), with these colours.
     {shape: 'hex', background: GREEN, border: '#ffffff', text: '#ffffff', networks: ['IT:A-road']},
-    {shape: 'rect', background: RED, border: '#ffffff', text: '#ffffff', networks: ['CH:motorway', 'ch:motorway', 'NZ:SH']},
-    {shape: 'rect', background: GREEN, border: '#ffffff', text: '#ffffff', networks: ['CA:transcanada', 'CN:expressway', 'RO:A', 'RS:motorway']},
-    {shape: 'rect', background: '#1d2f7a', border: '#ffffff', text: '#ffffff', networks: ['AsianHighway', 'AH']},
+    {shape: 'rect', background: RED, border: '#ffffff', text: '#ffffff', networks: ['NZ:SH']},
+    {shape: 'rect', background: GREEN, border: '#ffffff', text: '#ffffff', networks: ['RO:A', 'RS:motorway']},
+    // The Trans-Canada shield is a white maple leaf with a green outline and a green number.
+    {shape: 'rect', background: '#ffffff', border: GREEN, text: GREEN, networks: ['CA:transcanada']},
+    // The real shield is green with a red band at the top, which the plate does not have.
+    {shape: 'rect', background: GREEN, border: '#ffffff', text: '#ffffff', networks: ['CN:expressway']},
+    // Not confirmed: a red plate for Swiss motorways is from memory.
+    {shape: 'rect', background: RED, border: '#ffffff', text: '#ffffff', networks: ['CH:motorway', 'ch:motorway']},
+    // The sign of the Asian Highways has no fixed colour. This is the colour the OpenStreetMap routes carry in the tiles.
+    {shape: 'rect', background: '#000081', border: '#ffffff', text: '#ffffff', networks: ['AsianHighway', 'AH']},
 ];
 
 /**

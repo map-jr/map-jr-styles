@@ -7760,10 +7760,9 @@
                 "#003f87",
                 [
                   "IT:A-road",
-                  "CA:transcanada",
-                  "CN:expressway",
                   "RO:A",
                   "RS:motorway",
+                  "CN:expressway",
                   "AL:A",
                   "BD:national",
                   "CL:regional",
@@ -7792,9 +7791,9 @@
                 ],
                 "#006747",
                 [
+                  "NZ:SH",
                   "CH:motorway",
                   "ch:motorway",
-                  "NZ:SH",
                   "AX:main",
                   "CN:national",
                   "CZ:national",
@@ -7819,10 +7818,19 @@
                 ],
                 "#bf2033",
                 [
+                  "CA:transcanada",
+                  "OM:D-road",
+                  "OM:S-road",
+                  "CA:NL",
+                  "CA:YT",
+                  "OM:A-road"
+                ],
+                "#ffffff",
+                [
                   "AsianHighway",
                   "AH"
                 ],
-                "#1d2f7a",
+                "#000081",
                 [
                   "AW:route",
                   "BD:regional",
@@ -7875,14 +7883,6 @@
                   "KR:local"
                 ],
                 "#ffcd00",
-                [
-                  "OM:D-road",
-                  "OM:S-road",
-                  "CA:NL",
-                  "CA:YT",
-                  "OM:A-road"
-                ],
-                "#ffffff",
                 "TR:motorway",
                 "#f38f00",
                 [
@@ -7913,13 +7913,12 @@
                   "US:I",
                   "BAB",
                   "IT:A-road",
-                  "CH:motorway",
-                  "ch:motorway",
                   "NZ:SH",
-                  "CA:transcanada",
-                  "CN:expressway",
                   "RO:A",
                   "RS:motorway",
+                  "CN:expressway",
+                  "CH:motorway",
+                  "ch:motorway",
                   "AsianHighway",
                   "AH",
                   "AT:A-road",
@@ -8020,6 +8019,11 @@
                 ],
                 "#ffffff",
                 [
+                  "CA:transcanada",
+                  "CA:NL"
+                ],
+                "#006747",
+                [
                   "AW:route",
                   "BD:regional",
                   "CN:AH",
@@ -8090,8 +8094,6 @@
                   "CY:F"
                 ],
                 "#ffcd00",
-                "CA:NL",
-                "#006747",
                 "CA:YT",
                 "#bf2033",
                 [
@@ -8120,9 +8122,9 @@
                 ],
                 [
                   "US:I",
+                  "NZ:SH",
                   "CH:motorway",
                   "ch:motorway",
-                  "NZ:SH",
                   "AX:main",
                   "CN:national",
                   "CZ:national",
@@ -8213,10 +8215,9 @@
                 "#003f87",
                 [
                   "IT:A-road",
-                  "CA:transcanada",
-                  "CN:expressway",
                   "RO:A",
                   "RS:motorway",
+                  "CN:expressway",
                   "AL:A",
                   "BD:national",
                   "CL:regional",
@@ -8245,10 +8246,19 @@
                 ],
                 "#006747",
                 [
+                  "CA:transcanada",
+                  "OM:D-road",
+                  "OM:S-road",
+                  "CA:NL",
+                  "CA:YT",
+                  "OM:A-road"
+                ],
+                "#ffffff",
+                [
                   "AsianHighway",
                   "AH"
                 ],
-                "#1d2f7a",
+                "#000081",
                 [
                   "AW:route",
                   "BD:regional",
@@ -8301,14 +8311,6 @@
                   "KR:local"
                 ],
                 "#ffcd00",
-                [
-                  "OM:D-road",
-                  "OM:S-road",
-                  "CA:NL",
-                  "CA:YT",
-                  "OM:A-road"
-                ],
-                "#ffffff",
                 "TR:motorway",
                 "#f38f00",
                 [
@@ -8404,13 +8406,12 @@
             "US:I",
             "BAB",
             "IT:A-road",
-            "CH:motorway",
-            "ch:motorway",
             "NZ:SH",
-            "CA:transcanada",
-            "CN:expressway",
             "RO:A",
             "RS:motorway",
+            "CN:expressway",
+            "CH:motorway",
+            "ch:motorway",
             "AsianHighway",
             "AH",
             "AT:A-road",
@@ -8507,6 +8508,8 @@
             "KR:national"
           ],
           "#ffffff",
+          "CA:transcanada",
+          "#006747",
           [
             "AW:route",
             "BD:regional",
