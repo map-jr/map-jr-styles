@@ -30,6 +30,8 @@ CI runs it.
 
 ```
 icons/upstream/*.svg   the SVG sources of the OpenFreeMap sprite (ofm_f384), one file for each icon
+icons/extra.json       POI classes the sprite has no icon for: new icons from Maki glyphs, and aliases
+icons/extra/*.svg      the new icons (npm run update-icons)
 shields/*.svg          road shield templates, written by hand
 shields/shields.mjs    how each shield stretches, and the networks whose look is set by hand
 shields/networks.json  the look of each road network, from OSM Americana (npm run update-shields)
@@ -43,6 +45,11 @@ lib/                   the build steps
 role: `{{color}}` (the glyph), `{{background}}` (the plate behind it) and `{{border}}` (the outline or halo). The
 build writes three files to `dist/icons/`: `icons.min.json` (`{"name": "<svg…>"}`), `icons.template.json` (the same
 with slots) and `icons.defaults.json` (the colours of each icon). An icon whose colours fit no rule stops the build.
+
+The tiles have POI classes that the sprite has no icon for. `icons/extra.json` gives 14 of them a new icon, drawn
+from a [Maki](https://github.com/mapbox/maki) glyph in the look of the sprite, and gives 34 more the icon of a
+class that has one (`atm` is `bank`, `yoga` is `sports_centre`). In the styles of this repository an alias costs no
+image: the layer draws it from the image of its target.
 
 **Styles.** A style module gets the source style and changes it: `useIcons` puts the templates that the layers use
 into `metadata["map-jr:images"]`, turns each `icon-image` into an `image` expression with the colours as `params`,

@@ -9,7 +9,7 @@ export const SHAPES = {
     pill: {stretchX: [[9, 13]], stretchY: [[7.5, 8.5]], content: [5.5, 2, 16.5, 14]},
     hex: {stretchX: [[8, 16]], stretchY: [[7.5, 8.5]], content: [6, 2, 18, 14]},
     // (The stretch columns stay clear of the point at the top and bottom centre.)
-    us_interstate: {stretchX: [[5, 8], [14, 17]], stretchY: [[11, 14]], content: [6.5, 8.6, 15.5, 18.2]},
+    us_interstate: {stretchX: [[5, 8], [14, 17]], stretchY: [[11, 14]], content: [5.6, 8.6, 16.4, 18.2]},
     us_highway: {stretchX: [[9.2, 10.4], [11.6, 12.8]], stretchY: [[7, 12]], content: [5.5, 3, 16.5, 15]},
 };
 

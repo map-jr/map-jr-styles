@@ -8,7 +8,8 @@
     "build": "node build.mjs",
     "check": "node build.mjs --check",
     "preview": "node test/preview.mjs",
-    "update-shields": "node scripts/update-shields.mjs"
+    "update-shields": "node scripts/update-shields.mjs",
+    "update-icons": "node scripts/update-icons.mjs"
   },
   "devDependencies": {
     "svgo": "^4.0.0"

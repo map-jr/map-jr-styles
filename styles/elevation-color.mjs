@@ -46,6 +46,8 @@ export function build(style, icons) {
     // The POI class of a station is `railway`: the source style asks for `rail`, which the tiles never have.
     const transit = layer(style, 'poi_transit');
     transit.filter = ['all', ['in', 'class', 'bus', 'railway', 'airport']];
+    // Street furniture and parking for two wheels are not worth a label.
+    for (const id of ['poi_z16', 'poi_z15', 'poi_z14']) layer(style, id).filter.push(['!in', 'class', ...FURNITURE]);
     useIcons(style, icons, ICON_DARK, PLATE.dark);
 
     // Stations from zoom 12; bus and tram stops only when close in.
@@ -53,8 +55,6 @@ export function build(style, icons) {
     Object.assign(local, {id: 'poi_transit_local', minzoom: 15, filter: ['all', ['any', ['==', 'class', 'bus'], ['all', ['==', 'class', 'railway'], ['==', 'subclass', 'tram_stop']]]]});
     Object.assign(transit, {minzoom: 12, filter: ['all', ['==', 'class', 'railway'], ['!=', 'subclass', 'tram_stop']]});
     style.layers.splice(style.layers.indexOf(transit), 0, local);
-    // Street furniture has no icon and is not worth a label.
-    for (const id of ['poi_z16', 'poi_z15', 'poi_z14']) layer(style, id).filter.push(['!in', 'class', ...FURNITURE]);
     // A hidden layer whose zoom range ends before its own colour stops begin.
     style.layers = style.layers.filter(l => l.id !== 'landuse_residential');
     peaks(style);

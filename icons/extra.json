@@ -1,0 +1,31 @@
+{
+  "//": "POI classes of the OpenMapTiles tiles that the OpenFreeMap sprite has no icon for. `maki` draws a new disc icon from a Maki glyph (npm run update-icons); `alias` reuses an icon that is there. Each entry gives the 21 px icon `name` and the 17 px icon `name_11`.",
+  "maki": {
+    "gate": {"glyph": "gate", "color": "#725a50"},
+    "lift_gate": {"glyph": "lift-gate", "color": "#725a50"},
+    "barrier": {"glyph": "barrier", "color": "#725a50"},
+    "toll_booth": {"glyph": "toll", "color": "#725a50"},
+    "recycling": {"glyph": "recycling", "color": "#725a50"},
+    "motorcycle_parking": {"glyph": "scooter", "color": "#5d60be"},
+    "sports_centre": {"glyph": "fitness-centre", "color": "#76a723"},
+    "gaming": {"glyph": "gaming", "color": "#5d60be"},
+    "cycling": {"glyph": "racetrack-cycling", "color": "#76a723"},
+    "table_tennis": {"glyph": "table-tennis", "color": "#76a723"},
+    "volleyball": {"glyph": "volleyball", "color": "#76a723"},
+    "skateboard": {"glyph": "skateboard", "color": "#76a723"},
+    "equestrian": {"glyph": "horse-riding", "color": "#76a723"},
+    "rowing": {"glyph": "racetrack-boat", "color": "#76a723"}
+  },
+  "alias": {
+    "bollard": "barrier", "cycle_barrier": "barrier", "stile": "barrier", "sally_port": "barrier", "border_control": "barrier",
+    "bicycle_parking": "bicycle", "office": "commercial", "hackerspace": "commercial", "atm": "bank", "ferry_terminal": "ferry",
+    "swimming_pool": "swimming", "water_park": "swimming", "scuba_diving": "swimming",
+    "yoga": "sports_centre", "gymnastics": "sports_centre", "boxing": "sports_centre", "judo": "sports_centre", "climbing": "sports_centre",
+    "chess": "gaming", "billiards": "gaming", "escape_game": "gaming", "table_soccer": "gaming",
+    "athletics": "pitch", "running": "pitch", "multi": "pitch", "boules": "pitch", "bowls": "pitch", "disc_golf": "pitch",
+    "beachvolleyball": "volleyball", "sailing": "rowing", "canoe": "rowing",
+    "ice_rink": "skiing", "curling": "skiing", "winter_sports": "skiing",
+    "rail": "railway"
+  },
+  "alias-exact": {"circle-11": "circle_11"}
+}
