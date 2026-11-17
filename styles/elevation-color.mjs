@@ -1,4 +1,4 @@
-// "Elevation · colour": a full-colour terrain map. Dark is the same map under bright moonlight.
+// "Elevation · color": a full-color terrain map. Dark is the same map under bright moonlight.
 import {useIcons, useShields, retune, scheme, peaks, layer} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
@@ -55,9 +55,18 @@ export function build(style, icons) {
     Object.assign(local, {id: 'poi_transit_local', minzoom: 15, filter: ['all', ['any', ['==', 'class', 'bus'], ['all', ['==', 'class', 'railway'], ['==', 'subclass', 'tram_stop']]]]});
     Object.assign(transit, {minzoom: 12, filter: ['all', ['==', 'class', 'railway'], ['!=', 'subclass', 'tram_stop']]});
     style.layers.splice(style.layers.indexOf(transit), 0, local);
-    // A hidden layer whose zoom range ends before its own colour stops begin.
+    // A hidden layer whose zoom range ends before its own color stops begin.
     style.layers = style.layers.filter(l => l.id !== 'landuse_residential');
     peaks(style);
+
+    // As OpenFreeMap did in its version of OSM Liberty: no boundary lines across the sea, and a disputed border
+    // of a country as a line of its own, with short dashes. (Before `retune`, so that the new layer gets its dark color.)
+    const border = layer(style, 'boundary_2_z5-'), disputed = structuredClone(border);
+    Object.assign(disputed, {id: 'boundary_disputed', minzoom: layer(style, 'boundary_2_z0-4').minzoom, filter: ['all', ['==', 'admin_level', 2], ['==', 'disputed', 1], ['!=', 'maritime', 1]]});
+    disputed.paint['line-dasharray'] = [1, 2];
+    for (const id of ['boundary_3', 'boundary_2_z0-4', 'boundary_2_z5-']) layer(style, id).filter.push(['!=', 'maritime', 1]);
+    for (const id of ['boundary_2_z0-4', 'boundary_2_z5-']) layer(style, id).filter.push(['!=', 'disputed', 1]);
+    style.layers.splice(style.layers.indexOf(border) + 1, 0, disputed);
 
     retune(style, PAIRS, OLD);
 

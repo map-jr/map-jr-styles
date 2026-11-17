@@ -1,4 +1,4 @@
-// Builds dist/: the icons as JSON (minified, templates, current colours) and the styles.
+// Builds dist/: the icons as JSON (minified, templates, current colors) and the styles.
 //   node build.mjs           write dist/
 //   node build.mjs --check   fail when dist/ is not what the sources give (for CI)
 import {buildIcons} from './lib/icons.mjs';

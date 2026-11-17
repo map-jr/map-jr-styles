@@ -1,5 +1,5 @@
 // Draws the icons of icons/extra.json ("maki") into icons/extra/, in the look of the POI discs of the sprite:
-// a white disc with a grey ring and the Maki glyph in the colour of its category.
+// a white disc with a grey ring and the Maki glyph in the color of its category.
 //   node scripts/update-icons.mjs <folder with the Maki icons>     (https://github.com/mapbox/maki, icons/, CC0)
 import {readFileSync, writeFileSync} from 'node:fs';
 

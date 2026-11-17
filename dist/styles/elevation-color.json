@@ -4500,6 +4500,11 @@
           "admin_level",
           3,
           4
+        ],
+        [
+          "!=",
+          "maritime",
+          1
         ]
       ],
       "layout": {
@@ -4559,6 +4564,16 @@
         [
           "!has",
           "claimed_by"
+        ],
+        [
+          "!=",
+          "maritime",
+          1
+        ],
+        [
+          "!=",
+          "disputed",
+          1
         ]
       ],
       "layout": {
@@ -4623,6 +4638,16 @@
           "==",
           "admin_level",
           2
+        ],
+        [
+          "!=",
+          "maritime",
+          1
+        ],
+        [
+          "!=",
+          "disputed",
+          1
         ]
       ],
       "layout": {
@@ -4673,6 +4698,84 @@
             ]
           ]
         }
+      }
+    },
+    {
+      "id": "boundary_disputed",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "boundary",
+      "minzoom": 1,
+      "filter": [
+        "all",
+        [
+          "==",
+          "admin_level",
+          2
+        ],
+        [
+          "==",
+          "disputed",
+          1
+        ],
+        [
+          "!=",
+          "maritime",
+          1
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": [
+          "case",
+          [
+            "==",
+            [
+              "global-state",
+              "color-scheme"
+            ],
+            "dark"
+          ],
+          "#9eabb3",
+          "rgba(104, 104, 106, 1)"
+        ],
+        "line-opacity": {
+          "base": 1,
+          "stops": [
+            [
+              0,
+              0.2
+            ],
+            [
+              4,
+              0.4
+            ]
+          ]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [
+              3,
+              1
+            ],
+            [
+              5,
+              1.2
+            ],
+            [
+              12,
+              3
+            ]
+          ]
+        },
+        "line-dasharray": [
+          1,
+          2
+        ]
       }
     },
     {

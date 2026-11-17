@@ -16,13 +16,13 @@ export const SHAPES = {
 import {readFileSync} from 'node:fs';
 
 const US_STATES = 'AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY'.split(' ').map(s => 'US:' + s);
-// The sign colours of OSM Americana.
+// The sign colors of OSM Americana.
 const BLUE = '#003f87', RED = '#bf2033', GREEN = '#006747';
 
 /**
  * Networks whose look is set by hand: shields that Americana draws from artwork, and networks of the OpenFreeMap
  * tiles that its definitions do not have. They win over shields/networks.json.
- * `color` is a second colour of the shape (the crown of an Interstate shield).
+ * `color` is a second color of the shape (the crown of an Interstate shield).
  */
 const MANUAL = [
     {shape: 'us_interstate', background: BLUE, color: RED, border: '#ffffff', text: '#ffffff', networks: ['US:I']},
@@ -31,7 +31,7 @@ const MANUAL = [
     {shape: 'pill', plate: true, networks: US_STATES},
     // White on blue is the sign of the Autobahn; the shade is the blue of Americana.
     {shape: 'hex', background: BLUE, border: '#ffffff', text: '#ffffff', networks: ['BAB']},
-    // In Americana: an upright octagon (Italy), a fishhead (New Zealand) and an upright hexagon (Serbia), with these colours.
+    // In Americana: an upright octagon (Italy), a fishhead (New Zealand) and an upright hexagon (Serbia), with these colors.
     {shape: 'hex', background: GREEN, border: '#ffffff', text: '#ffffff', networks: ['IT:A-road']},
     {shape: 'rect', background: RED, border: '#ffffff', text: '#ffffff', networks: ['NZ:SH']},
     {shape: 'rect', background: GREEN, border: '#ffffff', text: '#ffffff', networks: ['RO:A', 'RS:motorway']},
@@ -41,14 +41,14 @@ const MANUAL = [
     {shape: 'rect', background: GREEN, border: '#ffffff', text: '#ffffff', networks: ['CN:expressway']},
     // Not confirmed: a red plate for Swiss motorways is from memory.
     {shape: 'rect', background: RED, border: '#ffffff', text: '#ffffff', networks: ['CH:motorway', 'ch:motorway']},
-    // The sign of the Asian Highways has no fixed colour. This is the colour the OpenStreetMap routes carry in the tiles.
+    // The sign of the Asian Highways has no fixed color. This is the color the OpenStreetMap routes carry in the tiles.
     {shape: 'rect', background: '#000081', border: '#ffffff', text: '#ffffff', networks: ['AsianHighway', 'AH']},
 ];
 
 /**
  * The look of each network: MANUAL, then shields/networks.json (made by scripts/update-shields.mjs from Americana).
- * `plate: true` is the neutral plate, which follows the colour scheme of the map: a black-on-white sign gets it.
- * The others keep the colours of the real signs in both schemes.
+ * `plate: true` is the neutral plate, which follows the color scheme of the map: a black-on-white sign gets it.
+ * The others keep the colors of the real signs in both schemes.
  */
 const taken = new Set(MANUAL.flatMap(n => n.networks));
 export const NETWORKS = [...MANUAL, ...JSON.parse(readFileSync(new URL('./networks.json', import.meta.url), 'utf8'))

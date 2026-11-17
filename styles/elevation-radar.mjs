@@ -1,9 +1,9 @@
-// "Radar": a quiet neutral base for an overlay (a county or zip code choropleth, snowfall), with relief and peaks
+// "Elevation · radar": a quiet neutral base for an overlay (a county or zip code choropleth, snowfall), with relief and peaks
 // for context. No hue except the peaks, and labels that survive a tint on top.
 import {useIcons, retune, scheme, peaks, layer} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
-export const source = 'styles/src/radar.json';
+export const source = 'styles/src/elevation-radar.json';
 
 const PAIRS = {
     
