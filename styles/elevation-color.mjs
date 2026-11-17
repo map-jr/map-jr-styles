@@ -1,5 +1,5 @@
 // "Elevation · colour": a full-colour terrain map. Dark is the same map under bright moonlight.
-import {useIcons, useShields, retune, scheme, peaksWithoutZero, layer} from '../lib/style.mjs';
+import {useIcons, useShields, retune, scheme, peaks, layer} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
 export const source = 'styles/src/elevation-color.json';
@@ -35,7 +35,6 @@ const PAIRS = {
     '#c0cdd0|#666':'#bcc7cb','#c0cdd0|#765':'#d0c6bb',
     '#dfbe92|#666':'#c3ccd0','#dfbe92|rgba(165, 71, 8, 1)':'#f6b071',
     '#c0cdd0|#333':'#e1e8ea','#c0cdd0|#444':'#e1e8ea',
-    '#dfbe92|#725a50':'#e0c2a4',
     '#070f19|hsl(39, 21%, 33%)':'#162129',
 };
 // Dark values that have no pair above.
@@ -58,7 +57,7 @@ export function build(style, icons) {
     for (const id of ['poi_z16', 'poi_z15', 'poi_z14']) layer(style, id).filter.push(['!in', 'class', ...FURNITURE]);
     // A hidden layer whose zoom range ends before its own colour stops begin.
     style.layers = style.layers.filter(l => l.id !== 'landuse_residential');
-    peaksWithoutZero(style);
+    peaks(style);
 
     retune(style, PAIRS, OLD);
 

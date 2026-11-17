@@ -8,6 +8,7 @@ property `color-scheme`.
 |---|---|---|
 | Elevation · colour | `dist/styles/elevation-color.json` | A full-colour terrain map. Dark is the same map under bright moonlight. |
 | Radar | `dist/styles/radar.json` | A neutral base for an overlay (a choropleth, snowfall), with relief and peaks for context. |
+| OpenFreeMap | `dist/styles/openfreemap-{bright,dark,fiord,liberty,positron}.json` | The styles of OpenFreeMap as they are, with the images of the sprite inside the style. |
 
 Each style also has a `.min.json` without white space. The styles need a map-jr-gl build that reads
 `metadata["map-jr:images"]` and `params` of the `image` expression. MapLibre GL JS draws them without icons.
@@ -30,9 +31,10 @@ CI runs it.
 ```
 icons/upstream/*.svg   the SVG sources of the OpenFreeMap sprite (ofm_f384), one file for each icon
 shields/*.svg          road shield templates, written by hand
-shields/shields.mjs    how each shield stretches, and the look of each road network
+shields/shields.mjs    how each shield stretches, and the networks whose look is set by hand
+shields/networks.json  the look of each road network, from OSM Americana (npm run update-shields)
 styles/src/*.json      the source styles, which use the sprite
-styles/*.mjs           one module for each style: its dark palette and its fixes
+styles/*.mjs           one module for each style (or family): its dark palette and its fixes
 styles/shared.mjs      the dark icon colours and the neutral shield plate
 lib/                   the build steps
 ```
@@ -55,24 +57,34 @@ entry. To add a shape, add an SVG with slots to `shields/` and its stretch colum
 |---|---|
 | `us_interstate` | US Interstates |
 | `us_highway` | US Highways |
-| `pill` | US state routes |
-| `hex` | German Autobahn (blue), Italian autostrade (green) |
-| `rect` | Coloured plates for motorway and trunk networks of about 15 more countries; a neutral plate for the rest |
+| `pill` | US state routes, and the networks Americana draws as a pill or an ellipse |
+| `hex` | German Autobahn, Italian autostrade, and the networks Americana draws as a horizontal hexagon |
+| `rect` | The other networks, with the colours of their signs; a neutral plate for a network that is not listed |
 
-The colours are a first pass from the real signs, not a survey: check the networks you care about.
+The colours and shapes come from the shield definitions of OSM Americana: `npm run update-shields` downloads them
+and writes `shields/networks.json`. It keeps the networks of a country, state or province (about 200) and leaves out
+county and city networks. A shield that Americana draws from artwork (most US states, Mexico, Korea) gets the pill or
+the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look.
+
+**Global state.** The two styles of this repository read two properties of the global state of the map:
+
+| Property | Values | Effect |
+|---|---|---|
+| `color-scheme` | `light` (default), `dark` | The branch of the style. map-jr-gl sets it from `colorScheme`. |
+| `elevation-unit` | `ft` (default), `m` | The unit of the elevation in peak labels. Set it with `globalState: {'elevation-unit': 'm'}`. |
+
+**OpenFreeMap styles.** `styles/openfreemap.mjs` builds the five styles of OpenFreeMap with `inlineSprite`: the
+images that a layer can ask for go into the style as plain SVG, and the layers are not changed.
 
 ## Preview
 
 `npm run preview` draws each style in light and dark, side by side, at the views of `test/views.json` (a range of
-zoom levels and kinds of place), into `test/shots/`. It needs Playwright with Chromium, and the `dist/` folder of a
+zoom levels and kinds of place), into `test/shots/`. Set `STATE` to try a global state: `STATE='{"elevation-unit":"m"}' node test/preview.mjs elevation-color chamonix`. It needs Playwright with Chromium, and the `dist/` folder of a
 map-jr-gl build in `test/lib/`. Pass a style and a view to draw one: `node test/preview.mjs radar rockies`.
 
 ## Sources and licences
 
-- `icons/upstream/` comes from [openfreemap-styles](https://github.com/hyperknot/openfreemap-styles) (the liberty and
-  bright icon sets). Their licence files are next to the icons.
-- The shield templates in `shields/` are drawn for this repository. The idea of a shape and colours for each route
-  network follows [Trailblazer](https://github.com/osm-americana/trailblazer) of OSM Americana.
-- Map data in the styles: OpenFreeMap, OpenMapTiles, OpenStreetMap, Mapterhorn.
-
-This repository has no licence of its own yet.
+The code and the shield templates of this repository have the MIT licence (`LICENSE`). The icons, the source styles
+and the network table come from OpenFreeMap, OpenMapTiles and OSM Americana and keep their own terms: see
+`NOTICE.md`. The idea of a shape and colours for each route network follows
+[Trailblazer](https://github.com/osm-americana/trailblazer).

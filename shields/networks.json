@@ -1,0 +1,21 @@
+[
+  {"shape":"rect","background":"#003f87","border":"#ffffff","text":"#ffffff","networks":["AT:A-road","AT:S-road","AX:province","BE:N-road","CY:national","ES:A-road","GR:national","HR:Državne ceste","HT:RD-road","HT:RN-road","IR:freeway","LU:A-road","LU:B-road","MA:A","ME:Magistralni putevi","PT:national","PT:regional","SE:AB","SE:AC","SE:BD","SE:C","SE:D","SE:E","SE:F","SE:G","SE:H","SE:I","SE:K","SE:LV","SE:M","SE:N","SE:O","SE:RV","SE:S","SE:T","SE:U","SE:W","SE:X","SE:Y","SE:Z","SG:expressway","TR:national","UY","am:national","ba:Magistralne ceste","bg:national","ch:national","cz:national","fi:link","lv:regional","omt-gb-motorway","omt-ie-motorway","ru:national","ua:international"]},
+  {"shape":"rect","background":"#ffcd00","border":"#000000","text":"#000000","networks":["AW:route","BD:regional","CN:AH","CN:BJ","CN:CQ","CN:FJ","CN:GD","CN:GS","CN:GX","CN:GZ","CN:HA","CN:HB","CN:HE","CN:HI","CN:HL","CN:HN","CN:JL","CN:JS","CN:JX","CN:LN","CN:NM","CN:NX","CN:QH","CN:SC","CN:SD","CN:SH","CN:SN","CN:SX","CN:TJ","CN:XJ","CN:XZ","CN:YN","CN:ZJ","DE:national","DZ:regional","GH:inter-regional","GH:national","GH:regional","HK","HR:Županijske ceste","LU:CR-road","MA:RR","MY:expressway","NL:N","PH:E","US:WY","VN:expressway","fi:trunk","my:federal"]},
+  {"shape":"rect","background":"#ffffff","border":"#000000","text":"#000000","networks":["AR:national","AR:provincial","BE:A-road","BE:B-road","BE:R-road","FO","HR:Lokalne ceste","IS","MA:RP","NZ:UR","PH:N","SE:LS","TW:city","TW:county","TW:district","TW:township","US:CT","US:IL","US:IN","US:MA","US:ME","US:MI","US:MT","US:NC","US:NE","US:RI","US:TX","US:VA","US:WV","VN:national","fi:regional","np:regional","omt-gb-primary","omt-ie-regional"]},
+  {"shape":"rect","background":"#bf2033","border":"#ffffff","text":"#ffffff","networks":["AX:main","CN:national","CZ:national","DZ:motorway","DZ:national","FR:A-road","FR:N-road","LU:N-road","MG:RN-road","NE:N-roads","NL:A","NZ:SH","PL:expressway","PL:motorway","by:national","ee:national","fi:national","lt:national","lv:national","pl:national","sk:national"]},
+  {"shape":"rect","background":"#006747","border":"#ffffff","text":"#ffffff","networks":["AL:A","BD:national","CL:regional","GR:motorway","HR:Autoceste","IQ:national","IT:A-road","JP:E","RO:A","RS:motorway","SI:AC","XK:motorway","ba:Autoceste","bg:motorway","e-road","mk:national","np:national"]},
+  {"shape":"rect","background":"#006747","border":"#ffcd00","text":"#ffcd00","networks":["AU:ACT","AU:NSW","AU:NT","AU:QLD","AU:SA","AU:TAS","AU:VIC","AU:WA","CY:motorway"]},
+  {"shape":"pill","background":"#ffffff","border":"#000000","text":"#000000","networks":["US:DE","US:IA","US:KY","US:MS","US:NJ","US:VI"]},
+  {"shape":"rect","background":"#003f87","border":"#ffcd00","text":"#ffcd00","networks":["CY:B","CY:E","CY:F"]},
+  {"shape":"hex","background":"#003f87","border":"#ffffff","text":"#ffffff","networks":["JP:prefectural","PK:national"]},
+  {"shape":"rect","background":"#ffffff","border":"#000000","text":"#003f87","networks":["OM:D-road","OM:S-road"]},
+  {"shape":"rect","background":"#006747","border":"#ffffff","text":"#ffcd00","networks":["omt-gb-trunk","omt-ie-national"]},
+  {"shape":"rect","background":"#ffffff","border":"#006747","text":"#000000","networks":["CA:NL"]},
+  {"shape":"rect","background":"#ffffff","border":"#bf2033","text":"#bf2033","networks":["CA:YT"]},
+  {"shape":"rect","background":"#bf2033","border":"#000000","text":"#ffffff","networks":["MA:RN"]},
+  {"shape":"rect","background":"#003f87","border":"#ffffff","text":"#ffcd00","networks":["za:national"]},
+  {"shape":"pill","background":"#003f87","border":"#ffffff","text":"#ffffff","networks":["KR:national"]},
+  {"shape":"rect","background":"#ffcd00","border":"#ffffff","text":"#003f87","networks":["KR:local"]},
+  {"shape":"pill","background":"#ffffff","border":"#000000","text":"#003f87","networks":["OM:A-road"]},
+  {"shape":"rect","background":"#f38f00","border":"#000000","text":"#000000","networks":["TR:motorway"]}
+]

@@ -1,6 +1,6 @@
 // "Radar": a quiet neutral base for an overlay (a county or zip code choropleth, snowfall), with relief and peaks
 // for context. No hue except the peaks, and labels that survive a tint on top.
-import {useIcons, retune, scheme, peaksWithoutZero, layer} from '../lib/style.mjs';
+import {useIcons, retune, scheme, peaks, layer} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
 export const source = 'styles/src/radar.json';
@@ -24,12 +24,12 @@ const PAIRS = {
     '#17232c|rgba(255, 255, 255, 0.75)':'rgba(27, 31, 36, 0.8)','#17232c|rgba(255, 255, 255, 0.25)':'rgba(27, 31, 36, 0.8)','#17232c|#ffffff':'#1b1f24',
     '#070f19|hsl(39, 21%, 33%)':'#050608',
     '#dfbe92|#666':'#a4adb5','#dfbe92|rgba(165, 71, 8, 1)':'#eaa76b',
-    '#dfbe92|#725a50':'#c9ad94','#22303a|#fff':'#1b1f24','#5b6b76|#bbb':'#50575f',
+    '#22303a|#fff':'#1b1f24','#5b6b76|#bbb':'#50575f',
 };
 
 export function build(style, icons) {
     useIcons(style, icons, ICON_DARK, PLATE.dark);
-    peaksWithoutZero(style);
+    peaks(style);
     retune(style, PAIRS);
     Object.assign(layer(style, 'terrain-rgb-terrarium').paint, {
         'hillshade-highlight-color': scheme('#7b858e', '#FFFFFF'), 'hillshade-accent-color': scheme('#000000', '#000000'),

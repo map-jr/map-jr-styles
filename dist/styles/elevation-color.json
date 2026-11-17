@@ -5148,37 +5148,84 @@
         "text-field": [
           "case",
           [
-            ">",
+            "==",
             [
-              "to-number",
+              "global-state",
+              "elevation-unit"
+            ],
+            "m"
+          ],
+          [
+            "case",
+            [
+              ">",
               [
-                "get",
-                "ele_ft"
+                "to-number",
+                [
+                  "get",
+                  "ele"
+                ],
+                0
               ],
               0
             ],
-            0
-          ],
-          [
-            "concat",
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele"
+                ],
+                {}
+              ],
+              " m)"
+            ],
             [
               "get",
               "name_int"
-            ],
-            " (",
-            [
-              "number-format",
-              [
-                "get",
-                "ele_ft"
-              ],
-              {}
-            ],
-            " ft)"
+            ]
           ],
           [
-            "get",
-            "name_int"
+            "case",
+            [
+              ">",
+              [
+                "to-number",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                0
+              ],
+              0
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                {}
+              ],
+              " ft)"
+            ],
+            [
+              "get",
+              "name_int"
+            ]
           ]
         ],
         "text-font": [
@@ -5201,8 +5248,8 @@
                   ],
                   "dark"
                 ],
-                "#9ccb4e",
-                "#76a723"
+                "#c3ccd0",
+                "#666"
               ],
               "background": [
                 "case",
@@ -5297,37 +5344,84 @@
         "text-field": [
           "case",
           [
-            ">",
+            "==",
             [
-              "to-number",
+              "global-state",
+              "elevation-unit"
+            ],
+            "m"
+          ],
+          [
+            "case",
+            [
+              ">",
               [
-                "get",
-                "ele_ft"
+                "to-number",
+                [
+                  "get",
+                  "ele"
+                ],
+                0
               ],
               0
             ],
-            0
-          ],
-          [
-            "concat",
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele"
+                ],
+                {}
+              ],
+              " m)"
+            ],
             [
               "get",
               "name_int"
-            ],
-            " (",
-            [
-              "number-format",
-              [
-                "get",
-                "ele_ft"
-              ],
-              {}
-            ],
-            " ft)"
+            ]
           ],
           [
-            "get",
-            "name_int"
+            "case",
+            [
+              ">",
+              [
+                "to-number",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                0
+              ],
+              0
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                {}
+              ],
+              " ft)"
+            ],
+            [
+              "get",
+              "name_int"
+            ]
           ]
         ],
         "text-font": [
@@ -5350,8 +5444,8 @@
                   ],
                   "dark"
                 ],
-                "#9ccb4e",
-                "#76a723"
+                "#c3ccd0",
+                "#666"
               ],
               "background": [
                 "case",
@@ -5451,37 +5545,84 @@
         "text-field": [
           "case",
           [
-            ">",
+            "==",
             [
-              "to-number",
+              "global-state",
+              "elevation-unit"
+            ],
+            "m"
+          ],
+          [
+            "case",
+            [
+              ">",
               [
-                "get",
-                "ele_ft"
+                "to-number",
+                [
+                  "get",
+                  "ele"
+                ],
+                0
               ],
               0
             ],
-            0
-          ],
-          [
-            "concat",
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele"
+                ],
+                {}
+              ],
+              " m)"
+            ],
             [
               "get",
               "name_int"
-            ],
-            " (",
-            [
-              "number-format",
-              [
-                "get",
-                "ele_ft"
-              ],
-              {}
-            ],
-            " ft)"
+            ]
           ],
           [
-            "get",
-            "name_int"
+            "case",
+            [
+              ">",
+              [
+                "to-number",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                0
+              ],
+              0
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                {}
+              ],
+              " ft)"
+            ],
+            [
+              "get",
+              "name_int"
+            ]
           ]
         ],
         "text-font": [
@@ -5522,8 +5663,8 @@
                   ],
                   "dark"
                 ],
-                "#e0c2a4",
-                "#725a50"
+                "#f6b071",
+                "rgba(165, 71, 8, 1)"
               ]
             }
           }
@@ -7127,12 +7268,17 @@
               "US:WA",
               "US:WV",
               "US:WI",
-              "US:WY"
+              "US:WY",
+              "US:VI",
+              "KR:national",
+              "OM:A-road"
             ],
             "shield_pill",
             [
               "BAB",
-              "IT:A-road"
+              "IT:A-road",
+              "JP:prefectural",
+              "PK:national"
             ],
             "shield_hex",
             "shield_rect"
@@ -7152,61 +7298,196 @@
                 [
                   "US:I",
                   "BAB",
-                  "omt-gb-motorway",
-                  "omt-ie-motorway",
-                  "ES:A-road",
-                  "ES:AP-highway",
-                  "ES:R-highway",
                   "AT:A-road",
                   "AT:S-road",
-                  "HU:motorway",
-                  "JP:national"
+                  "AX:province",
+                  "BE:N-road",
+                  "CY:national",
+                  "ES:A-road",
+                  "GR:national",
+                  "HR:Državne ceste",
+                  "HT:RD-road",
+                  "HT:RN-road",
+                  "IR:freeway",
+                  "LU:A-road",
+                  "LU:B-road",
+                  "MA:A",
+                  "ME:Magistralni putevi",
+                  "PT:national",
+                  "PT:regional",
+                  "SE:AB",
+                  "SE:AC",
+                  "SE:BD",
+                  "SE:C",
+                  "SE:D",
+                  "SE:E",
+                  "SE:F",
+                  "SE:G",
+                  "SE:H",
+                  "SE:I",
+                  "SE:K",
+                  "SE:LV",
+                  "SE:M",
+                  "SE:N",
+                  "SE:O",
+                  "SE:RV",
+                  "SE:S",
+                  "SE:T",
+                  "SE:U",
+                  "SE:W",
+                  "SE:X",
+                  "SE:Y",
+                  "SE:Z",
+                  "SG:expressway",
+                  "TR:national",
+                  "UY",
+                  "am:national",
+                  "ba:Magistralne ceste",
+                  "bg:national",
+                  "ch:national",
+                  "cz:national",
+                  "fi:link",
+                  "lv:regional",
+                  "omt-gb-motorway",
+                  "omt-ie-motorway",
+                  "ru:national",
+                  "ua:international",
+                  "CY:B",
+                  "CY:E",
+                  "CY:F",
+                  "JP:prefectural",
+                  "PK:national",
+                  "za:national",
+                  "KR:national"
                 ],
-                "#2a5ca8",
+                "#003f87",
                 [
                   "IT:A-road",
-                  "e-road",
                   "CA:transcanada",
                   "CN:expressway",
-                  "JP:E",
                   "RO:A",
                   "RS:motorway",
-                  "omt-gb-trunk",
-                  "omt-ie-national",
+                  "AL:A",
+                  "BD:national",
+                  "CL:regional",
+                  "GR:motorway",
+                  "HR:Autoceste",
+                  "IQ:national",
+                  "JP:E",
+                  "SI:AC",
+                  "XK:motorway",
+                  "ba:Autoceste",
+                  "bg:motorway",
+                  "e-road",
+                  "mk:national",
+                  "np:national",
+                  "AU:ACT",
                   "AU:NSW",
-                  "AU:VIC",
+                  "AU:NT",
                   "AU:QLD",
                   "AU:SA",
-                  "AU:WA",
                   "AU:TAS",
-                  "AU:NT",
-                  "AU:ACT"
+                  "AU:VIC",
+                  "AU:WA",
+                  "CY:motorway",
+                  "omt-gb-trunk",
+                  "omt-ie-national"
                 ],
-                "#1f7a4d",
+                "#006747",
                 [
-                  "FR:A-road",
-                  "FR:N-road",
-                  "NL:A",
                   "CH:motorway",
                   "ch:motorway",
-                  "PL:motorway",
-                  "PL:expressway",
                   "NZ:SH",
-                  "CN:national"
+                  "AX:main",
+                  "CN:national",
+                  "CZ:national",
+                  "DZ:motorway",
+                  "DZ:national",
+                  "FR:A-road",
+                  "FR:N-road",
+                  "LU:N-road",
+                  "MG:RN-road",
+                  "NE:N-roads",
+                  "NL:A",
+                  "PL:expressway",
+                  "PL:motorway",
+                  "by:national",
+                  "ee:national",
+                  "fi:national",
+                  "lt:national",
+                  "lv:national",
+                  "pl:national",
+                  "sk:national",
+                  "MA:RN"
                 ],
-                "#c8372d",
-                [
-                  "NL:N",
-                  "DE:national",
-                  "IN:NH",
-                  "IN:NE"
-                ],
-                "#ffd23f",
+                "#bf2033",
                 [
                   "AsianHighway",
                   "AH"
                 ],
                 "#1d2f7a",
+                [
+                  "AW:route",
+                  "BD:regional",
+                  "CN:AH",
+                  "CN:BJ",
+                  "CN:CQ",
+                  "CN:FJ",
+                  "CN:GD",
+                  "CN:GS",
+                  "CN:GX",
+                  "CN:GZ",
+                  "CN:HA",
+                  "CN:HB",
+                  "CN:HE",
+                  "CN:HI",
+                  "CN:HL",
+                  "CN:HN",
+                  "CN:JL",
+                  "CN:JS",
+                  "CN:JX",
+                  "CN:LN",
+                  "CN:NM",
+                  "CN:NX",
+                  "CN:QH",
+                  "CN:SC",
+                  "CN:SD",
+                  "CN:SH",
+                  "CN:SN",
+                  "CN:SX",
+                  "CN:TJ",
+                  "CN:XJ",
+                  "CN:XZ",
+                  "CN:YN",
+                  "CN:ZJ",
+                  "DE:national",
+                  "DZ:regional",
+                  "GH:inter-regional",
+                  "GH:national",
+                  "GH:regional",
+                  "HK",
+                  "HR:Županijske ceste",
+                  "LU:CR-road",
+                  "MA:RR",
+                  "MY:expressway",
+                  "NL:N",
+                  "PH:E",
+                  "VN:expressway",
+                  "fi:trunk",
+                  "my:federal",
+                  "KR:local"
+                ],
+                "#ffcd00",
+                [
+                  "OM:D-road",
+                  "OM:S-road",
+                  "CA:NL",
+                  "CA:YT",
+                  "OM:A-road"
+                ],
+                "#ffffff",
+                "TR:motorway",
+                "#f38f00",
                 [
                   "case",
                   [
@@ -7235,54 +7516,187 @@
                   "US:I",
                   "BAB",
                   "IT:A-road",
-                  "omt-gb-motorway",
-                  "omt-ie-motorway",
-                  "ES:A-road",
-                  "ES:AP-highway",
-                  "ES:R-highway",
-                  "AT:A-road",
-                  "AT:S-road",
-                  "HU:motorway",
-                  "JP:national",
-                  "FR:A-road",
-                  "FR:N-road",
-                  "NL:A",
                   "CH:motorway",
                   "ch:motorway",
-                  "PL:motorway",
-                  "PL:expressway",
                   "NZ:SH",
-                  "CN:national",
-                  "e-road",
                   "CA:transcanada",
                   "CN:expressway",
-                  "JP:E",
                   "RO:A",
                   "RS:motorway",
                   "AsianHighway",
-                  "AH"
+                  "AH",
+                  "AT:A-road",
+                  "AT:S-road",
+                  "AX:province",
+                  "BE:N-road",
+                  "CY:national",
+                  "ES:A-road",
+                  "GR:national",
+                  "HR:Državne ceste",
+                  "HT:RD-road",
+                  "HT:RN-road",
+                  "IR:freeway",
+                  "LU:A-road",
+                  "LU:B-road",
+                  "MA:A",
+                  "ME:Magistralni putevi",
+                  "PT:national",
+                  "PT:regional",
+                  "SE:AB",
+                  "SE:AC",
+                  "SE:BD",
+                  "SE:C",
+                  "SE:D",
+                  "SE:E",
+                  "SE:F",
+                  "SE:G",
+                  "SE:H",
+                  "SE:I",
+                  "SE:K",
+                  "SE:LV",
+                  "SE:M",
+                  "SE:N",
+                  "SE:O",
+                  "SE:RV",
+                  "SE:S",
+                  "SE:T",
+                  "SE:U",
+                  "SE:W",
+                  "SE:X",
+                  "SE:Y",
+                  "SE:Z",
+                  "SG:expressway",
+                  "TR:national",
+                  "UY",
+                  "am:national",
+                  "ba:Magistralne ceste",
+                  "bg:national",
+                  "ch:national",
+                  "cz:national",
+                  "fi:link",
+                  "lv:regional",
+                  "omt-gb-motorway",
+                  "omt-ie-motorway",
+                  "ru:national",
+                  "ua:international",
+                  "AX:main",
+                  "CN:national",
+                  "CZ:national",
+                  "DZ:motorway",
+                  "DZ:national",
+                  "FR:A-road",
+                  "FR:N-road",
+                  "LU:N-road",
+                  "MG:RN-road",
+                  "NE:N-roads",
+                  "NL:A",
+                  "PL:expressway",
+                  "PL:motorway",
+                  "by:national",
+                  "ee:national",
+                  "fi:national",
+                  "lt:national",
+                  "lv:national",
+                  "pl:national",
+                  "sk:national",
+                  "AL:A",
+                  "BD:national",
+                  "CL:regional",
+                  "GR:motorway",
+                  "HR:Autoceste",
+                  "IQ:national",
+                  "JP:E",
+                  "SI:AC",
+                  "XK:motorway",
+                  "ba:Autoceste",
+                  "bg:motorway",
+                  "e-road",
+                  "mk:national",
+                  "np:national",
+                  "JP:prefectural",
+                  "PK:national",
+                  "omt-gb-trunk",
+                  "omt-ie-national",
+                  "za:national",
+                  "KR:national",
+                  "KR:local"
                 ],
                 "#ffffff",
                 [
-                  "omt-gb-trunk",
-                  "omt-ie-national",
+                  "AW:route",
+                  "BD:regional",
+                  "CN:AH",
+                  "CN:BJ",
+                  "CN:CQ",
+                  "CN:FJ",
+                  "CN:GD",
+                  "CN:GS",
+                  "CN:GX",
+                  "CN:GZ",
+                  "CN:HA",
+                  "CN:HB",
+                  "CN:HE",
+                  "CN:HI",
+                  "CN:HL",
+                  "CN:HN",
+                  "CN:JL",
+                  "CN:JS",
+                  "CN:JX",
+                  "CN:LN",
+                  "CN:NM",
+                  "CN:NX",
+                  "CN:QH",
+                  "CN:SC",
+                  "CN:SD",
+                  "CN:SH",
+                  "CN:SN",
+                  "CN:SX",
+                  "CN:TJ",
+                  "CN:XJ",
+                  "CN:XZ",
+                  "CN:YN",
+                  "CN:ZJ",
+                  "DE:national",
+                  "DZ:regional",
+                  "GH:inter-regional",
+                  "GH:national",
+                  "GH:regional",
+                  "HK",
+                  "HR:Županijske ceste",
+                  "LU:CR-road",
+                  "MA:RR",
+                  "MY:expressway",
+                  "NL:N",
+                  "PH:E",
+                  "VN:expressway",
+                  "fi:trunk",
+                  "my:federal",
+                  "OM:D-road",
+                  "OM:S-road",
+                  "MA:RN",
+                  "OM:A-road",
+                  "TR:motorway"
+                ],
+                "#000000",
+                [
+                  "AU:ACT",
                   "AU:NSW",
-                  "AU:VIC",
+                  "AU:NT",
                   "AU:QLD",
                   "AU:SA",
-                  "AU:WA",
                   "AU:TAS",
-                  "AU:NT",
-                  "AU:ACT"
+                  "AU:VIC",
+                  "AU:WA",
+                  "CY:motorway",
+                  "CY:B",
+                  "CY:E",
+                  "CY:F"
                 ],
-                "#ffd23f",
-                [
-                  "NL:N",
-                  "DE:national",
-                  "IN:NH",
-                  "IN:NE"
-                ],
-                "#222222",
+                "#ffcd00",
+                "CA:NL",
+                "#006747",
+                "CA:YT",
+                "#bf2033",
                 [
                   "case",
                   [
@@ -7309,62 +7723,197 @@
                 ],
                 [
                   "US:I",
-                  "FR:A-road",
-                  "FR:N-road",
-                  "NL:A",
                   "CH:motorway",
                   "ch:motorway",
-                  "PL:motorway",
-                  "PL:expressway",
                   "NZ:SH",
-                  "CN:national"
+                  "AX:main",
+                  "CN:national",
+                  "CZ:national",
+                  "DZ:motorway",
+                  "DZ:national",
+                  "FR:A-road",
+                  "FR:N-road",
+                  "LU:N-road",
+                  "MG:RN-road",
+                  "NE:N-roads",
+                  "NL:A",
+                  "PL:expressway",
+                  "PL:motorway",
+                  "by:national",
+                  "ee:national",
+                  "fi:national",
+                  "lt:national",
+                  "lv:national",
+                  "pl:national",
+                  "sk:national",
+                  "MA:RN"
                 ],
-                "#c8372d",
+                "#bf2033",
                 [
                   "BAB",
-                  "omt-gb-motorway",
-                  "omt-ie-motorway",
-                  "ES:A-road",
-                  "ES:AP-highway",
-                  "ES:R-highway",
                   "AT:A-road",
                   "AT:S-road",
-                  "HU:motorway",
-                  "JP:national"
+                  "AX:province",
+                  "BE:N-road",
+                  "CY:national",
+                  "ES:A-road",
+                  "GR:national",
+                  "HR:Državne ceste",
+                  "HT:RD-road",
+                  "HT:RN-road",
+                  "IR:freeway",
+                  "LU:A-road",
+                  "LU:B-road",
+                  "MA:A",
+                  "ME:Magistralni putevi",
+                  "PT:national",
+                  "PT:regional",
+                  "SE:AB",
+                  "SE:AC",
+                  "SE:BD",
+                  "SE:C",
+                  "SE:D",
+                  "SE:E",
+                  "SE:F",
+                  "SE:G",
+                  "SE:H",
+                  "SE:I",
+                  "SE:K",
+                  "SE:LV",
+                  "SE:M",
+                  "SE:N",
+                  "SE:O",
+                  "SE:RV",
+                  "SE:S",
+                  "SE:T",
+                  "SE:U",
+                  "SE:W",
+                  "SE:X",
+                  "SE:Y",
+                  "SE:Z",
+                  "SG:expressway",
+                  "TR:national",
+                  "UY",
+                  "am:national",
+                  "ba:Magistralne ceste",
+                  "bg:national",
+                  "ch:national",
+                  "cz:national",
+                  "fi:link",
+                  "lv:regional",
+                  "omt-gb-motorway",
+                  "omt-ie-motorway",
+                  "ru:national",
+                  "ua:international",
+                  "CY:B",
+                  "CY:E",
+                  "CY:F",
+                  "JP:prefectural",
+                  "PK:national",
+                  "za:national",
+                  "KR:national"
                 ],
-                "#2a5ca8",
+                "#003f87",
                 [
                   "IT:A-road",
-                  "e-road",
                   "CA:transcanada",
                   "CN:expressway",
-                  "JP:E",
                   "RO:A",
                   "RS:motorway",
-                  "omt-gb-trunk",
-                  "omt-ie-national",
+                  "AL:A",
+                  "BD:national",
+                  "CL:regional",
+                  "GR:motorway",
+                  "HR:Autoceste",
+                  "IQ:national",
+                  "JP:E",
+                  "SI:AC",
+                  "XK:motorway",
+                  "ba:Autoceste",
+                  "bg:motorway",
+                  "e-road",
+                  "mk:national",
+                  "np:national",
+                  "AU:ACT",
                   "AU:NSW",
-                  "AU:VIC",
+                  "AU:NT",
                   "AU:QLD",
                   "AU:SA",
-                  "AU:WA",
                   "AU:TAS",
-                  "AU:NT",
-                  "AU:ACT"
+                  "AU:VIC",
+                  "AU:WA",
+                  "CY:motorway",
+                  "omt-gb-trunk",
+                  "omt-ie-national"
                 ],
-                "#1f7a4d",
-                [
-                  "NL:N",
-                  "DE:national",
-                  "IN:NH",
-                  "IN:NE"
-                ],
-                "#ffd23f",
+                "#006747",
                 [
                   "AsianHighway",
                   "AH"
                 ],
                 "#1d2f7a",
+                [
+                  "AW:route",
+                  "BD:regional",
+                  "CN:AH",
+                  "CN:BJ",
+                  "CN:CQ",
+                  "CN:FJ",
+                  "CN:GD",
+                  "CN:GS",
+                  "CN:GX",
+                  "CN:GZ",
+                  "CN:HA",
+                  "CN:HB",
+                  "CN:HE",
+                  "CN:HI",
+                  "CN:HL",
+                  "CN:HN",
+                  "CN:JL",
+                  "CN:JS",
+                  "CN:JX",
+                  "CN:LN",
+                  "CN:NM",
+                  "CN:NX",
+                  "CN:QH",
+                  "CN:SC",
+                  "CN:SD",
+                  "CN:SH",
+                  "CN:SN",
+                  "CN:SX",
+                  "CN:TJ",
+                  "CN:XJ",
+                  "CN:XZ",
+                  "CN:YN",
+                  "CN:ZJ",
+                  "DE:national",
+                  "DZ:regional",
+                  "GH:inter-regional",
+                  "GH:national",
+                  "GH:regional",
+                  "HK",
+                  "HR:Županijske ceste",
+                  "LU:CR-road",
+                  "MA:RR",
+                  "MY:expressway",
+                  "NL:N",
+                  "PH:E",
+                  "VN:expressway",
+                  "fi:trunk",
+                  "my:federal",
+                  "KR:local"
+                ],
+                "#ffcd00",
+                [
+                  "OM:D-road",
+                  "OM:S-road",
+                  "CA:NL",
+                  "CA:YT",
+                  "OM:A-road"
+                ],
+                "#ffffff",
+                "TR:motorway",
+                "#f38f00",
                 [
                   "case",
                   [
@@ -7436,54 +7985,189 @@
             "US:I",
             "BAB",
             "IT:A-road",
-            "omt-gb-motorway",
-            "omt-ie-motorway",
-            "ES:A-road",
-            "ES:AP-highway",
-            "ES:R-highway",
-            "AT:A-road",
-            "AT:S-road",
-            "HU:motorway",
-            "JP:national",
-            "FR:A-road",
-            "FR:N-road",
-            "NL:A",
             "CH:motorway",
             "ch:motorway",
-            "PL:motorway",
-            "PL:expressway",
             "NZ:SH",
-            "CN:national",
-            "e-road",
             "CA:transcanada",
             "CN:expressway",
-            "JP:E",
             "RO:A",
             "RS:motorway",
             "AsianHighway",
-            "AH"
+            "AH",
+            "AT:A-road",
+            "AT:S-road",
+            "AX:province",
+            "BE:N-road",
+            "CY:national",
+            "ES:A-road",
+            "GR:national",
+            "HR:Državne ceste",
+            "HT:RD-road",
+            "HT:RN-road",
+            "IR:freeway",
+            "LU:A-road",
+            "LU:B-road",
+            "MA:A",
+            "ME:Magistralni putevi",
+            "PT:national",
+            "PT:regional",
+            "SE:AB",
+            "SE:AC",
+            "SE:BD",
+            "SE:C",
+            "SE:D",
+            "SE:E",
+            "SE:F",
+            "SE:G",
+            "SE:H",
+            "SE:I",
+            "SE:K",
+            "SE:LV",
+            "SE:M",
+            "SE:N",
+            "SE:O",
+            "SE:RV",
+            "SE:S",
+            "SE:T",
+            "SE:U",
+            "SE:W",
+            "SE:X",
+            "SE:Y",
+            "SE:Z",
+            "SG:expressway",
+            "TR:national",
+            "UY",
+            "am:national",
+            "ba:Magistralne ceste",
+            "bg:national",
+            "ch:national",
+            "cz:national",
+            "fi:link",
+            "lv:regional",
+            "omt-gb-motorway",
+            "omt-ie-motorway",
+            "ru:national",
+            "ua:international",
+            "AX:main",
+            "CN:national",
+            "CZ:national",
+            "DZ:motorway",
+            "DZ:national",
+            "FR:A-road",
+            "FR:N-road",
+            "LU:N-road",
+            "MG:RN-road",
+            "NE:N-roads",
+            "NL:A",
+            "PL:expressway",
+            "PL:motorway",
+            "by:national",
+            "ee:national",
+            "fi:national",
+            "lt:national",
+            "lv:national",
+            "pl:national",
+            "sk:national",
+            "AL:A",
+            "BD:national",
+            "CL:regional",
+            "GR:motorway",
+            "HR:Autoceste",
+            "IQ:national",
+            "JP:E",
+            "SI:AC",
+            "XK:motorway",
+            "ba:Autoceste",
+            "bg:motorway",
+            "e-road",
+            "mk:national",
+            "np:national",
+            "JP:prefectural",
+            "PK:national",
+            "MA:RN",
+            "KR:national"
           ],
           "#ffffff",
           [
-            "omt-gb-trunk",
-            "omt-ie-national",
+            "AW:route",
+            "BD:regional",
+            "CN:AH",
+            "CN:BJ",
+            "CN:CQ",
+            "CN:FJ",
+            "CN:GD",
+            "CN:GS",
+            "CN:GX",
+            "CN:GZ",
+            "CN:HA",
+            "CN:HB",
+            "CN:HE",
+            "CN:HI",
+            "CN:HL",
+            "CN:HN",
+            "CN:JL",
+            "CN:JS",
+            "CN:JX",
+            "CN:LN",
+            "CN:NM",
+            "CN:NX",
+            "CN:QH",
+            "CN:SC",
+            "CN:SD",
+            "CN:SH",
+            "CN:SN",
+            "CN:SX",
+            "CN:TJ",
+            "CN:XJ",
+            "CN:XZ",
+            "CN:YN",
+            "CN:ZJ",
+            "DE:national",
+            "DZ:regional",
+            "GH:inter-regional",
+            "GH:national",
+            "GH:regional",
+            "HK",
+            "HR:Županijske ceste",
+            "LU:CR-road",
+            "MA:RR",
+            "MY:expressway",
+            "NL:N",
+            "PH:E",
+            "VN:expressway",
+            "fi:trunk",
+            "my:federal",
+            "CA:NL",
+            "TR:motorway"
+          ],
+          "#000000",
+          [
+            "AU:ACT",
             "AU:NSW",
-            "AU:VIC",
+            "AU:NT",
             "AU:QLD",
             "AU:SA",
-            "AU:WA",
             "AU:TAS",
-            "AU:NT",
-            "AU:ACT"
+            "AU:VIC",
+            "AU:WA",
+            "CY:motorway",
+            "CY:B",
+            "CY:E",
+            "CY:F",
+            "omt-gb-trunk",
+            "omt-ie-national",
+            "za:national"
           ],
-          "#ffd23f",
+          "#ffcd00",
           [
-            "NL:N",
-            "DE:national",
-            "IN:NH",
-            "IN:NE"
+            "OM:D-road",
+            "OM:S-road",
+            "KR:local",
+            "OM:A-road"
           ],
-          "#222222",
+          "#003f87",
+          "CA:YT",
+          "#bf2033",
           [
             "case",
             [
@@ -8470,6 +9154,9 @@
   "state": {
     "color-scheme": {
       "default": "light"
+    },
+    "elevation-unit": {
+      "default": "ft"
     }
   },
   "metadata": {
@@ -8619,10 +9306,10 @@
           ]
         ],
         "content": [
-          4.5,
-          8,
-          17.5,
-          19
+          6.5,
+          8.6,
+          15.5,
+          18.2
         ]
       },
       "shield_us_highway": {
@@ -8644,9 +9331,9 @@
           ]
         ],
         "content": [
-          4.5,
+          5.5,
           3,
-          17.5,
+          16.5,
           15
         ]
       },

@@ -1502,37 +1502,84 @@
         "text-field": [
           "case",
           [
-            ">",
+            "==",
             [
-              "to-number",
+              "global-state",
+              "elevation-unit"
+            ],
+            "m"
+          ],
+          [
+            "case",
+            [
+              ">",
               [
-                "get",
-                "ele_ft"
+                "to-number",
+                [
+                  "get",
+                  "ele"
+                ],
+                0
               ],
               0
             ],
-            0
-          ],
-          [
-            "concat",
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele"
+                ],
+                {}
+              ],
+              " m)"
+            ],
             [
               "get",
               "name_int"
-            ],
-            " (",
-            [
-              "number-format",
-              [
-                "get",
-                "ele_ft"
-              ],
-              {}
-            ],
-            " ft)"
+            ]
           ],
           [
-            "get",
-            "name_int"
+            "case",
+            [
+              ">",
+              [
+                "to-number",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                0
+              ],
+              0
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                {}
+              ],
+              " ft)"
+            ],
+            [
+              "get",
+              "name_int"
+            ]
           ]
         ],
         "text-font": [
@@ -1555,8 +1602,8 @@
                   ],
                   "dark"
                 ],
-                "#9ccb4e",
-                "#76a723"
+                "#a4adb5",
+                "#666"
               ],
               "background": [
                 "case",
@@ -1651,37 +1698,84 @@
         "text-field": [
           "case",
           [
-            ">",
+            "==",
             [
-              "to-number",
+              "global-state",
+              "elevation-unit"
+            ],
+            "m"
+          ],
+          [
+            "case",
+            [
+              ">",
               [
-                "get",
-                "ele_ft"
+                "to-number",
+                [
+                  "get",
+                  "ele"
+                ],
+                0
               ],
               0
             ],
-            0
-          ],
-          [
-            "concat",
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele"
+                ],
+                {}
+              ],
+              " m)"
+            ],
             [
               "get",
               "name_int"
-            ],
-            " (",
-            [
-              "number-format",
-              [
-                "get",
-                "ele_ft"
-              ],
-              {}
-            ],
-            " ft)"
+            ]
           ],
           [
-            "get",
-            "name_int"
+            "case",
+            [
+              ">",
+              [
+                "to-number",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                0
+              ],
+              0
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                {}
+              ],
+              " ft)"
+            ],
+            [
+              "get",
+              "name_int"
+            ]
           ]
         ],
         "text-font": [
@@ -1704,8 +1798,8 @@
                   ],
                   "dark"
                 ],
-                "#9ccb4e",
-                "#76a723"
+                "#a4adb5",
+                "#666"
               ],
               "background": [
                 "case",
@@ -1805,37 +1899,84 @@
         "text-field": [
           "case",
           [
-            ">",
+            "==",
             [
-              "to-number",
+              "global-state",
+              "elevation-unit"
+            ],
+            "m"
+          ],
+          [
+            "case",
+            [
+              ">",
               [
-                "get",
-                "ele_ft"
+                "to-number",
+                [
+                  "get",
+                  "ele"
+                ],
+                0
               ],
               0
             ],
-            0
-          ],
-          [
-            "concat",
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele"
+                ],
+                {}
+              ],
+              " m)"
+            ],
             [
               "get",
               "name_int"
-            ],
-            " (",
-            [
-              "number-format",
-              [
-                "get",
-                "ele_ft"
-              ],
-              {}
-            ],
-            " ft)"
+            ]
           ],
           [
-            "get",
-            "name_int"
+            "case",
+            [
+              ">",
+              [
+                "to-number",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                0
+              ],
+              0
+            ],
+            [
+              "concat",
+              [
+                "get",
+                "name_int"
+              ],
+              " (",
+              [
+                "number-format",
+                [
+                  "get",
+                  "ele_ft"
+                ],
+                {}
+              ],
+              " ft)"
+            ],
+            [
+              "get",
+              "name_int"
+            ]
           ]
         ],
         "text-font": [
@@ -1876,8 +2017,8 @@
                   ],
                   "dark"
                 ],
-                "#c9ad94",
-                "#725a50"
+                "#eaa76b",
+                "rgba(165, 71, 8, 1)"
               ]
             }
           }
@@ -2210,6 +2351,9 @@
   "state": {
     "color-scheme": {
       "default": "light"
+    },
+    "elevation-unit": {
+      "default": "ft"
     }
   },
   "metadata": {

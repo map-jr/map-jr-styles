@@ -11,15 +11,18 @@ out['icons/icons.template.json'] = JSON.stringify(icons.template);
 out['icons/icons.defaults.json'] = JSON.stringify(icons.defaults);
 
 for (const file of readdirSync('styles').filter(f => f.endsWith('.mjs') && f !== 'shared.mjs').sort()) {
-    const mod = await import(`./styles/${file}`), style = JSON.parse(readFileSync(mod.source, 'utf8'));
-    mod.build(style, icons);
-    const images = Object.entries(style.metadata?.['map-jr:images'] ?? {});
-    // (The limits map-jr-gl sets for the images of a style.)
-    if (images.length > 200) throw new Error(`${file}: ${images.length} images, and a style can carry 200.`);
-    for (const [name, v] of images) if ((v.image ?? v).length > 200_000) throw new Error(`${file}: the image "${name}" is longer than 200,000 characters.`);
-    const name = file.slice(0, -4);
-    out[`styles/${name}.json`] = JSON.stringify(style, null, 2) + '\n';
-    out[`styles/${name}.min.json`] = JSON.stringify(style);
+    const mod = await import(`./styles/${file}`);
+    // (A module is one style, or a list of them in `styles`.)
+    for (const {name, source, build} of mod.styles ?? [{name: file.slice(0, -4), source: mod.source, build: mod.build}]) {
+        const style = JSON.parse(readFileSync(source, 'utf8'));
+        build(style, icons);
+        const images = Object.entries(style.metadata?.['map-jr:images'] ?? {});
+        // (The limits map-jr-gl sets for the images of a style.)
+        if (images.length > 200) throw new Error(`${name}: ${images.length} images, and a style can carry 200.`);
+        for (const [image, v] of images) if ((v.image ?? v).length > 200_000) throw new Error(`${name}: the image "${image}" is longer than 200,000 characters.`);
+        out[`styles/${name}.json`] = JSON.stringify(style, null, 2) + '\n';
+        out[`styles/${name}.min.json`] = JSON.stringify(style);
+    }
 }
 
 let stale = 0;

@@ -7,9 +7,11 @@
   "scripts": {
     "build": "node build.mjs",
     "check": "node build.mjs --check",
-    "preview": "node test/preview.mjs"
+    "preview": "node test/preview.mjs",
+    "update-shields": "node scripts/update-shields.mjs"
   },
   "devDependencies": {
     "svgo": "^4.0.0"
-  }
+  },
+  "license": "MIT"
 }

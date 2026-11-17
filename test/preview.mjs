@@ -28,7 +28,7 @@ let next = 0, failed = 0;
 await Promise.all([0, 1, 2].map(async () => {
     while (next < jobs.length) {
         const [style, view, lng, lat, z] = jobs[next++], page = await browser.newPage({viewport: {width: 1400, height: 520}});
-        await page.goto(`http://localhost:${port}/test/preview.html?s=/dist/styles/${style}.json&lng=${lng}&lat=${lat}&z=${z}`);
+        await page.goto(`http://localhost:${port}/test/preview.html?s=/dist/styles/${style}.json&lng=${lng}&lat=${lat}&z=${z}${process.env.STATE ? `&g=${encodeURIComponent(process.env.STATE)}` : ""}`);
         await page.waitForTimeout(+(process.env.WAIT ?? 14000));
         await page.screenshot({path: join(root, `test/shots/${style}-${view}.png`)});
         const errors = await page.evaluate(() => window.errors);
