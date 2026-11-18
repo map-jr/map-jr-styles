@@ -1,9 +1,54 @@
 {
-  "name": "map-jr-styles",
+  "name": "@map-jr/styles",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
-  "description": "Map styles for map-jr-gl with SVG template icons and road shields instead of a sprite sheet.",
+  "description": "Map styles for map-jr-gl that carry their own icons and road shields, with a light and a dark branch.",
+  "keywords": [
+    "map",
+    "maps",
+    "map-style",
+    "vector-tiles",
+    "openmaptiles",
+    "openfreemap",
+    "maplibre-style",
+    "map-jr-gl",
+    "dark-mode"
+  ],
+  "author": "Sam Margulies",
+  "license": "MIT AND BSD-3-Clause AND CC-BY-4.0 AND CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/map-jr/map-jr-styles.git"
+  },
+  "homepage": "https://github.com/map-jr/map-jr-styles#readme",
+  "bugs": {
+    "url": "https://github.com/map-jr/map-jr-styles/issues"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./*.json": "./dist/styles/*.min.json"
+  },
+  "files": [
+    "dist/styles/*.min.json",
+    "CHANGELOG.md",
+    "NOTICE.md",
+    "icons/upstream/LICENSE-*.md",
+    "icons/extra/LICENSE-maki.txt",
+    "styles/src/openfreemap/LICENSE*.md",
+    "styles/src/openfreemap/COMMIT"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "@map-jr/map-jr-gl": ">=0.7.0"
+  },
+  "peerDependenciesMeta": {
+    "@map-jr/map-jr-gl": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "node build.mjs",
     "check": "node build.mjs --check",
@@ -12,11 +57,12 @@
     "preview": "node test/preview.mjs",
     "upload": "node scripts/publish.mjs",
     "update-shields": "node scripts/update-shields.mjs",
-    "update-icons": "node scripts/update-icons.mjs"
+    "update-icons": "node scripts/update-icons.mjs",
+    "test:package": "node scripts/check-package.mjs"
   },
   "devDependencies": {
+    "publint": "^0.3.25",
     "svgo": "^4.0.0"
   },
-  "license": "MIT",
   "packageManager": "pnpm@10.28.0"
 }

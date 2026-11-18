@@ -23,6 +23,8 @@ jobs:
       # dist/ is committed, so that a style has a URL: fail when it is not what the sources give.
       - run: pnpm run check
       - run: pnpm test
+      # The tarball that npm would publish: publint, and an application that installs it and imports each style.
+      - run: pnpm run test:package
       # A push to main uploads the styles to https://styles.map-jr.org/@main/ (scripts/publish.mjs).
       - name: Upload to @main
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

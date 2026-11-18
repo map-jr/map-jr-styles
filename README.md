@@ -40,12 +40,31 @@ A new major version (`/2/`) breaks a map: a layer id is renamed or removed, a gl
 styles need a newer map-jr-gl. Every other release is a new minor version (`1.1`), and `/1/` moves to it. To keep
 one release as it is, host the zip of its GitHub release.
 
+### From npm
+
+The package [`@map-jr/styles`](https://www.npmjs.com/package/@map-jr/styles) has the same styles, by the same names:
+
+```bash
+pnpm add @map-jr/styles
+```
+
+```js
+import style from '@map-jr/styles/elevation-color.json' with {type: 'json'};
+
+createMap('map', {style});
+```
+
+A bundler (Vite, webpack, esbuild) takes the import as it is; Node.js needs `with {type: 'json'}`. A range such as
+`^1.0.0` takes each release that does not break a map, as `/1/` does. The CDNs of npm serve the package too:
+`https://cdn.jsdelivr.net/npm/@map-jr/styles@1/elevation-color.json`. The package has only the styles without white
+space (`dist/styles/*.min.json`), the changelog, and the licences of the material in `NOTICE.md`.
+
 ## Release
 
 A release is a pull request that changes `"version"` in `package.json` and adds the section of that version to
 [CHANGELOG.md](CHANGELOG.md). Merging it releases the version: the workflow `Release` uploads the styles to
-`/<major>/`, pushes the tag `v<version>`, and makes the release on GitHub with the section as its text and `dist/` as a
-zip. Nobody pushes a tag or makes a release by hand. A release replaces the styles of its major version: `1.3.0` writes
+`/<major>/`, publishes `@map-jr/styles` to npm, pushes the tag `v<version>`, and makes the release on GitHub with the
+section as its text and `dist/` as a zip. Nobody pushes a tag or makes a release by hand. A release replaces the styles of its major version: `1.3.0` writes
 `/1/`, and `2.0.0` writes `/2/` and leaves `/1/` as it was.
 
 1. **Check `main`.** The workflow `build` is green for the commit to release.
@@ -58,7 +77,7 @@ zip. Nobody pushes a tag or makes a release by hand. A release replaces the styl
    `## 1.3.0 (2026-11-20)` at the top of `CHANGELOG.md`, with what changed since the last release. Then:
 
    ```bash
-   pnpm run build && pnpm run check && pnpm test
+   pnpm run build && pnpm run check && pnpm test && pnpm run test:package
    ```
 
 4. **Merge it** when CI passes, and follow the workflow `Release` in the Actions tab.
@@ -68,12 +87,16 @@ zip. Nobody pushes a tag or makes a release by hand. A release replaces the styl
    curl https://styles.map-jr.org/1/version.json
    ```
 
-   It gives `{"version":"1.3","commit":"…"}`, with the commit of the merge. The edge has the new styles within 5
+   ```bash
+   npm view @map-jr/styles@1.3.0 version
+   ```
+
+   The first gives `{"version":"1.3","commit":"…"}`, with the commit of the merge, and the second `1.3.0`. The edge has the new styles within 5
    minutes; a browser that has the last release gets the new one within a day.
 
 A section whose heading says `(unreleased)` is not released: the workflow does nothing for it. The workflow stops,
-and uploads nothing, when the changelog has no section for the version, or when `/<major>/` has the same release from
-another commit or a newer release. A run that stopped after the upload can be run again from the Actions tab
+and uploads nothing, when the changelog has no section for the version, when `/<major>/` has the same release from
+another commit or a newer release, or when npm has the version and the tag `v<version>` does not exist. A run that stopped after the upload can be run again from the Actions tab
 (**Run workflow** on `main`): it does only what is left. To undo a release, release the earlier state as a newer
 version. `node scripts/publish.mjs --dry-run` lists the files that a release uploads, without uploading them.
 
@@ -84,6 +107,10 @@ It needs, in the repository:
 | `CLOUDFLARE_ACCOUNT_ID` | Variable | The Cloudflare account of the bucket |
 | `R2_BUCKET` | Variable | The name of the bucket |
 | `R2_API_TOKEN` | Secret | The token value of an R2 API token with Object Read & Write on the bucket only |
+
+The repository has no token of npm. npm trusts the workflow `Release` by its file name (`release.yml`), as a trusted
+publisher in the settings of the package on npmjs.com, and adds a provenance statement to each version. Renaming the
+file needs the same change there.
 
 The script makes the S3 keys of R2 from the token, as Cloudflare documents them: the key ID is the id of the token,
 and the secret is the SHA-256 of its value.
