@@ -17,3 +17,4 @@ jobs:
       - run: npm ci
       # dist/ is committed, so that a style has a URL: fail when it is not what the sources give.
       - run: npm run check
+      - run: npm test

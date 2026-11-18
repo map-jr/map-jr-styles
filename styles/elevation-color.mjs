@@ -5,7 +5,7 @@ import {ICON_DARK, PLATE} from './shared.mjs';
 export const source = 'styles/src/elevation-color.json';
 
 // New dark values, by "dark|light" of the source style.
-const PAIRS = {
+export const PAIRS = {
     
     '#18252d|rgba(255, 250, 248, 1)':'#3b5247',
     '#0b2638|rgba(153, 213, 255, 1)':'#3d74a3',

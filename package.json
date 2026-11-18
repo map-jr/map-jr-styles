@@ -7,6 +7,8 @@
   "scripts": {
     "build": "node build.mjs",
     "check": "node build.mjs --check",
+    "test": "node --test test/*.test.mjs",
+    "apply-edit": "node scripts/apply-edit.mjs",
     "preview": "node test/preview.mjs",
     "update-shields": "node scripts/update-shields.mjs",
     "update-icons": "node scripts/update-icons.mjs"

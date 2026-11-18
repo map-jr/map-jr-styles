@@ -24,7 +24,43 @@ npm run build
 ```
 
 `dist/` is committed, so that a style has a URL. `npm run check` fails when `dist/` is not what the sources give;
-CI runs it.
+CI runs it, and `npm test`.
+
+## Editing a style with Maputnik
+
+An edit in Maputnik reaches the repository as a change to the sources, because the build writes `dist/` from them
+and overwrites an edit made there.
+
+1. Open the built style in the Maputnik of map-jr-gl:
+   `https://map-jr.github.io/maputnik/?style=https://raw.githubusercontent.com/map-jr/map-jr-styles/main/dist/styles/elevation-color.json`.
+2. Edit it, and save it with **Save** (a file such as `elevation-color.json`).
+3. Apply it to the sources, and build:
+
+   ```bash
+   npm run apply-edit -- ~/Downloads/elevation-color.json
+   npm run build
+   ```
+
+The command builds the style from the sources in memory and compares it with the saved style, layer by layer and
+property by property. It finds the style by the file name, or by the layers when the name is not the name of a
+style. A second argument gives the name: `npm run apply-edit -- saved.json elevation-radar`. For each difference it
+tries the places that the value can come from, builds again, and keeps a change only when it removes differences and
+adds none.
+
+| Edit | Where it goes |
+|---|---|
+| A value of a layer that the source style has: a light color, a number, a filter, a layout property | `styles/src/<name>.json` |
+| A new layer, a removed layer, the order of the layers | `styles/src/<name>.json` |
+| The dark value of a `case` on `color-scheme` | `PAIRS` in `styles/<name>.mjs`, by the `dark\|light` pair of the source. When other layers share the pair and keep their value, the dark value goes into the source. |
+| The light value of such a `case` | The source, and the pair in `PAIRS` moves to the new light value |
+
+The command does not map a value that a module makes: the images and their colors (`useIcons`, `ICON_DARK`), the
+road shields, the peak and name labels, the layers that a module adds (`place_capital`), and a value that a module
+sets (the hillshade colors, the light airport colors). It does not map an edit that changes the length of a filter to
+which a module adds a clause. It lists each of these with its layer and property and writes nothing for it, so that
+you can change the module by hand. At the end it builds from the files again, lists each property that still differs
+from the saved style, and exits with 1 when there is one. It does not edit the OpenFreeMap styles, which are copies
+of their sources.
 
 ## How it is made
 
