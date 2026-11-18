@@ -13,6 +13,86 @@ property `color-scheme`.
 Each style also has a `.min.json` without white space. The styles need a map-jr-gl build that reads
 `metadata["map-jr:images"]` and `params` of the `image` expression. MapLibre GL JS draws them without icons.
 
+The two elevation styles have no `glyphs`: map-jr-gl draws their labels with the fonts of the browser, and makes no
+requests for fonts. Each `text-font` is a stack of the fonts of the system, such as
+`["system-ui Semibold", "Segoe UI Semibold", "Roboto Medium", "sans-serif"]`: SF Pro on Apple systems, Segoe UI on
+Windows, Roboto on Android. The first name gives the weight and the style (Regular, Semibold, Bold, Italic, Semibold
+Italic). This needs a map-jr-gl with commit `bd4d4ea` (a `text-font` stack as a CSS family list, with `system-ui`
+unquoted); an older one draws the labels in the `fontFamily` of the map. To give every reader the same font, pass the
+font files in the `fonts` option of map-jr-gl. MapLibre GL JS does not load a style
+with text and no `glyphs`: add a `glyphs` URL to use these two styles there. The OpenFreeMap styles keep the glyphs
+of OpenFreeMap.
+
+## Use
+
+The styles are at `https://styles.map-jr.org`, by major version:
+
+```js
+createMap('map', {style: 'https://styles.map-jr.org/1/elevation-color.json'});
+```
+
+| Path | What it gives | Cached |
+|---|---|---|
+| `/1/<name>.json` | The latest release of version 1, without white space. It takes each change that does not break a map. | A day in the browser, then up to a week more while it is fetched again in the background; 5 minutes at the edge |
+| `/1/version.json` | `{version, commit}` of the folder | As its folder |
+
+A new major version (`/2/`) breaks a map: a layer id is renamed or removed, a global state property changes, or the
+styles need a newer map-jr-gl. Every other release is a new minor version (`1.1`), and `/1/` moves to it. To keep
+one release as it is, host the zip of its GitHub release.
+
+## Release
+
+A release is a pull request that changes `"version"` in `package.json` and adds the section of that version to
+[CHANGELOG.md](CHANGELOG.md). Merging it releases the version: the workflow `Release` uploads the styles to
+`/<major>/`, pushes the tag `v<version>`, and makes the release on GitHub with the section as its text and `dist/` as a
+zip. Nobody pushes a tag or makes a release by hand. A release replaces the styles of its major version: `1.3.0` writes
+`/1/`, and `2.0.0` writes `/2/` and leaves `/1/` as it was.
+
+1. **Check `main`.** The workflow `build` is green for the commit to release.
+2. **Choose the version.** The third number is always 0.
+   - A change that does not break a map (a color, a new layer, a fix) increases the second number: `1.2.0` → `1.3.0`.
+   - A change that breaks a map (a layer id renamed or removed, a global state property changed, a newer map-jr-gl
+     needed) increases the first number: `1.3.0` → `2.0.0`. Its section in the changelog starts with "Breaking
+     changes", which says what stopped working and what to do instead.
+3. **Open the pull request of the release.** On a branch from `main`, set `"version"` in `package.json`, and add
+   `## 1.3.0 (2026-11-20)` at the top of `CHANGELOG.md`, with what changed since the last release. Then:
+
+   ```bash
+   pnpm run build && pnpm run check && pnpm test
+   ```
+
+4. **Merge it** when CI passes, and follow the workflow `Release` in the Actions tab.
+5. **Check the release:**
+
+   ```bash
+   curl https://styles.map-jr.org/1/version.json
+   ```
+
+   It gives `{"version":"1.3","commit":"…"}`, with the commit of the merge. The edge has the new styles within 5
+   minutes; a browser that has the last release gets the new one within a day.
+
+A section whose heading says `(unreleased)` is not released: the workflow does nothing for it. The workflow stops,
+and uploads nothing, when the changelog has no section for the version, or when `/<major>/` has the same release from
+another commit or a newer release. A run that stopped after the upload can be run again from the Actions tab
+(**Run workflow** on `main`): it does only what is left. To undo a release, release the earlier state as a newer
+version. `node scripts/publish.mjs --dry-run` lists the files that a release uploads, without uploading them.
+
+It needs, in the repository:
+
+| Name | Kind | What it is |
+|---|---|---|
+| `CLOUDFLARE_ACCOUNT_ID` | Variable | The Cloudflare account of the bucket |
+| `R2_BUCKET` | Variable | The name of the bucket |
+| `R2_API_TOKEN` | Secret | The token value of an R2 API token with Object Read & Write on the bucket only |
+
+The script makes the S3 keys of R2 from the token, as Cloudflare documents them: the key ID is the id of the token,
+and the secret is the SHA-256 of its value.
+
+Cloudflare does not cache `.json` by default. A Cache Rule on the zone makes it: for the hostname
+`styles.map-jr.org`, **Eligible for cache**, with the edge TTL from the `Cache-Control` header of the origin. With
+the short edge TTL and `stale-while-revalidate`, a release reaches the edge in minutes with no purge, and a reader
+does not wait while a file is fetched again.
+
 ## Build
 
 ```bash
@@ -32,7 +112,7 @@ An edit in Maputnik reaches the repository as a change to the sources, because t
 and overwrites an edit made there.
 
 1. Open the built style in the Maputnik of map-jr-gl:
-   `https://map-jr.github.io/maputnik/?style=https://raw.githubusercontent.com/map-jr/map-jr-styles/main/dist/styles/elevation-color.json`.
+   `https://map-jr.github.io/maputnik/?style=https://styles.map-jr.org/@main/elevation-color.json`.
 2. Edit it, and save it with **Save** (a file such as `elevation-color.json`).
 3. Apply it to the sources, and build:
 

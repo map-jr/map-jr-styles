@@ -5,6 +5,10 @@ on:
   pull_request:
 permissions:
   contents: read
+# (Pushes to main upload one at a time, in order.)
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,3 +23,11 @@ jobs:
       # dist/ is committed, so that a style has a URL: fail when it is not what the sources give.
       - run: pnpm run check
       - run: pnpm test
+      # A push to main uploads the styles to https://styles.map-jr.org/@main/ (scripts/publish.mjs).
+      - name: Upload to @main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: node scripts/publish.mjs --main
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+          R2_API_TOKEN: ${{ secrets.R2_API_TOKEN }}

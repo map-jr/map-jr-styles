@@ -1,6 +1,6 @@
 {
   "name": "map-jr-styles",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "Map styles for map-jr-gl with SVG template icons and road shields instead of a sprite sheet.",
@@ -10,6 +10,7 @@
     "test": "node --test test/*.test.mjs",
     "apply-edit": "node scripts/apply-edit.mjs",
     "preview": "node test/preview.mjs",
+    "upload": "node scripts/publish.mjs",
     "update-shields": "node scripts/update-shields.mjs",
     "update-icons": "node scripts/update-icons.mjs"
   },
