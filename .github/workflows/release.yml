@@ -3,12 +3,20 @@
 # CHANGELOG.md; its merge starts this workflow. For the version in package.json, the job decides:
 #
 # - The section of the version in CHANGELOG.md says "(unreleased)": it does nothing.
-# - The tag v<version> does not exist: it tests, uploads the styles to https://styles.map-jr.org/<major>/
-#   (scripts/publish.mjs), pushes the tag and makes the release on GitHub.
+# - The tag v<version> does not exist and npm does not have the version: it tests, uploads the styles to
+#   https://styles.map-jr.org/<major>/ (scripts/publish.mjs), publishes @map-jr/styles to npm, pushes the tag and
+#   makes the release on GitHub.
+# - The tag does not exist and npm has the version: it stops. Push the tag on the commit that was published.
+# - The tag exists and npm does not have the version (1.0.0, which was released before the package was on npm): it
+#   publishes nothing, with a notice. Publish that version by hand.
 # - The tag exists and the release on GitHub does not: it makes the release only.
-# - The tag and the release exist: it does nothing.
+# - The tag and the release exist: it does nothing more.
 #
-# The upload uses the R2 API token of the repository (the secret R2_API_TOKEN), which can write only the bucket.
+# The upload uses the R2 API token of the repository (the secret R2_API_TOKEN), which can write only the bucket. The
+# repository stores no token of npm: npm trusts this workflow by its file name (a trusted publisher in the settings of
+# the package on npmjs.com), and the job proves its identity with OpenID Connect. npm then adds a provenance
+# statement, which names the commit and the run of this workflow. If you rename this file, change the trusted
+# publisher on npmjs.com: npm compares the file name.
 name: Release
 on:
   push:
@@ -27,14 +35,19 @@ jobs:
     permissions:
       # The job pushes the tag and makes the release on GitHub.
       contents: write
+      # The job may ask GitHub for the identity token that npm checks.
+      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: pnpm/action-setup@v4
+      # Trusted publishing needs npm 11.5.1 or later, which Node.js 24 has. No cache of the package manager is used for
+      # a release, as the documentation of npm advises.
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
+          registry-url: https://registry.npmjs.org
       - name: What is to do for this version?
         env:
           GH_TOKEN: ${{ github.token }}
@@ -44,7 +57,9 @@ jobs:
             exit 1
           fi
           version=$(node -p "require('./package.json').version")
+          name=$(node -p "require('./package.json').name")
           echo "version=$version" >> "$GITHUB_ENV"
+          echo "name=$name" >> "$GITHUB_ENV"
           # Stops with a message when CHANGELOG.md has no section for the version.
           node scripts/release-notes.mjs "$version" > "$RUNNER_TEMP/notes.md"
           if grep -Eq "^## ${version//./\\.} \(unreleased\)" CHANGELOG.md; then
@@ -52,11 +67,20 @@ jobs:
             exit 0
           fi
           tag=no; if git rev-parse -q --verify "refs/tags/v$version" >/dev/null; then tag=yes; fi
+          npm=no; if [ "$(npm view "$name@$version" version 2>/dev/null)" = "$version" ]; then npm=yes; fi
           release=no; if gh release view "v$version" >/dev/null 2>&1; then release=yes; fi
-          echo "Tag v$version: $tag. Release on GitHub: $release."
-          if [ "$tag" = no ]; then
+          echo "Tag v$version: $tag. $name $version on npm: $npm. Release on GitHub: $release."
+          if [ "$tag" = no ] && [ "$npm" = no ]; then
             echo "publish=yes" >> "$GITHUB_ENV"
             echo "release=yes" >> "$GITHUB_ENV"
+          elif [ "$tag" = no ]; then
+            echo "::error::npm has $name $version, and the tag v$version does not exist. Push the tag on the commit that was published, then run this workflow again."
+            exit 1
+          elif [ "$npm" = no ] && [ "$release" = no ]; then
+            echo "::notice::The tag v$version exists, and npm does not have $name $version: publish it by hand. Only the release on GitHub is made."
+            echo "release=yes" >> "$GITHUB_ENV"
+          elif [ "$npm" = no ]; then
+            echo "::notice::The tag v$version and its release on GitHub exist, and npm does not have $name $version: publish it by hand. Nothing is done."
           elif [ "$release" = no ]; then
             echo "::notice::The tag v$version exists, and the release on GitHub does not. Only the release is made."
             echo "release=yes" >> "$GITHUB_ENV"
@@ -70,6 +94,13 @@ jobs:
         run: pnpm run check
       - if: env.publish == 'yes'
         run: pnpm test
+      # The tarball as npm publishes it: publint, and an application that installs it and imports each style.
+      - if: env.publish == 'yes'
+        run: pnpm run test:package
+      - name: npm is new enough for trusted publishing
+        if: env.publish == 'yes'
+        run: |
+          node -e "const [a, b, c] = process.argv[1].split('.').map(Number); if (a < 11 || (a === 11 && (b < 5 || (b === 5 && c < 1)))) { console.error('::error::npm ' + process.argv[1] + ' is older than 11.5.1, which trusted publishing needs.'); process.exit(1); }" "$(npm --version)"
       # Stops when /<major>/ has this release from another commit, or a newer release. Uploads nothing when it has this
       # release from this commit (a run that stopped after the upload).
       - name: Upload to styles.map-jr.org
@@ -79,6 +110,9 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           R2_BUCKET: ${{ vars.R2_BUCKET }}
           R2_API_TOKEN: ${{ secrets.R2_API_TOKEN }}
+      - name: Publish to npm
+        if: env.publish == 'yes'
+        run: npm publish --provenance --access public
       # A tag pushed with the token of the workflow starts no other workflow.
       - name: Tag the commit
         if: env.publish == 'yes'
