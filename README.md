@@ -42,45 +42,40 @@ one release as it is, host the zip of its GitHub release.
 
 ## Release
 
-A release replaces the styles of its major version: `v1.3` writes `/1/`, and `v2.0` writes `/2/` and leaves `/1/`
-as it was.
+A release is a pull request that changes `"version"` in `package.json` and adds the section of that version to
+[CHANGELOG.md](CHANGELOG.md). Merging it releases the version: the workflow `Release` uploads the styles to
+`/<major>/`, pushes the tag `v<version>`, and makes the release on GitHub with the section as its text and `dist/` as a
+zip. Nobody pushes a tag or makes a release by hand. A release replaces the styles of its major version: `1.3.0` writes
+`/1/`, and `2.0.0` writes `/2/` and leaves `/1/` as it was.
 
-1. Choose the version. Styles have no patch version, so it is always `major.minor`:
-   - a change that does not break a map (a color, a new layer, a fix) raises the minor version: `1.2` → `1.3`;
-   - a change that breaks a map (a layer id renamed or removed, a global state property changed, a newer map-jr-gl
-     needed) raises the major version: `1.3` → `2.0`.
-2. On a branch, set `version` in `package.json` to that version with `.0` at the end (`1.3.0`), build, and check:
+1. **Check `main`.** The workflow `build` is green for the commit to release.
+2. **Choose the version.** The third number is always 0.
+   - A change that does not break a map (a color, a new layer, a fix) increases the second number: `1.2.0` → `1.3.0`.
+   - A change that breaks a map (a layer id renamed or removed, a global state property changed, a newer map-jr-gl
+     needed) increases the first number: `1.3.0` → `2.0.0`. Its section in the changelog starts with "Breaking
+     changes", which says what stopped working and what to do instead.
+3. **Open the pull request of the release.** On a branch from `main`, set `"version"` in `package.json`, and add
+   `## 1.3.0 (2026-11-20)` at the top of `CHANGELOG.md`, with what changed since the last release. Then:
 
    ```bash
    pnpm run build && pnpm run check && pnpm test
    ```
 
-3. Open a pull request with the change, and merge it when CI passes.
-4. Tag the merge on `main` with the version without its `.0`, and push the tag:
-
-   ```bash
-   git switch main && git pull
-   ```
-
-   ```bash
-   git tag v1.3 && git push origin v1.3
-   ```
-
-5. Follow the workflow `publish` in the Actions tab of the repository. It builds and tests, checks that the tag is
-   the version of `package.json`, uploads the styles to `/<major>/` in the R2 bucket of `styles.map-jr.org`
-   (`scripts/publish.mjs`), checks that the domain serves the style, and makes a GitHub release with `dist/` as a zip.
-6. Check the release:
+4. **Merge it** when CI passes, and follow the workflow `Release` in the Actions tab.
+5. **Check the release:**
 
    ```bash
    curl https://styles.map-jr.org/1/version.json
    ```
 
-   It gives `{"version":"1.3","commit":"…"}`. The edge has the new styles within 5 minutes; a browser that has the
-   last release gets the new one within a day.
+   It gives `{"version":"1.3","commit":"…"}`, with the commit of the merge. The edge has the new styles within 5
+   minutes; a browser that has the last release gets the new one within a day.
 
-The workflow stops, and uploads nothing, when the tag is not the version of `package.json`, or when `/<major>/` has
-the same release or a newer one: raise the version, and tag again. To undo a release, release the earlier state as a
-newer version. `node scripts/publish.mjs --dry-run` lists the files that a release uploads, without uploading them.
+A section whose heading says `(unreleased)` is not released: the workflow does nothing for it. The workflow stops,
+and uploads nothing, when the changelog has no section for the version, or when `/<major>/` has the same release from
+another commit or a newer release. A run that stopped after the upload can be run again from the Actions tab
+(**Run workflow** on `main`): it does only what is left. To undo a release, release the earlier state as a newer
+version. `node scripts/publish.mjs --dry-run` lists the files that a release uploads, without uploading them.
 
 It needs, in the repository:
 

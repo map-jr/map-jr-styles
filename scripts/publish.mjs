@@ -50,12 +50,17 @@ const env = {...process.env, AWS_REGION: 'auto', AWS_REQUEST_CHECKSUM_CALCULATIO
     AWS_ACCESS_KEY_ID: keyId, AWS_SECRET_ACCESS_KEY: token ? createHash('sha256').update(token).digest('hex') : ''};
 const aws = (args, opts = {}) => execFileSync('aws', [...args, '--endpoint-url', endpoint], {env, ...opts});
 
-// A release replaces only an older release of its major version.
+// A release replaces only an older release of its major version. The same release from the same commit is there
+// already (a run of the workflow that stopped after the upload): nothing is uploaded again.
 if (!dry && !main) {
-    let had;
-    try { had = JSON.parse(aws(['s3', 'cp', `s3://${bucket}/${folder}/version.json`, '-'], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']})).version; } catch {}
-    const [, hadMinor] = (had ?? '').split('.').map(Number);
-    if (had !== undefined && !(+m[2] > hadMinor)) throw new Error(`/${folder}/ has ${had} already: raise the version in package.json above it.`);
+    let had = {};
+    try { had = JSON.parse(aws(['s3', 'cp', `s3://${bucket}/${folder}/version.json`, '-'], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']})); } catch {}
+    const [, hadMinor] = String(had.version ?? '').split('.').map(Number);
+    if (had.version === release && had.commit === commit) {
+        console.log(`/${folder}/ has ${release} from ${commit.slice(0, 7)} already: nothing to upload.`);
+        process.exit(0);
+    }
+    if (had.version !== undefined && !(+m[2] > hadMinor)) throw new Error(`/${folder}/ has ${had.version} (${String(had.commit).slice(0, 7)}) already: raise the version in package.json above it.`);
 }
 
 // The folder as it is served, made in a temporary directory.
