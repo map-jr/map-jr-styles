@@ -42,13 +42,45 @@ one release as it is, host the zip of its GitHub release.
 
 ## Release
 
-1. Raise `version` in `package.json` to the next `major.minor.0` (styles have no patch version), and merge.
-2. Tag the merge with the version without its `.0`: `git tag v1.1 && git push origin v1.1`.
+A release replaces the styles of its major version: `v1.3` writes `/1/`, and `v2.0` writes `/2/` and leaves `/1/`
+as it was.
 
-The workflow `publish` builds and tests, uploads the styles to `/<major>/` in the R2 bucket of `styles.map-jr.org`
-(`pnpm run upload`, `scripts/publish.mjs`), checks that the domain serves the style, and makes a GitHub release with
-`dist/` as a zip. It stops when the folder has the same release or a newer one. `--dry-run` lists the files without
-uploading them.
+1. Choose the version. Styles have no patch version, so it is always `major.minor`:
+   - a change that does not break a map (a color, a new layer, a fix) raises the minor version: `1.2` → `1.3`;
+   - a change that breaks a map (a layer id renamed or removed, a global state property changed, a newer map-jr-gl
+     needed) raises the major version: `1.3` → `2.0`.
+2. On a branch, set `version` in `package.json` to that version with `.0` at the end (`1.3.0`), build, and check:
+
+   ```bash
+   pnpm run build && pnpm run check && pnpm test
+   ```
+
+3. Open a pull request with the change, and merge it when CI passes.
+4. Tag the merge on `main` with the version without its `.0`, and push the tag:
+
+   ```bash
+   git switch main && git pull
+   ```
+
+   ```bash
+   git tag v1.3 && git push origin v1.3
+   ```
+
+5. Follow the workflow `publish` in the Actions tab of the repository. It builds and tests, checks that the tag is
+   the version of `package.json`, uploads the styles to `/<major>/` in the R2 bucket of `styles.map-jr.org`
+   (`scripts/publish.mjs`), checks that the domain serves the style, and makes a GitHub release with `dist/` as a zip.
+6. Check the release:
+
+   ```bash
+   curl https://styles.map-jr.org/1/version.json
+   ```
+
+   It gives `{"version":"1.3","commit":"…"}`. The edge has the new styles within 5 minutes; a browser that has the
+   last release gets the new one within a day.
+
+The workflow stops, and uploads nothing, when the tag is not the version of `package.json`, or when `/<major>/` has
+the same release or a newer one: raise the version, and tag again. To undo a release, release the earlier state as a
+newer version. `node scripts/publish.mjs --dry-run` lists the files that a release uploads, without uploading them.
 
 It needs, in the repository:
 
