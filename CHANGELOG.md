@@ -4,7 +4,7 @@ Each version has one entry. The styles are served at `https://styles.map-jr.org/
 map increases the first number, and its entry starts with a section "Breaking changes". Every other version
 increases the second number. The third number is always 0. See [Release](README.md#release).
 
-## 1.0.0 (unreleased)
+## 1.0.0 (2026-11-18)
 
 The first release at `https://styles.map-jr.org/1/`.
 
