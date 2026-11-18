@@ -16,15 +16,15 @@ Each style also has a `.min.json` without white space. The styles need a map-jr-
 ## Build
 
 ```bash
-npm install
+pnpm install
 ```
 
 ```bash
-npm run build
+pnpm run build
 ```
 
-`dist/` is committed, so that a style has a URL. `npm run check` fails when `dist/` is not what the sources give;
-CI runs it, and `npm test`.
+`dist/` is committed, so that a style has a URL. `pnpm run check` fails when `dist/` is not what the sources give;
+CI runs it, and `pnpm test`.
 
 ## Editing a style with Maputnik
 
@@ -37,13 +37,13 @@ and overwrites an edit made there.
 3. Apply it to the sources, and build:
 
    ```bash
-   npm run apply-edit -- ~/Downloads/elevation-color.json
-   npm run build
+   ppnpm run apply-edit ~/Downloads/elevation-color.json
+   pnpm run build
    ```
 
 The command builds the style from the sources in memory and compares it with the saved style, layer by layer and
 property by property. It finds the style by the file name, or by the layers when the name is not the name of a
-style. A second argument gives the name: `npm run apply-edit -- saved.json elevation-radar`. For each difference it
+style. A second argument gives the name: `ppnpm run apply-edit saved.json elevation-radar`. For each difference it
 tries the places that the value can come from, builds again, and keeps a change only when it removes differences and
 adds none.
 
@@ -67,11 +67,11 @@ of their sources.
 ```
 icons/upstream/*.svg   the SVG sources of the OpenFreeMap sprite (ofm_f384), one file for each icon
 icons/extra.json       POI classes the sprite has no icon for: new icons from Maki glyphs, and aliases
-icons/extra/*.svg      the new icons (npm run update-icons)
+icons/extra/*.svg      the new icons (pnpm run update-icons)
 icons/custom/*.svg     icons drawn for this repository
 shields/*.svg          road shield templates, written by hand
 shields/shields.mjs    how each shield stretches, and the networks whose look is set by hand
-shields/networks.json  the look of each road network, from OSM Americana (npm run update-shields)
+shields/networks.json  the look of each road network, from OSM Americana (pnpm run update-shields)
 styles/src/*.json      the source styles, which use the sprite
 styles/*.mjs           one module for each style (or family): its dark palette and its fixes
 styles/shared.mjs      the dark icon colors and the neutral shield plate
@@ -105,7 +105,7 @@ entry. To add a shape, add an SVG with slots to `shields/` and its stretch colum
 | `hex` | German Autobahn, Italian autostrade, and the networks Americana draws as a horizontal hexagon |
 | `rect` | The other networks, with the colors of their signs; a neutral plate for a network that is not listed |
 
-The colors and shapes come from the shield definitions of OSM Americana: `npm run update-shields` downloads them
+The colors and shapes come from the shield definitions of OSM Americana: `pnpm run update-shields` downloads them
 and writes `shields/networks.json`. It keeps the networks of a country, state or province (about 200) and leaves out
 county and city networks. A shield that Americana draws from artwork (most US states, Mexico, Korea) gets the pill or
 the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look.
@@ -123,7 +123,7 @@ images that a layer can ask for go into the style as plain SVG, and the layers a
 
 ## Preview
 
-`npm run preview` draws each style in light and dark, side by side, at the views of `test/views.json` (a range of
+`pnpm run preview` draws each style in light and dark, side by side, at the views of `test/views.json` (a range of
 zoom levels and kinds of place), into `test/shots/`. Set `STATE` to try a global state: `STATE='{"elevation-unit":"m"}' node test/preview.mjs elevation-color chamonix`. It needs Playwright with Chromium, and the `dist/` folder of a
 map-jr-gl build in `test/lib/`. Pass a style and a view to draw one: `node test/preview.mjs elevation-radar rockies`.
 
