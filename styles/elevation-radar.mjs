@@ -5,7 +5,7 @@ import {ICON_DARK, PLATE} from './shared.mjs';
 
 export const source = 'styles/src/elevation-radar.json';
 
-const PAIRS = {
+export const PAIRS = {
     
     '#18252d|rgba(255, 255, 255, 1)':'#1b1f24',
     '#0b2638|rgb(217, 218, 221)':'#30373f','#0b2638|hsl(205, 56%, 73%)':'#30373f',
