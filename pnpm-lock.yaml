@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@map-jr/map-jr-gl':
+        specifier: '>=0.7.0'
+        version: 0.7.0
     devDependencies:
       publint:
         specifier: ^0.3.25
@@ -16,6 +20,24 @@ importers:
         version: 4.1.0
 
 packages:
+
+  '@map-jr/map-jr-gl@0.7.0':
+    resolution: {integrity: sha512-hu+Uo9T/SR7ZtJzbHUoytLEt8IaCnxFUCO7SDVAsVFZz+z5u2/Y+GVrDqk/bN7sMMm8LBbu3b3AmtzFZeMluXA==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      '@nuxt/kit': ^3.0.0 || ^4.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+      vue: ^3.5.0
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      vue:
+        optional: true
 
   '@publint/pack@0.1.7':
     resolution: {integrity: sha512-4EDEmvxWtgsCnnVeBvtFIFZtUhPPt1+bA9JrSwU4Sa//6oKtzCSlGGXYJr44OD9aGISymbieJ4mCKHUygUDU+g==}
@@ -110,6 +132,8 @@ packages:
     engines: {node: '>=18'}
 
 snapshots:
+
+  '@map-jr/map-jr-gl@0.7.0': {}
 
   '@publint/pack@0.1.7':
     dependencies:
