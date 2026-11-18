@@ -25,7 +25,6 @@
     }
   },
   "sprite": "https://tiles.openfreemap.org/sprites/ofm_f384/ofm",
-  "glyphs": "https://tiles.whatismyelevation.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -4644,7 +4643,10 @@
       "layout": {
         "text-field": "{name}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 5,
         "text-size": 12,
@@ -4702,7 +4704,10 @@
       "layout": {
         "text-field": "{name_int}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 5,
         "text-size": 12
@@ -4758,7 +4763,10 @@
       "layout": {
         "text-field": "{name_int}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 5,
         "text-size": 12
@@ -4813,7 +4821,10 @@
         "text-anchor": "left",
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-offset": [
           0.9,
@@ -4894,7 +4905,10 @@
           " ft)"
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 6,
@@ -4978,7 +4992,10 @@
           " ft)"
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 6,
@@ -5067,7 +5084,10 @@
           " ft)"
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -5151,7 +5171,10 @@
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -5224,7 +5247,10 @@
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
-          "Open Sans Semibold Italic"
+          "system-ui Semibold Italic",
+          "Segoe UI Semibold Italic",
+          "Roboto Medium Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -5297,7 +5323,10 @@
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -5375,7 +5404,10 @@
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -5434,7 +5466,10 @@
         "text-anchor": "center",
         "text-field": "{name}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-offset": [
           0,
@@ -5505,7 +5540,10 @@
         "text-anchor": "center",
         "text-field": "{name}",
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-offset": [
           0,
@@ -5595,7 +5633,10 @@
         "symbol-spacing": 500,
         "text-field": "{ref}",
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-offset": [
           0,
@@ -5641,7 +5682,10 @@
           ]
         },
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 7,
@@ -5703,7 +5747,10 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-letter-spacing": 0.05,
         "text-max-width": 9,
@@ -5768,7 +5815,10 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-size": {
@@ -5846,7 +5896,10 @@
         "text-anchor": "bottom",
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -5937,7 +5990,10 @@
         "text-anchor": "bottom",
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -6008,7 +6064,10 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Bold"
+          "system-ui Bold",
+          "Segoe UI Bold",
+          "Roboto Bold",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -6119,7 +6178,10 @@
         "text-anchor": "bottom",
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Bold"
+          "system-ui Bold",
+          "Segoe UI Bold",
+          "Roboto Bold",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -6202,7 +6264,10 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12.5,
         "text-transform": "uppercase",
@@ -6260,7 +6325,10 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -6329,7 +6397,10 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -6399,7 +6470,10 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-max-width": 6.25,
         "text-size": {

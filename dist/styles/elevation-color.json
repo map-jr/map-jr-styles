@@ -24,7 +24,6 @@
       "attribution": "<a href=\"https://mapterhorn.com/attribution\">© Mapterhorn</a>"
     }
   },
-  "glyphs": "https://tiles.whatismyelevation.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -4860,7 +4859,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 5,
         "text-size": 12,
@@ -4918,7 +4920,10 @@
       "layout": {
         "text-field": "{name_int}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 5,
         "text-size": 12
@@ -4974,7 +4979,10 @@
       "layout": {
         "text-field": "{name_int}",
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 5,
         "text-size": 12
@@ -5168,7 +5176,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-offset": [
           0.9,
@@ -5358,7 +5369,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-offset": [
           0.9,
@@ -5506,7 +5520,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 6,
@@ -5702,7 +5719,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 6,
@@ -5903,7 +5923,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -6101,7 +6124,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -6694,7 +6720,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold Italic"
+          "system-ui Semibold Italic",
+          "Segoe UI Semibold Italic",
+          "Roboto Medium Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -7291,7 +7320,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -7889,7 +7921,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -8002,7 +8037,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-offset": [
           0,
@@ -8127,7 +8165,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-offset": [
           0,
@@ -8958,7 +8999,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-offset": [
           0,
@@ -9274,7 +9318,10 @@
           ]
         },
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 7,
@@ -9390,7 +9437,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-letter-spacing": 0.05,
         "text-max-width": 9,
@@ -9509,7 +9559,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-size": {
@@ -9670,7 +9723,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -9849,7 +9905,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -9948,7 +10007,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Bold"
+          "system-ui Bold",
+          "Segoe UI Bold",
+          "Roboto Bold",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -10147,7 +10209,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Bold"
+          "system-ui Bold",
+          "Segoe UI Bold",
+          "Roboto Bold",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -10332,7 +10397,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Bold"
+          "system-ui Bold",
+          "Segoe UI Bold",
+          "Roboto Bold",
+          "sans-serif"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -10443,7 +10511,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12.5,
         "text-transform": "uppercase",
@@ -10529,7 +10600,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Italic"
+          "system-ui Italic",
+          "Segoe UI Italic",
+          "Roboto Italic",
+          "sans-serif"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -10626,7 +10700,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -10724,7 +10801,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-max-width": 6.25,
         "text-size": {

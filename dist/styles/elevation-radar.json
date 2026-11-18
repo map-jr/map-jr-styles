@@ -16,7 +16,6 @@
       "attribution": "<a href=\"https://mapterhorn.com/attribution\">© Mapterhorn</a>"
     }
   },
-  "glyphs": "https://tiles.whatismyelevation.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -1402,7 +1401,10 @@
       "layout": {
         "icon-size": 1,
         "text-font": [
-          "Noto Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 11,
         "text-field": [
@@ -1520,7 +1522,10 @@
       ],
       "layout": {
         "text-font": [
-          "Noto Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": {
           "base": 1.4,
@@ -1720,7 +1725,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 6,
@@ -1916,7 +1924,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": 12,
         "text-max-width": 6,
@@ -2117,7 +2128,10 @@
           ]
         ],
         "text-font": [
-          "Open Sans Semibold"
+          "system-ui Semibold",
+          "Segoe UI Semibold",
+          "Roboto Medium",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -2216,7 +2230,10 @@
       ],
       "layout": {
         "text-font": [
-          "Noto Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -2341,7 +2358,10 @@
       ],
       "layout": {
         "text-font": [
-          "Noto Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -2468,7 +2488,10 @@
       ],
       "layout": {
         "text-font": [
-          "Noto Sans Regular"
+          "system-ui Regular",
+          "Segoe UI Regular",
+          "Roboto Regular",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
@@ -2570,7 +2593,10 @@
       ],
       "layout": {
         "text-font": [
-          "Noto Sans Bold"
+          "system-ui Bold",
+          "Segoe UI Bold",
+          "Roboto Bold",
+          "sans-serif"
         ],
         "text-size": {
           "stops": [
