@@ -4,6 +4,13 @@ Each version has one entry. The styles are served at `https://styles.map-jr.org/
 map increases the first number, and its entry starts with a section "Breaking changes". Every other version
 increases the second number. The third number is always 0. See [Release](README.md#release).
 
+## 1.2.0 (2026-11-19)
+
+- The styles are for map-jr-gl 0.9.0 or later: the peer dependency is now `>=0.9.0`. The filters of `map-jr:ssr` read
+  `["zoom"]` as the zoom of the render, and `relief` in Elevation · radar is a global state in `visibility`, both of
+  which map-jr-gl reads from 0.9.0. The styles still load in an older map-jr-gl, with the limits of 1.1.0. The
+  layers, images and URLs are the same.
+
 ## 1.1.0 (2026-11-19)
 
 - Elevation · color is renamed Elevation: `elevation-color.json` is now `elevation.json`, with the same layers. The
