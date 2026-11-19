@@ -1,5 +1,5 @@
 // Uploads the styles to the R2 bucket behind https://styles.map-jr.org:
-//   node scripts/publish.mjs           a release: /<major>/, for the version of package.json (major.minor.0)
+//   node scripts/publish.mjs           a release: /<major>/, for the version of package.json (major.minor.patch)
 //   node scripts/publish.mjs --main    the main branch: /@main/
 //   add --dry-run to list the files without uploading them
 // Each folder has, from dist/:
@@ -8,8 +8,8 @@
 //   maplibre/sprite*       the sprite of the MapLibre styles: .json and .png, and @2x of each
 //   version.json           {version, commit} of what the folder has
 // A major version moves with each release of it. A new major version is a breaking change: a layer id renamed or
-// removed, a global state property changed, or a newer map-jr-gl needed. Every other change is a new minor version.
-// Styles have no patch version. A release that is not newer than the one in its folder stops the script.
+// removed, a global state property changed, or a newer map-jr-gl needed. Every other change is a new minor or patch
+// version. A release that is not newer than the one in its folder stops the script.
 // Needs the AWS CLI, CLOUDFLARE_ACCOUNT_ID, R2_BUCKET, and R2_API_TOKEN: an R2 API token with Object Read & Write on the
 // bucket. The S3 keys of R2 come from the token: the key ID is the id of the token, and the secret is the SHA-256 of its
 // value.
@@ -22,9 +22,9 @@ import {join} from 'node:path';
 const HOST = 'https://styles.map-jr.org';
 const dry = process.argv.includes('--dry-run'), main = process.argv.includes('--main');
 const {version} = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
-const m = /^(\d+)\.(\d+)\.0$/.exec(version);
-if (!m || m[1] === '0') throw new Error(`package.json: the version "${version}" is not major.minor.0 with a major version of 1 or more.`);
-const folder = main ? '@main' : m[1], release = `${m[1]}.${m[2]}`;
+const m = /^(\d+)\.(\d+)\.(\d+)$/.exec(version);
+if (!m || m[1] === '0') throw new Error(`package.json: the version "${version}" is not major.minor.patch with a major version of 1 or more.`);
+const folder = main ? '@main' : m[1], release = version;
 const commit = process.env.GITHUB_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim();
 
 // A major version: a day in the browser, then up to a week more while the browser fetches it again in the
@@ -57,12 +57,13 @@ const aws = (args, opts = {}) => execFileSync('aws', [...args, '--endpoint-url',
 if (!dry && !main) {
     let had = {};
     try { had = JSON.parse(aws(['s3', 'cp', `s3://${bucket}/${folder}/version.json`, '-'], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']})); } catch {}
-    const [, hadMinor] = String(had.version ?? '').split('.').map(Number);
-    if (had.version === release && had.commit === commit) {
+    // (Releases before 1.2.1 wrote major.minor: the patch is 0.)
+    const [, hadMinor = 0, hadPatch = 0] = String(had.version ?? '').split('.').map(Number);
+    if (+m[2] === hadMinor && +m[3] === hadPatch && had.commit === commit) {
         console.log(`/${folder}/ has ${release} from ${commit.slice(0, 7)} already: nothing to upload.`);
         process.exit(0);
     }
-    if (had.version !== undefined && !(+m[2] > hadMinor)) throw new Error(`/${folder}/ has ${had.version} (${String(had.commit).slice(0, 7)}) already: raise the version in package.json above it.`);
+    if (had.version !== undefined && !(+m[2] > hadMinor || (+m[2] === hadMinor && +m[3] > hadPatch))) throw new Error(`/${folder}/ has ${had.version} (${String(had.commit).slice(0, 7)}) already: raise the version in package.json above it.`);
 }
 
 // The folder as it is served, made in a temporary directory.

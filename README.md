@@ -121,8 +121,11 @@ section as its text and `dist/` as a zip. Nobody pushes a tag or makes a release
 `/1/`, and `2.0.0` writes `/2/` and leaves `/1/` as it was.
 
 1. **Check `main`.** The workflow `build` is green for the commit to release.
-2. **Choose the version.** The third number is always 0.
-   - A change that does not break a map (a color, a new layer, a fix) increases the second number: `1.2.0` → `1.3.0`.
+2. **Choose the version.**
+   - A fix that adds nothing (a color, a wrong filter, the docs of the package) increases the third number: `1.2.0` →
+     `1.2.1`.
+   - A change that adds to a map without breaking it (a new layer, style or global state property) increases the second
+     number: `1.2.1` → `1.3.0`.
    - A change that breaks a map (a layer id renamed or removed, a global state property changed, a newer map-jr-gl
      needed) increases the first number: `1.3.0` → `2.0.0`. Its section in the changelog starts with "Breaking
      changes", which says what stopped working and what to do instead.
@@ -144,7 +147,7 @@ section as its text and `dist/` as a zip. Nobody pushes a tag or makes a release
    npm view @map-jr/styles@1.3.0 version
    ```
 
-   The first gives `{"version":"1.3","commit":"…"}`, with the commit of the merge, and the second `1.3.0`. The edge has the new styles within 5
+   The first gives `{"version":"1.3.0","commit":"…"}`, with the commit of the merge, and the second `1.3.0`. The edge has the new styles within 5
    minutes; a browser that has the last release gets the new one within a day.
 
 A section whose heading says `(unreleased)` is not released: the workflow does nothing for it. The workflow stops,
