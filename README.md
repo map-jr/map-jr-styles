@@ -1,15 +1,32 @@
 # map-jr-styles
 
 Map styles for [map-jr-gl](https://github.com/map-jr/map-jr-gl) that carry their own icons and road shields as SVG
-templates, in place of a sprite sheet. Each style has a light and a dark branch, chosen by the global state
-property `color-scheme`.
+templates, in place of a sprite sheet, and versions of the elevation styles for
+[MapLibre GL JS](https://maplibre.org/maplibre-gl-js/). Each elevation style has a light and a dark branch, chosen by
+the global state property `color-scheme`.
 
-| Style | File | What it is |
-|---|---|---|
-| Elevation | `dist/styles/elevation.json` | A full-color terrain map. Dark is the same map under bright moonlight. |
-| Elevation · zero | `dist/styles/elevation-zero.json` | Elevation without the elevation tiles: no hillshade, no 3D terrain, no labels of peaks. It keeps the shaded relief of Natural Earth at low zooms. |
-| Elevation · radar | `dist/styles/elevation-radar.json` | A neutral base for an overlay (a choropleth, snowfall), with relief and peaks for context, which the global state `relief` switches off. |
-| OpenFreeMap | `dist/styles/openfreemap-{bright,dark,fiord,liberty,positron}.json` | The styles of OpenFreeMap as they are, with the images of the sprite inside the style. |
+## The styles
+
+Pass a link as the `style` of the map. Each one is the latest release of version 1.
+
+| Style | map-jr-gl | MapLibre GL JS 5.16+ | What it is |
+|---|---|---|---|
+| Elevation | [elevation.json](https://styles.map-jr.org/1/elevation.json) | [maplibre/elevation.json](https://styles.map-jr.org/1/maplibre/elevation.json) | A full-color terrain map. Dark is the same map under bright moonlight. |
+| Elevation · zero | [elevation-zero.json](https://styles.map-jr.org/1/elevation-zero.json) | [maplibre/elevation-zero.json](https://styles.map-jr.org/1/maplibre/elevation-zero.json) | Elevation without the elevation tiles: no hillshade, no 3D terrain, no labels of peaks. It keeps the shaded relief of Natural Earth at low zooms. |
+| Elevation · radar | [elevation-radar.json](https://styles.map-jr.org/1/elevation-radar.json) | [maplibre/elevation-radar.json](https://styles.map-jr.org/1/maplibre/elevation-radar.json) | A neutral base for an overlay (a choropleth, snowfall), with relief and peaks for context, which the global state `relief` switches off. |
+| OpenFreeMap Bright | [openfreemap-bright.json](https://styles.map-jr.org/1/openfreemap-bright.json) | [OpenFreeMap's](https://tiles.openfreemap.org/styles/bright) | The styles of OpenFreeMap as they are, with the images of the sprite inside the style. For MapLibre, use the styles of OpenFreeMap itself. |
+| OpenFreeMap Dark | [openfreemap-dark.json](https://styles.map-jr.org/1/openfreemap-dark.json) | [OpenFreeMap's](https://tiles.openfreemap.org/styles/dark) | 〃 |
+| OpenFreeMap Fiord | [openfreemap-fiord.json](https://styles.map-jr.org/1/openfreemap-fiord.json) | [OpenFreeMap's](https://tiles.openfreemap.org/styles/fiord) | 〃 |
+| OpenFreeMap Liberty | [openfreemap-liberty.json](https://styles.map-jr.org/1/openfreemap-liberty.json) | [OpenFreeMap's](https://tiles.openfreemap.org/styles/liberty) | 〃 |
+| OpenFreeMap Positron | [openfreemap-positron.json](https://styles.map-jr.org/1/openfreemap-positron.json) | [OpenFreeMap's](https://tiles.openfreemap.org/styles/positron) | 〃 |
+
+```js
+createMap('map', {style: 'https://styles.map-jr.org/1/elevation.json'});                              // map-jr-gl
+new maplibregl.Map({container: 'map', style: 'https://styles.map-jr.org/1/maplibre/elevation.json'}); // MapLibre GL JS
+```
+
+The same styles are in the npm package [`@map-jr/styles`](#from-npm): `@map-jr/styles/<name>.json` and
+`@map-jr/styles/maplibre/<name>.json`. In this repository they are built to `dist/styles/` and `dist/maplibre/`.
 
 Each style also has a `.min.json` without white space. The styles need a map-jr-gl build that reads
 `metadata["map-jr:images"]` and `params` of the `image` expression. MapLibre GL JS draws them without icons: use the

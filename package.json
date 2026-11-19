@@ -1,6 +1,6 @@
 {
   "name": "@map-jr/styles",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Map styles for map-jr-gl that carry their own icons and road shields, with a light and a dark branch, and MapLibre GL JS versions of them.",
   "keywords": [
