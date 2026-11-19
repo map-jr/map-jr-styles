@@ -4,6 +4,14 @@
     "openmaptiles": {
       "type": "vector",
       "url": "https://tiles.openfreemap.org/planet"
+    },
+    "natural_earth_shaded_relief": {
+      "maxzoom": 6,
+      "tileSize": 256,
+      "tiles": [
+        "https://tiles.openfreemap.org/natural_earth/ne2sr/{z}/{x}/{y}.png"
+      ],
+      "type": "raster"
     }
   },
   "layers": [
@@ -23,6 +31,70 @@
           ],
           "#3b5247",
           "rgba(255, 250, 248, 1)"
+        ]
+      }
+    },
+    {
+      "id": "natural_earth",
+      "type": "raster",
+      "source": "natural_earth_shaded_relief",
+      "maxzoom": 24,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "raster-opacity": {
+          "base": 1.5,
+          "stops": [
+            [
+              0,
+              0.6
+            ],
+            [
+              6,
+              0.1
+            ]
+          ]
+        },
+        "raster-saturation": [
+          "case",
+          [
+            "==",
+            [
+              "global-state",
+              "color-scheme"
+            ],
+            "dark"
+          ],
+          0.35,
+          0
+        ],
+        "raster-contrast": 0.3,
+        "raster-brightness-max": [
+          "case",
+          [
+            "==",
+            [
+              "global-state",
+              "color-scheme"
+            ],
+            "dark"
+          ],
+          0.66,
+          1
+        ],
+        "raster-brightness-min": [
+          "case",
+          [
+            "==",
+            [
+              "global-state",
+              "color-scheme"
+            ],
+            "dark"
+          ],
+          0.06,
+          0
         ]
       }
     },

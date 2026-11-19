@@ -1,4 +1,4 @@
-// Tests of the variants of the elevation styles: Elevation · zero has no relief, no peaks and no elevation tiles, and
+// Tests of the variants of the elevation styles: Elevation · zero has no hillshade, no peaks and no elevation tiles, and
 // the relief and the peaks of Elevation · radar follow the global state `relief`.
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -7,15 +7,17 @@ import {readFileSync} from 'node:fs';
 const read = name => JSON.parse(readFileSync(new URL(`../dist/styles/${name}.min.json`, import.meta.url), 'utf8'));
 const elevation = read('elevation'), zero = read('elevation-zero'), radar = read('elevation-radar');
 
-test('Elevation · zero is Elevation without the relief, the shaded relief, the 3D terrain and the peaks', () => {
+test('Elevation · zero is Elevation without the elevation tiles, the 3D terrain and the peaks', () => {
     assert.ok(elevation.terrain && elevation.sources.terrarium && elevation.sources.natural_earth_shaded_relief);
     assert.equal(zero.terrain, undefined);
-    assert.deepEqual(Object.keys(zero.sources), ['openmaptiles']);
-    assert.ok(!zero.layers.some(l => /^raster/.test(l.type) || l.type === 'hillshade' || l.id.startsWith('poi_peak_')));
+    // (The shaded relief of Natural Earth is an image source, and stays.)
+    assert.deepEqual(Object.keys(zero.sources), ['openmaptiles', 'natural_earth_shaded_relief']);
+    assert.ok(zero.layers.some(l => l.source === 'natural_earth_shaded_relief'));
+    assert.ok(!zero.layers.some(l => l.type === 'hillshade' || l.id.startsWith('poi_peak_')));
     assert.ok(!JSON.stringify(zero).includes('elevation-unit'));
     // (The other layers are those of Elevation, in the same order.)
-    const kept = elevation.layers.filter(l => l.source !== 'terrarium' && l.source !== 'natural_earth_shaded_relief' && !l.id.startsWith('poi_peak_'));
-    assert.ok(kept.length < elevation.layers.length - 2);
+    const kept = elevation.layers.filter(l => l.source !== 'terrarium' && !l.id.startsWith('poi_peak_'));
+    assert.ok(kept.length < elevation.layers.length - 1);
     assert.deepEqual(zero.layers, kept);
 });
 

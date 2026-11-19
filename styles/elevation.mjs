@@ -1,6 +1,6 @@
 // "Elevation": a full-color terrain map. Dark is the same map under bright moonlight. "Elevation · zero" is the same
-// map without the relief and the peaks: no hillshade, no shaded relief at low zooms, no 3D terrain (so it loads no
-// elevation tiles), and no labels of peaks.
+// map without the elevation tiles: no hillshade, no 3D terrain and no labels of peaks. It keeps the shaded relief of
+// Natural Earth at low zooms, which is an image source.
 import {useIcons, useShields, retune, scheme, peaks, layer, names, ssr} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
@@ -97,12 +97,12 @@ function build(style, icons) {
     delete style.name;
 }
 
-/** "Elevation · zero": the layers and the sources of the relief are removed, with `terrain` and the peaks. */
+/** "Elevation · zero": the elevation tiles are removed, with their layers, `terrain` and the peaks. */
 function zero(style, icons) {
     build(style, icons);
-    const relief = Object.keys(style.sources).filter(k => /^raster/.test(style.sources[k].type));
-    style.layers = style.layers.filter(l => !relief.includes(l.source) && !l.id.startsWith('poi_peak_'));
-    for (const k of relief) delete style.sources[k];
+    const dem = Object.keys(style.sources).filter(k => style.sources[k].type === 'raster-dem');
+    style.layers = style.layers.filter(l => !dem.includes(l.source) && !l.id.startsWith('poi_peak_'));
+    for (const k of dem) delete style.sources[k];
     delete style.terrain;
     // (`elevation-unit` was for the labels of peaks only.)
     delete style.state['elevation-unit'];

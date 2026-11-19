@@ -7,7 +7,7 @@ property `color-scheme`.
 | Style | File | What it is |
 |---|---|---|
 | Elevation | `dist/styles/elevation.json` | A full-color terrain map. Dark is the same map under bright moonlight. |
-| Elevation · zero | `dist/styles/elevation-zero.json` | Elevation without the relief and the peaks: no hillshade, no shaded relief at low zooms, no 3D terrain, no labels of peaks. It loads no elevation tiles. |
+| Elevation · zero | `dist/styles/elevation-zero.json` | Elevation without the elevation tiles: no hillshade, no 3D terrain, no labels of peaks. It keeps the shaded relief of Natural Earth at low zooms. |
 | Elevation · radar | `dist/styles/elevation-radar.json` | A neutral base for an overlay (a choropleth, snowfall), with relief and peaks for context, which the global state `relief` switches off. |
 | OpenFreeMap | `dist/styles/openfreemap-{bright,dark,fiord,liberty,positron}.json` | The styles of OpenFreeMap as they are, with the images of the sprite inside the style. |
 
