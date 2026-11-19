@@ -345,6 +345,17 @@
           "#FFFFFF"
         ],
         "hillshade-accent-color": "#000000"
+      },
+      "layout": {
+        "visibility": [
+          "case",
+          [
+            "global-state",
+            "relief"
+          ],
+          "visible",
+          "none"
+        ]
       }
     },
     {
@@ -2209,6 +2220,15 @@
         "text-offset": [
           0,
           1
+        ],
+        "visibility": [
+          "case",
+          [
+            "global-state",
+            "relief"
+          ],
+          "visible",
+          "none"
         ]
       },
       "paint": {
@@ -2413,6 +2433,15 @@
         "text-offset": [
           0,
           1
+        ],
+        "visibility": [
+          "case",
+          [
+            "global-state",
+            "relief"
+          ],
+          "visible",
+          "none"
         ]
       },
       "paint": {
@@ -2607,6 +2636,15 @@
               ]
             }
           }
+        ],
+        "visibility": [
+          "case",
+          [
+            "global-state",
+            "relief"
+          ],
+          "visible",
+          "none"
         ]
       },
       "paint": {
@@ -3202,6 +3240,9 @@
     },
     "language": {
       "default": ""
+    },
+    "relief": {
+      "default": true
     }
   },
   "metadata": {

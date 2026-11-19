@@ -6,21 +6,22 @@ property `color-scheme`.
 
 | Style | File | What it is |
 |---|---|---|
-| Elevation · color | `dist/styles/elevation-color.json` | A full-color terrain map. Dark is the same map under bright moonlight. |
-| Elevation · radar | `dist/styles/elevation-radar.json` | A neutral base for an overlay (a choropleth, snowfall), with relief and peaks for context. |
+| Elevation | `dist/styles/elevation.json` | A full-color terrain map. Dark is the same map under bright moonlight. |
+| Elevation · zero | `dist/styles/elevation-zero.json` | Elevation without the relief and the peaks: no hillshade, no shaded relief at low zooms, no 3D terrain, no labels of peaks. It loads no elevation tiles. |
+| Elevation · radar | `dist/styles/elevation-radar.json` | A neutral base for an overlay (a choropleth, snowfall), with relief and peaks for context, which the global state `relief` switches off. |
 | OpenFreeMap | `dist/styles/openfreemap-{bright,dark,fiord,liberty,positron}.json` | The styles of OpenFreeMap as they are, with the images of the sprite inside the style. |
 
 Each style also has a `.min.json` without white space. The styles need a map-jr-gl build that reads
 `metadata["map-jr:images"]` and `params` of the `image` expression. MapLibre GL JS draws them without icons.
 
-The two elevation styles have no `glyphs`: map-jr-gl draws their labels with the fonts of the browser, and makes no
+The three elevation styles have no `glyphs`: map-jr-gl draws their labels with the fonts of the browser, and makes no
 requests for fonts. Each `text-font` is a stack of the fonts of the system, such as
 `["system-ui Semibold", "Segoe UI Semibold", "Roboto Medium", "sans-serif"]`: SF Pro on Apple systems, Segoe UI on
 Windows, Roboto on Android. The first name gives the weight and the style (Regular, Semibold, Bold, Italic, Semibold
 Italic). This needs a map-jr-gl with commit `bd4d4ea` (a `text-font` stack as a CSS family list, with `system-ui`
 unquoted); an older one draws the labels in the `fontFamily` of the map. To give every reader the same font, pass the
 font files in the `fonts` option of map-jr-gl. MapLibre GL JS does not load a style
-with text and no `glyphs`: add a `glyphs` URL to use these two styles there. The OpenFreeMap styles keep the glyphs
+with text and no `glyphs`: add a `glyphs` URL to use these three styles there. The OpenFreeMap styles keep the glyphs
 of OpenFreeMap.
 
 ## Use
@@ -28,7 +29,7 @@ of OpenFreeMap.
 The styles are at `https://styles.map-jr.org`, by major version:
 
 ```js
-createMap('map', {style: 'https://styles.map-jr.org/1/elevation-color.json'});
+createMap('map', {style: 'https://styles.map-jr.org/1/elevation.json'});
 ```
 
 | Path | What it gives | Cached |
@@ -49,14 +50,14 @@ pnpm add @map-jr/styles
 ```
 
 ```js
-import style from '@map-jr/styles/elevation-color.json' with {type: 'json'};
+import style from '@map-jr/styles/elevation.json' with {type: 'json'};
 
 createMap('map', {style});
 ```
 
 A bundler (Vite, webpack, esbuild) takes the import as it is; Node.js needs `with {type: 'json'}`. A range such as
 `^1.0.0` takes each release that does not break a map, as `/1/` does. The CDNs of npm serve the package too:
-`https://cdn.jsdelivr.net/npm/@map-jr/styles@1/elevation-color.json`. The package has only the styles without white
+`https://cdn.jsdelivr.net/npm/@map-jr/styles@1/elevation.json`. The package has only the styles without white
 space (`dist/styles/*.min.json`), the changelog, and the licences of the material in `NOTICE.md`.
 
 ## Release
@@ -139,12 +140,12 @@ An edit in Maputnik reaches the repository as a change to the sources, because t
 and overwrites an edit made there.
 
 1. Open the built style in the Maputnik of map-jr-gl:
-   `https://map-jr.github.io/maputnik/?style=https://styles.map-jr.org/@main/elevation-color.json`.
-2. Edit it, and save it with **Save** (a file such as `elevation-color.json`).
+   `https://map-jr.github.io/maputnik/?style=https://styles.map-jr.org/@main/elevation.json`.
+2. Edit it, and save it with **Save** (a file such as `elevation.json`).
 3. Apply it to the sources, and build:
 
    ```bash
-   ppnpm run apply-edit ~/Downloads/elevation-color.json
+   ppnpm run apply-edit ~/Downloads/elevation.json
    pnpm run build
    ```
 
@@ -217,13 +218,18 @@ and writes `shields/networks.json`. It keeps the networks of a country, state or
 county and city networks. A shield that Americana draws from artwork (most US states, Mexico, Korea) gets the pill or
 the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look.
 
-**Global state.** The two styles of this repository read three properties of the global state of the map:
+**Global state.** The elevation styles of this repository read these properties of the global state of the map:
 
 | Property | Values | Effect |
 |---|---|---|
 | `color-scheme` | `light` (default), `dark` | The branch of the style. map-jr-gl sets it from `colorScheme`. |
 | `elevation-unit` | `ft` (default), `m` | The unit of the elevation in peak labels. Set it with `globalState: {'elevation-unit': 'm'}`. |
+| `relief` | `true` (default), `false` | Elevation · radar: the hillshade and the labels of peaks. With `false` they are hidden, and no elevation tiles load. |
 | `language` | none (default), or a language code of the tiles such as `de`, `fr`, `ja` | The language of the names, for each feature that has a name in it. Without it, a place with a name in a script other than Latin shows its Latin name and that name, and other names are English. |
+
+`relief` switches layers with a `global-state` expression in `visibility`, which MapLibre GL JS reads from
+5.16.0. map-jr-gl does not read it yet: it shows the layers and loads their tiles whatever the state is
+([map-jr/map-jr-gl#998](https://github.com/map-jr/map-jr-gl/issues/998)).
 
 **OpenFreeMap styles.** `styles/openfreemap.mjs` builds the five styles of OpenFreeMap with `inlineSprite`: the
 images that a layer can ask for go into the style as plain SVG, and the layers are not changed, except for
@@ -268,7 +274,7 @@ without the changes, pass `overrides: false`; to change one layer, pass `overrid
 ## Preview
 
 `pnpm run preview` draws each style in light and dark, side by side, at the views of `test/views.json` (a range of
-zoom levels and kinds of place), into `test/shots/`. Set `STATE` to try a global state: `STATE='{"elevation-unit":"m"}' node test/preview.mjs elevation-color chamonix`. It needs Playwright with Chromium, and the `dist/` folder of a
+zoom levels and kinds of place), into `test/shots/`. Set `STATE` to try a global state: `STATE='{"elevation-unit":"m"}' node test/preview.mjs elevation chamonix`. It needs Playwright with Chromium, and the `dist/` folder of a
 map-jr-gl build in `test/lib/`. Pass a style and a view to draw one: `node test/preview.mjs elevation-radar rockies`.
 
 ## Sources and licences

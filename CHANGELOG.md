@@ -6,6 +6,13 @@ increases the second number. The third number is always 0. See [Release](README.
 
 ## 1.1.0 (unreleased)
 
+- Elevation · color is renamed Elevation: `elevation-color.json` is now `elevation.json`, with the same layers. The
+  old name is gone.
+- Elevation · zero (`elevation-zero.json`): Elevation without the relief and the peaks. It has no hillshade, no shaded
+  relief at low zooms, no 3D terrain and no labels of peaks, and it loads no elevation tiles.
+- Elevation · radar: the global state `relief` (`true` by default) switches off the hillshade and the labels of
+  peaks. map-jr-gl does not read a global state in `visibility` yet
+  ([map-jr/map-jr-gl#998](https://github.com/map-jr/map-jr-gl/issues/998)).
 - Each style has `metadata["map-jr:ssr"]`, for the first view that the server renderer of map-jr-gl writes: a
   placeholder, like a blurred image while the map loads. It keeps the background, the large areas, the water, the
   main roads, the borders and the names of places, and leaves out the rest. With `tileZoomOffset: 2` (map-jr-gl
