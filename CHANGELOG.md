@@ -4,15 +4,19 @@ Each version has one entry. The styles are served at `https://styles.map-jr.org/
 map increases the first number, and its entry starts with a section "Breaking changes". Every other version
 increases the second number. The third number is always 0. See [Release](README.md#release).
 
-## 1.1.0 (unreleased)
+## 1.1.0 (2026-11-19)
 
 - Elevation · color is renamed Elevation: `elevation-color.json` is now `elevation.json`, with the same layers. The
   old name is gone.
 - Elevation · zero (`elevation-zero.json`): Elevation without the elevation tiles. It has no hillshade, no 3D terrain
   and no labels of peaks, and keeps the shaded relief of Natural Earth at low zooms.
 - Elevation · radar: the global state `relief` (`true` by default) switches off the hillshade and the labels of
-  peaks. map-jr-gl does not read a global state in `visibility` yet
-  ([map-jr/map-jr-gl#998](https://github.com/map-jr/map-jr-gl/issues/998)).
+  peaks. map-jr-gl reads a global state in `visibility` after 0.8.0
+  ([map-jr/map-jr-gl#998](https://github.com/map-jr/map-jr-gl/issues/998)); MapLibre GL JS from 5.16.0.
+- MapLibre styles: Elevation, Elevation · zero and Elevation · radar for MapLibre GL JS 5.16.0 or later, at
+  `/1/maplibre/<name>.json` and `@map-jr/styles/maplibre/<name>.json`. They have the same layers and global state,
+  with the icons in a sprite (`/1/maplibre/sprite`) in the colors of each branch, and the Noto Sans glyphs of
+  OpenFreeMap in place of the fonts of the system. See [MapLibre GL JS](README.md#maplibre-gl-js).
 - Each style has `metadata["map-jr:ssr"]`, for the first view that the server renderer of map-jr-gl writes: a
   placeholder, like a blurred image while the map loads. It keeps the background, the large areas, the water, the
   main roads, the borders and the names of places, and leaves out the rest. With `tileZoomOffset: 2` (map-jr-gl

@@ -1,8 +1,8 @@
 {
   "name": "@map-jr/styles",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
-  "description": "Map styles for map-jr-gl that carry their own icons and road shields, with a light and a dark branch.",
+  "description": "Map styles for map-jr-gl that carry their own icons and road shields, with a light and a dark branch, and MapLibre GL JS versions of them.",
   "keywords": [
     "map",
     "maps",
@@ -12,6 +12,7 @@
     "openfreemap",
     "maplibre-style",
     "map-jr-gl",
+    "maplibre",
     "dark-mode"
   ],
   "author": "Sam Margulies",
@@ -26,10 +27,12 @@
   },
   "exports": {
     "./package.json": "./package.json",
-    "./*.json": "./dist/styles/*.min.json"
+    "./*.json": "./dist/styles/*.min.json",
+    "./maplibre/*.json": "./dist/maplibre/*.min.json"
   },
   "files": [
     "dist/styles/*.min.json",
+    "dist/maplibre/*.min.json",
     "CHANGELOG.md",
     "NOTICE.md",
     "icons/upstream/LICENSE-*.md",
@@ -61,6 +64,8 @@
     "test:package": "node scripts/check-package.mjs"
   },
   "devDependencies": {
+    "@maplibre/maplibre-gl-style-spec": "26.8.0",
+    "@resvg/resvg-js": "2.6.2",
     "publint": "^0.3.25",
     "svgo": "^4.0.0"
   },

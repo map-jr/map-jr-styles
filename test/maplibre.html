@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- The MapLibre styles of dist/maplibre/ in MapLibre GL JS, with the sprite of this checkout. Serve the repository root
+     (`python3 -m http.server 8123`) and open /test/maplibre.html?style=elevation&scheme=dark&view=11/39.74/-105.
+     `v` picks the version of MapLibre GL JS (5.16.0, which reads a global state in `visibility`, by default). -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MapLibre styles</title>
+<style>html, body, #map { margin: 0; height: 100%; } #bar { position: absolute; z-index: 1; top: 8px; left: 8px; font: 13px system-ui; background: #fffc; padding: 4px 8px; border-radius: 4px; }</style>
+<div id="bar"></div>
+<div id="map"></div>
+<script type="module">
+const q = new URLSearchParams(location.search), v = q.get('v') ?? '5.16.0';
+const link = document.createElement('link');
+link.rel = 'stylesheet'; link.href = `https://cdn.jsdelivr.net/npm/maplibre-gl@${v}/dist/maplibre-gl.css`;
+document.head.append(link);
+// (From version 6, MapLibre GL JS is a module only.)
+const maplibregl = +v.split('.')[0] >= 6 ? await import(`https://cdn.jsdelivr.net/npm/maplibre-gl@${v}/dist/maplibre-gl.mjs`)
+    : await new Promise(r => { const s = document.createElement('script'); s.src = `https://cdn.jsdelivr.net/npm/maplibre-gl@${v}/dist/maplibre-gl.js`; s.onload = () => r(window.maplibregl); document.head.append(s); });
+const name = q.get('style') ?? 'elevation', [zoom, lat, lng] = (q.get('view') ?? '11/39.74/-105').split('/').map(Number);
+const style = await fetch(`../dist/maplibre/${name}.json`).then(r => r.json());
+style.sprite = new URL('../dist/maplibre/sprite', location.href).href;
+// `init=1`: the state goes into the style before it loads, in place of setGlobalStateProperty after.
+const init = q.has('init'), value = val => val === 'false' ? false : val === 'true' ? true : val;
+const states = [...q].filter(([k]) => k.startsWith('state.') || k === 'scheme').map(([k, val]) => [k === 'scheme' ? 'color-scheme' : k.slice(6), value(val)]);
+if (init) for (const [k, val] of states) style.state[k].default = val;
+const missing = new Set();
+const map = window.map = new maplibregl.Map({container: 'map', style, center: [lng, lat], zoom, pitch: +(q.get('pitch') ?? 0), hash: false});
+map.on('styleimagemissing', e => missing.add(e.id));
+map.on('error', e => console.error(e.error?.message ?? e));
+if (!init) map.once('style.load', () => { for (const [k, val] of states) map.setGlobalStateProperty(k, val); });
+map.on('idle', () => { document.getElementById('bar').textContent = `maplibre-gl ${v} · ${name} · missing images: ${[...missing].join(', ') || 'none'}`; window.missing = [...missing]; window.done = true; });
+</script>

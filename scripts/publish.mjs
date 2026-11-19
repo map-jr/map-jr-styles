@@ -3,8 +3,10 @@
 //   node scripts/publish.mjs --main    the main branch: /@main/
 //   add --dry-run to list the files without uploading them
 // Each folder has, from dist/:
-//   <name>.json      the style without white space (dist/styles/<name>.min.json), with its images inside it
-//   version.json     {version, commit} of what the folder has
+//   <name>.json            the style without white space (dist/styles/<name>.min.json), with its images inside it
+//   maplibre/<name>.json   the style for MapLibre GL JS (dist/maplibre/<name>.min.json), whose sprite is in the folder
+//   maplibre/sprite*       the sprite of the MapLibre styles: .json and .png, and @2x of each
+//   version.json           {version, commit} of what the folder has
 // A major version moves with each release of it. A new major version is a breaking change: a layer id renamed or
 // removed, a global state property changed, or a newer map-jr-gl needed. Every other change is a new minor version.
 // Styles have no patch version. A release that is not newer than the one in its folder stops the script.
@@ -13,7 +15,7 @@
 // value.
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {copyFileSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {copyFileSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 
@@ -66,13 +68,23 @@ if (!dry && !main) {
 // The folder as it is served, made in a temporary directory.
 const out = mkdtempSync(join(tmpdir(), 'map-jr-styles-'));
 for (const f of readdirSync('dist/styles').filter(f => f.endsWith('.min.json'))) copyFileSync(join('dist/styles', f), join(out, f.replace(/\.min\.json$/, '.json')));
+// (The MapLibre styles name the sprite of /<major>/: the main branch gives them its own.)
+mkdirSync(join(out, 'maplibre'));
+for (const f of readdirSync('dist/maplibre')) {
+    const to = join(out, 'maplibre', f.replace(/\.min\.json$/, '.json'));
+    if (f.startsWith('sprite')) copyFileSync(join('dist/maplibre', f), to);
+    else if (f.endsWith('.min.json')) writeFileSync(to, readFileSync(join('dist/maplibre', f), 'utf8').replace(`"sprite":"${HOST}/${m[1]}/`, `"sprite":"${HOST}/${folder}/`));
+}
 writeFileSync(join(out, 'version.json'), JSON.stringify({version: main ? 'main' : release, commit}));
-const files = readdirSync(out, {recursive: true}).filter(f => f.endsWith('.json')).sort();
+const files = readdirSync(out, {recursive: true}).filter(f => /\.(json|png)$/.test(f)).sort();
 for (const f of files) console.log(`${HOST}/${folder}/${f}`);
 
-const args = ['s3', 'cp', out, `s3://${bucket}/${folder}/`, '--recursive', '--content-type', 'application/json', '--cache-control', CACHE];
-console.log(`\naws ${args.join(' ')}`);
-if (!dry) aws(args, {stdio: 'inherit'});
+// (The images first, so that a style is never served before its sprite.)
+for (const [type, filter] of [['image/png', ['--exclude', '*', '--include', '*.png']], ['application/json', ['--exclude', '*.png']]]) {
+    const args = ['s3', 'cp', out, `s3://${bucket}/${folder}/`, '--recursive', ...filter, '--content-type', type, '--cache-control', CACHE];
+    console.log(`\naws ${args.join(' ')}`);
+    if (!dry) aws(args, {stdio: 'inherit'});
+}
 rmSync(out, {recursive: true});
 
 // The style is served, as JSON, from the domain. (At the edge, a major version can still be the previous release for
