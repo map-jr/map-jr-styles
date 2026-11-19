@@ -49,6 +49,8 @@ test('a filter goes to the source', () => {
 test('a new layer goes to the source, after the layer before it', () => {
     const r = apply(s => s.layers.splice(s.layers.findIndex(l => l.id === 'water') + 1, 0, {id: 'water_edge', type: 'line', source: 'openmaptiles', 'source-layer': 'water', paint: {'line-color': '#4a80b0', 'line-width': 0.5}}));
     assert.equal(r.run.status, 0, r.out);
+    // (The build gives the new layer its changes for the server render.)
+    layer(r.saved, 'water_edge').metadata = {'map-jr:ssr': {hidden: true}};
     assert.deepEqual(r.dist, r.saved);
     const ids = r.source.layers.map(l => l.id);
     assert.equal(ids[ids.indexOf('water') + 1], 'water_edge');

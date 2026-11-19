@@ -1,6 +1,7 @@
 // The styles of OpenFreeMap (https://github.com/hyperknot/openfreemap-styles), as they are, with the images of the
-// sprite inside the style. They have no dark branch and no road shields of this repository.
-import {inlineSprite} from '../lib/style.mjs';
+// sprite inside the style, and the changes of `ssr` for the server render of map-jr-gl. They have no dark branch and
+// no road shields of this repository.
+import {inlineSprite, ssr} from '../lib/style.mjs';
 
 const HOST = 'tiles.openfreemap.org';
 
@@ -12,6 +13,7 @@ export const styles = ['bright', 'dark', 'fiord', 'liberty', 'positron'].map(nam
         const host = o => { for (const k in o) { if (typeof o[k] === 'string') o[k] = o[k].replaceAll('__TILEJSON_DOMAIN__', HOST); else if (o[k] && typeof o[k] === 'object') host(o[k]); } };
         host(style);
         const missing = inlineSprite(style, icons);
+        ssr(style);
         const n = Object.keys(style.metadata['map-jr:images']).length;
         console.log(`openfreemap-${name}: ${n} images${missing.length ? `; not in the sprite either: ${missing.join(', ')}` : ''}`);
     },
