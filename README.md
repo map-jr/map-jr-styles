@@ -12,7 +12,8 @@ property `color-scheme`.
 | OpenFreeMap | `dist/styles/openfreemap-{bright,dark,fiord,liberty,positron}.json` | The styles of OpenFreeMap as they are, with the images of the sprite inside the style. |
 
 Each style also has a `.min.json` without white space. The styles need a map-jr-gl build that reads
-`metadata["map-jr:images"]` and `params` of the `image` expression. MapLibre GL JS draws them without icons.
+`metadata["map-jr:images"]` and `params` of the `image` expression. MapLibre GL JS draws them without icons: use the
+MapLibre styles for it ([below](#maplibre-gl-js)).
 
 The three elevation styles have no `glyphs`: map-jr-gl draws their labels with the fonts of the browser, and makes no
 requests for fonts. Each `text-font` is a stack of the fonts of the system, such as
@@ -21,8 +22,8 @@ Windows, Roboto on Android. The first name gives the weight and the style (Regul
 Italic). This needs a map-jr-gl with commit `bd4d4ea` (a `text-font` stack as a CSS family list, with `system-ui`
 unquoted); an older one draws the labels in the `fontFamily` of the map. To give every reader the same font, pass the
 font files in the `fonts` option of map-jr-gl. MapLibre GL JS does not load a style
-with text and no `glyphs`: add a `glyphs` URL to use these three styles there. The OpenFreeMap styles keep the glyphs
-of OpenFreeMap.
+with text and no `glyphs`: its versions of these three styles have the glyphs of OpenFreeMap. The OpenFreeMap styles
+keep the glyphs of OpenFreeMap.
 
 ## Use
 
@@ -41,6 +42,36 @@ A new major version (`/2/`) breaks a map: a layer id is renamed or removed, a gl
 styles need a newer map-jr-gl. Every other release is a new minor version (`1.1`), and `/1/` moves to it. To keep
 one release as it is, host the zip of its GitHub release.
 
+### MapLibre GL JS
+
+The three elevation styles have a version for [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/) 5.16.0 or later,
+with the same layers, sources and global state:
+
+```js
+new maplibregl.Map({container: 'map', style: 'https://styles.map-jr.org/1/maplibre/elevation.json'});
+map.setGlobalStateProperty('color-scheme', 'dark');
+```
+
+| Path | What it is |
+|---|---|
+| `/1/maplibre/{elevation,elevation-zero,elevation-radar}.json` | The style, without white space. |
+| `/1/maplibre/sprite.json`, `sprite.png`, `sprite@2x.json`, `sprite@2x.png` | The sprite that the three styles share: each icon and shield in the colors of the light and of the dark branch. |
+
+Each differs from the map-jr-gl style in three things:
+
+- **The icons are in a sprite.** Each icon with `params` becomes one image of the sprite for each set of colors that it
+  can have, named by the icon and a hash of its colors (`arrow-94b3af`). The `icon-image` of a layer chooses the name
+  with a `match` on the class, for each branch of `color-scheme`. The sprite has 293 images: 63 KB at 1x, 154 KB at 2x.
+- **The labels use glyphs.** The fonts of the system become the Noto Sans fonts of OpenFreeMap
+  (`https://tiles.openfreemap.org/fonts/`): Regular, and Bold for Semibold and Bold, and Italic for both italics. So
+  the labels look less like the platform than in map-jr-gl.
+- **No `map-jr:` metadata.** MapLibre has no server render and no SVG images, so `map-jr:ssr` and `map-jr:images` are
+  removed.
+
+MapLibre GL JS reads the global state `relief` of Elevation · radar from 5.16.0. With `relief` false it loads no
+elevation tiles, and its attribution leaves out Mapterhorn. The OpenFreeMap styles have no MapLibre version: OpenFreeMap
+serves them for MapLibre already (`https://tiles.openfreemap.org/styles/liberty`).
+
 ### From npm
 
 The package [`@map-jr/styles`](https://www.npmjs.com/package/@map-jr/styles) has the same styles, by the same names:
@@ -55,10 +86,14 @@ import style from '@map-jr/styles/elevation.json' with {type: 'json'};
 createMap('map', {style});
 ```
 
+The MapLibre styles are at `@map-jr/styles/maplibre/<name>.json`. Their sprite stays at `https://styles.map-jr.org/1/`:
+the package does not have it.
+
 A bundler (Vite, webpack, esbuild) takes the import as it is; Node.js needs `with {type: 'json'}`. A range such as
 `^1.0.0` takes each release that does not break a map, as `/1/` does. The CDNs of npm serve the package too:
 `https://cdn.jsdelivr.net/npm/@map-jr/styles@1/elevation.json`. The package has only the styles without white
-space (`dist/styles/*.min.json`), the changelog, and the licences of the material in `NOTICE.md`.
+space (`dist/styles/*.min.json` and `dist/maplibre/*.min.json`), the changelog, and the licences of the material in
+`NOTICE.md`.
 
 ## Release
 
@@ -132,7 +167,8 @@ pnpm run build
 ```
 
 `dist/` is committed, so that a style has a URL. `pnpm run check` fails when `dist/` is not what the sources give;
-CI runs it, and `pnpm test`.
+CI runs it, and `pnpm test`. The build writes the map-jr-gl styles to `dist/styles/`, and the MapLibre styles and
+their sprite to `dist/maplibre/`.
 
 ## Editing a style with Maputnik
 
@@ -184,6 +220,7 @@ styles/src/*.json      the source styles, which use the sprite
 styles/*.mjs           one module for each style (or family): its dark palette and its fixes
 styles/shared.mjs      the dark icon colors and the neutral shield plate
 lib/                   the build steps
+lib/maplibre.mjs       the MapLibre styles and their sprite
 ```
 
 **Icons.** `lib/icons.mjs` minifies each upstream SVG with SVGO and replaces each color by a slot named for its
@@ -228,8 +265,8 @@ the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look
 | `language` | none (default), or a language code of the tiles such as `de`, `fr`, `ja` | The language of the names, for each feature that has a name in it. Without it, a place with a name in a script other than Latin shows its Latin name and that name, and other names are English. |
 
 `relief` switches layers with a `global-state` expression in `visibility`, which MapLibre GL JS reads from
-5.16.0. map-jr-gl does not read it yet: it shows the layers and loads their tiles whatever the state is
-([map-jr/map-jr-gl#998](https://github.com/map-jr/map-jr-gl/issues/998)).
+5.16.0, and map-jr-gl after 0.8.0 ([map-jr/map-jr-gl#998](https://github.com/map-jr/map-jr-gl/issues/998)). An
+older map-jr-gl shows the layers and loads their tiles whatever the state is.
 
 **OpenFreeMap styles.** `styles/openfreemap.mjs` builds the five styles of OpenFreeMap with `inlineSprite`: the
 images that a layer can ask for go into the style as plain SVG, and the layers are not changed, except for
@@ -271,11 +308,26 @@ The views are Manhattan at zoom 12 and 15, Oakland at 13.5, Paris at 10, the Alp
 800 × 500, measured with map-jr-gl at c4d5e87. A layer whose source style has `map-jr:ssr` keeps it. To render
 without the changes, pass `overrides: false`; to change one layer, pass `overrides: {"<layer id>": {…}}`.
 
+**MapLibre styles.** `maplibre` in `lib/maplibre.mjs` builds them from the built map-jr-gl style of each style that
+has a global state `color-scheme`. For each `image` expression it finds the values that the image and its colors can
+depend on: the labels of each `match` in it, and the names of the images, less those that the filter of the layer
+leaves out. It works out the name and the colors for each value, in light and in dark, with the expressions of
+MapLibre (`@maplibre/maplibre-gl-style-spec`), and writes one `match` for each branch. The build stops when an image
+reads more than two properties, another global state, or the zoom. `sheet` packs the images in rows, 256 pixels
+wide, and draws them at 1x and 2x with resvg. A shield keeps its `stretchX`, `stretchY` and `content`. The style is
+then checked with `validateStyleMin` of MapLibre.
+
 ## Preview
 
 `pnpm run preview` draws each style in light and dark, side by side, at the views of `test/views.json` (a range of
 zoom levels and kinds of place), into `test/shots/`. Set `STATE` to try a global state: `STATE='{"elevation-unit":"m"}' node test/preview.mjs elevation chamonix`. It needs Playwright with Chromium, and the `dist/` folder of a
 map-jr-gl build in `test/lib/`. Pass a style and a view to draw one: `node test/preview.mjs elevation-radar rockies`.
+
+`test/maplibre.html` shows a MapLibre style in MapLibre GL JS, with the sprite of the checkout. Serve the repository
+root (`python3 -m http.server 8123`) and open
+`http://localhost:8123/test/maplibre.html?style=elevation&scheme=dark&view=11/39.74/-105`. `state.relief=false` sets
+a global state, `pitch=60` tilts the map, and `v=6.19.0` picks another version of MapLibre GL JS. The bar at the top
+lists the images that the sprite does not have.
 
 ## Sources and licences
 
