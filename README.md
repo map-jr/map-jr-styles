@@ -226,7 +226,44 @@ the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look
 | `language` | none (default), or a language code of the tiles such as `de`, `fr`, `ja` | The language of the names, for each feature that has a name in it. Without it, a place with a name in a script other than Latin shows its Latin name and that name, and other names are English. |
 
 **OpenFreeMap styles.** `styles/openfreemap.mjs` builds the five styles of OpenFreeMap with `inlineSprite`: the
-images that a layer can ask for go into the style as plain SVG, and the layers are not changed.
+images that a layer can ask for go into the style as plain SVG, and the layers are not changed, except for
+`map-jr:ssr` in their metadata (below).
+
+**Server render.** `ssr` in `lib/style.mjs` gives the layers of each style `metadata["map-jr:ssr"]`: changes for
+the first view that the server renderer of map-jr-gl writes (`renderToSVG`, `renderFirstView`, the `ssr` prop of
+the Vue component), which a page shows inline until the map draws. MapLibre GL JS and the map in the browser ignore
+them. The first view is a placeholder, like a blurred image while the full one loads: it must be small, and it only
+gives the colors and the large shapes of the place. The map draws everything else over it.
+
+| Layers | `map-jr:ssr` | Why |
+|---|---|---|
+| The background, rasters, hillshade | none | |
+| Land cover, land use, parks | `{"simplify": 8, "minSize": 48}` | Only the large shapes. |
+| Water | `{"simplify": 6, "minSize": 24}` | |
+| Borders | `{"simplify": 8, "minSize": 32}` | |
+| Roads: motorways, trunk and primary roads | `{"simplify": 8, "minSize": 1, "filter": …}` | A road is many short pieces: a larger `minSize` breaks it into dashes. |
+| Roads: secondary and tertiary | the same, from zoom 14 | At lower zooms they are most of the bytes. |
+| Roads: minor and service | the same, from zoom 15 | |
+| Names of countries, states, cities and towns | `{"filter": …}` | |
+| Everything else: buildings, casings, tunnels, railways, paths, rivers drawn as lines, other labels and icons, image patterns | `{"hidden": true}` | |
+| A layer below the zoom where its width or opacity can be seen (0.1 pixel, 5%) | `{"minzoom": …}` | map-jr-gl 0.8.0 writes the features of such a layer, which draw nothing. |
+
+The filter of a road layer draws each class from its zoom, and the layer gets `minzoom` of the most important class
+that its own filter names. (map-jr-gl 0.8.0 reads `["zoom"]` in a filter as the zoom of the tile, which is never above
+14 on OpenMapTiles: with it, minor roads do not show.)
+
+Render the placeholder with `tileZoomOffset: 2` (map-jr-gl after 0.8.0): the server builds it from tiles two zooms
+lower, which have fewer and longer features, and fetches fewer tiles.
+
+| Over six views and six styles, gzip | `overrides: false` | Placeholder | Placeholder, `tileZoomOffset: 2` |
+|---|---|---|---|
+| All 36 renders | 2194 KB, 144 tiles | 521 KB (−76%), 144 tiles | **304 KB (−86%), 60 tiles** |
+| Most views | 21 to 125 KB | 5 to 21 KB | 4 to 12 KB |
+| Paris at zoom 10 | 67 to 150 KB | 31 to 42 KB | 13 to 18 KB |
+
+The views are Manhattan at zoom 12 and 15, Oakland at 13.5, Paris at 10, the Alps at 11 and Atlanta's suburbs at 15,
+800 × 500, measured with map-jr-gl at c4d5e87. A layer whose source style has `map-jr:ssr` keeps it. To render
+without the changes, pass `overrides: false`; to change one layer, pass `overrides: {"<layer id>": {…}}`.
 
 ## Preview
 

@@ -1,5 +1,5 @@
 // "Elevation · color": a full-color terrain map. Dark is the same map under bright moonlight.
-import {useIcons, useShields, retune, scheme, peaks, layer, names} from '../lib/style.mjs';
+import {useIcons, useShields, retune, scheme, peaks, layer, names, ssr} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
 export const source = 'styles/src/elevation-color.json';
@@ -91,5 +91,6 @@ export function build(style, icons) {
     for (const id of ['aeroway_runway', 'aeroway_taxiway']) layer(style, id).paint['line-color'][3] = '#d3d0c9';
 
     useShields(style, 'road_shield', PLATE);
+    ssr(style);
     delete style.name;
 }

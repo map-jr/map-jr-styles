@@ -1,6 +1,6 @@
 // "Elevation · radar": a quiet neutral base for an overlay (a county or zip code choropleth, snowfall), with relief and peaks
 // for context. No hue except the peaks, and labels that survive a tint on top.
-import {useIcons, retune, scheme, peaks, layer, names} from '../lib/style.mjs';
+import {useIcons, retune, scheme, peaks, layer, names, ssr} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
 export const source = 'styles/src/elevation-radar.json';
@@ -42,5 +42,6 @@ export function build(style, icons) {
     // Light: the airport label was a near-white grey on white.
     const airport = layer(style, 'label_airport').paint;
     airport['text-color'][3] = 'rgb(141, 148, 156)'; airport['text-halo-color'][3] = 'rgba(255, 255, 255, 0.75)';
+    ssr(style);
     delete style.name;
 }

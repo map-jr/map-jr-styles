@@ -44,7 +44,13 @@ function differences(built, edit) {
     };
     for (const k of new Set([...Object.keys(built), ...Object.keys(edit)])) if (k !== 'layers') walk(built[k], edit[k], null, [k]);
     const byId = new Map(built.layers.map(l => [l.id, l])), ids = new Set(edit.layers.map(l => l.id));
-    for (const l of edit.layers) walk(byId.get(l.id), l, l.id, []);
+    // (The build gives a layer `map-jr:ssr` (`ssr` in lib/style.mjs), which a layer new in the saved style does not have yet.)
+    const generated = (b, e) => {
+        if (!b?.metadata?.['map-jr:ssr'] || e?.metadata?.['map-jr:ssr']) return b;
+        const {'map-jr:ssr': _, ...rest} = b.metadata;
+        return Object.keys(rest).length ? {...b, metadata: rest} : (({metadata, ...x}) => x)(b);
+    };
+    for (const l of edit.layers) walk(generated(byId.get(l.id), l), l, l.id, []);
     for (const l of built.layers) if (!ids.has(l.id)) out.push({layer: l.id, path: [], b: l, e: undefined});
     const order = ls => ls.map(l => l.id).filter(id => byId.has(id) && ids.has(id)).join('\n');
     if (order(built.layers) !== order(edit.layers)) out.push({layer: null, path: ['layers'], order: true});

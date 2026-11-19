@@ -152,6 +152,13 @@
           "#6cc884",
           "rgba(95, 208, 100, 1)"
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48,
+          "minzoom": 4.09
+        }
       }
     },
     {
@@ -188,6 +195,11 @@
               2
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -231,6 +243,13 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48,
+          "minzoom": 7.05
+        }
       }
     },
     {
@@ -262,6 +281,12 @@
           "rgba(143, 221, 90, 1)"
         ],
         "fill-opacity": 0.4
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48
+        }
       }
     },
     {
@@ -293,6 +318,12 @@
           "rgba(245, 245, 245, 1)"
         ],
         "fill-opacity": 0.8
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48
+        }
       }
     },
     {
@@ -419,6 +450,12 @@
           "rgba(206, 235, 173, 1)"
         ],
         "fill-opacity": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48
+        }
       }
     },
     {
@@ -445,6 +482,12 @@
           "rgba(234, 150, 200, 0.13)",
           "rgba(246, 197, 227, 0.2)"
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48
+        }
       }
     },
     {
@@ -471,6 +514,12 @@
           "rgba(226, 208, 132, 0.16)",
           "rgba(239, 230, 179, 0.4)"
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48
+        }
       }
     },
     {
@@ -530,6 +579,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -579,6 +633,11 @@
               6
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -630,6 +689,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -671,6 +735,12 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 6,
+          "minSize": 24
+        }
       }
     },
     {
@@ -700,6 +770,12 @@
           "rgba(232, 214, 150, 0.18)",
           "rgba(247, 239, 195, 0.3)"
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 48
+        }
       }
     },
     {
@@ -728,6 +804,11 @@
           "rgba(222, 220, 213, 1)"
         ],
         "fill-opacity": 0.7
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -776,6 +857,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -823,6 +909,11 @@
               6
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -891,6 +982,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -950,6 +1046,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1007,6 +1108,11 @@
               15
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1079,6 +1185,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1129,6 +1240,11 @@
               17
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1188,6 +1304,11 @@
               22
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1256,6 +1377,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1312,6 +1438,11 @@
               10
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1376,6 +1507,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1430,6 +1566,11 @@
               7.5
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1490,6 +1631,11 @@
           ]
         },
         "line-opacity": 0.8
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1543,6 +1689,11 @@
               11.5
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1599,6 +1750,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1653,6 +1809,11 @@
               18
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1714,6 +1875,11 @@
           ]
         },
         "line-opacity": 0.7
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1764,6 +1930,11 @@
               2
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1820,6 +1991,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1870,6 +2046,11 @@
               2
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -1926,6 +2107,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -1943,6 +2129,11 @@
       ],
       "paint": {
         "fill-pattern": "pedestrian-hatch"
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -2009,6 +2200,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -2066,6 +2262,11 @@
               11
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -2136,6 +2337,11 @@
               15
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -2219,6 +2425,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -2290,6 +2501,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -2354,6 +2570,11 @@
               22
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -2421,6 +2642,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -2482,6 +2708,11 @@
               4
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -2548,6 +2779,78 @@
               11.5
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 12.54
         }
       }
     },
@@ -2617,6 +2920,78 @@
               1
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 15
         }
       }
     },
@@ -2688,6 +3063,77 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ]
+        }
       }
     },
     {
@@ -2748,6 +3194,78 @@
               18
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 15
         }
       }
     },
@@ -2819,6 +3337,78 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 14
+        }
       }
     },
     {
@@ -2875,6 +3465,78 @@
               18
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 5.77
         }
       }
     },
@@ -2962,6 +3624,78 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 5.24
+        }
       }
     },
     {
@@ -3013,6 +3747,11 @@
               2
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -3070,6 +3809,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3121,6 +3865,11 @@
               2
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -3178,6 +3927,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3214,6 +3968,11 @@
           }
         ],
         "symbol-placement": "line"
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3251,6 +4010,11 @@
         ],
         "symbol-placement": "line",
         "icon-rotate": 180
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3310,6 +4074,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3364,6 +4133,11 @@
               11
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -3422,6 +4196,11 @@
               15
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -3494,6 +4273,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3551,6 +4335,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3606,6 +4395,11 @@
               17
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -3671,6 +4465,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3734,6 +4533,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -3790,6 +4594,11 @@
               10
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -3854,6 +4663,78 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 12.54
+        }
       }
     },
     {
@@ -3908,6 +4789,78 @@
               7.5
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 15.53
         }
       }
     },
@@ -3967,6 +4920,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -4020,6 +4978,78 @@
               18
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 15
         }
       }
     },
@@ -4077,6 +5107,78 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 14
+        }
       }
     },
     {
@@ -4132,6 +5234,78 @@
               18
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 5.24
         }
       }
     },
@@ -4192,6 +5366,78 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 1,
+          "filter": [
+            "any",
+            [
+              "match",
+              [
+                "get",
+                "class"
+              ],
+              [
+                "motorway",
+                "trunk",
+                "primary"
+              ],
+              true,
+              false
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                14
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "secondary",
+                  "tertiary"
+                ],
+                true,
+                false
+              ]
+            ],
+            [
+              "all",
+              [
+                ">=",
+                [
+                  "zoom"
+                ],
+                15
+              ],
+              [
+                "match",
+                [
+                  "get",
+                  "class"
+                ],
+                [
+                  "minor",
+                  "service",
+                  "minor_road",
+                  "street"
+                ],
+                true,
+                false
+              ]
+            ]
+          ],
+          "minzoom": 5.24
+        }
       }
     },
     {
@@ -4242,6 +5488,11 @@
               2
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -4298,6 +5549,11 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -4348,6 +5604,11 @@
               2
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -4403,6 +5664,11 @@
               8
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
         }
       }
     },
@@ -4464,6 +5730,11 @@
             "hsl(35, 6%, 79%)"
           ]
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -4496,6 +5767,11 @@
         },
         "fill-extrusion-opacity": 0.7,
         "fill-extrusion-vertical-gradient": false
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -4555,6 +5831,12 @@
               1.8
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 32
         }
       }
     },
@@ -4635,6 +5917,12 @@
             ]
           ]
         }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 32
+        }
       }
     },
     {
@@ -4708,6 +5996,12 @@
               3
             ]
           ]
+        }
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 32
         }
       }
     },
@@ -4787,6 +6081,12 @@
           1,
           2
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "simplify": 8,
+          "minSize": 32
+        }
       }
     },
     {
@@ -4896,6 +6196,11 @@
           "rgba(255,255,255,0.7)"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -4956,6 +6261,11 @@
           "rgba(255,255,255,0.7)"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -5015,6 +6325,11 @@
           "rgba(255,255,255,0.7)"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -5219,7 +6534,12 @@
         ],
         "text-halo-width": 1
       },
-      "minzoom": 15
+      "minzoom": 15,
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
+      }
     },
     {
       "id": "poi_transit",
@@ -5412,7 +6732,12 @@
         ],
         "text-halo-width": 1
       },
-      "minzoom": 12
+      "minzoom": 12,
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
+      }
     },
     {
       "id": "poi_peak_3",
@@ -5611,6 +6936,11 @@
           "#ffffff"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -5810,6 +7140,11 @@
           "#ffffff"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -5999,6 +7334,11 @@
           "#ffffff"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -6165,6 +7505,11 @@
           "#ffffff"
         ],
         "text-halo-width": 1.5
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -6761,6 +8106,11 @@
           "#ffffff"
         ],
         "text-halo-width": 1.5
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -7361,6 +8711,11 @@
           "#ffffff"
         ],
         "text-halo-width": 1.5
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -7962,6 +9317,11 @@
           "#ffffff"
         ],
         "text-halo-width": 1.5
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -8090,6 +9450,11 @@
           "#22303a",
           "#fff"
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -8218,6 +9583,11 @@
           "#22303a",
           "#fff"
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -9249,6 +10619,11 @@
             "#333333"
           ]
         ]
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -9360,6 +10735,11 @@
         ],
         "text-halo-width": 1.5,
         "text-halo-blur": 0.5
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "hidden": true
+        }
       }
     },
     {
@@ -9487,6 +10867,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1.2
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -9608,6 +11008,26 @@
         ],
         "text-halo-width": 1.4,
         "text-opacity": 0.9
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -9779,6 +11199,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1.2
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -9959,6 +11399,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1.2
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -10083,6 +11543,26 @@
         ],
         "text-halo-width": 1,
         "text-opacity": 0.9
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -10276,6 +11756,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1.2
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -10464,6 +11964,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1.2
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -10549,6 +12069,26 @@
           "rgba(255,255,255,0.7)"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -10649,6 +12189,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -10749,6 +12309,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     },
     {
@@ -10850,6 +12430,26 @@
           "rgba(255,255,255,0.8)"
         ],
         "text-halo-width": 1
+      },
+      "metadata": {
+        "map-jr:ssr": {
+          "filter": [
+            "match",
+            [
+              "get",
+              "class"
+            ],
+            [
+              "continent",
+              "country",
+              "state",
+              "city",
+              "town"
+            ],
+            true,
+            false
+          ]
+        }
       }
     }
   ],
