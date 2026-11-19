@@ -1,8 +1,10 @@
-// "Elevation · color": a full-color terrain map. Dark is the same map under bright moonlight.
+// "Elevation": a full-color terrain map. Dark is the same map under bright moonlight. "Elevation · zero" is the same
+// map without the elevation tiles: no hillshade, no 3D terrain and no labels of peaks. It keeps the shaded relief of
+// Natural Earth at low zooms, which is an image source.
 import {useIcons, useShields, retune, scheme, peaks, layer, names, ssr} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
-export const source = 'styles/src/elevation-color.json';
+export const source = 'styles/src/elevation.json';
 
 // New dark values, by "dark|light" of the source style.
 export const PAIRS = {
@@ -42,7 +44,7 @@ const OLD = {'#152029': '#27343c', '#17232c': '#22303a', '#82929c': '#9eabb3', '
 
 const FURNITURE = ['bollard', 'gate', 'lift_gate', 'cycle_barrier', 'stile', 'sally_port', 'toll_booth', 'border_control', 'bicycle_parking', 'motorcycle_parking'];
 
-export function build(style, icons) {
+function build(style, icons) {
     // The POI class of a station is `railway`: the source style asks for `rail`, which the tiles never have.
     const transit = layer(style, 'poi_transit');
     transit.filter = ['all', ['in', 'class', 'bus', 'railway', 'airport']];
@@ -94,3 +96,16 @@ export function build(style, icons) {
     ssr(style);
     delete style.name;
 }
+
+/** "Elevation · zero": the elevation tiles are removed, with their layers, `terrain` and the peaks. */
+function zero(style, icons) {
+    build(style, icons);
+    const dem = Object.keys(style.sources).filter(k => style.sources[k].type === 'raster-dem');
+    style.layers = style.layers.filter(l => !dem.includes(l.source) && !l.id.startsWith('poi_peak_'));
+    for (const k of dem) delete style.sources[k];
+    delete style.terrain;
+    // (`elevation-unit` was for the labels of peaks only.)
+    delete style.state['elevation-unit'];
+}
+
+export const styles = [{name: 'elevation', source, build}, {name: 'elevation-zero', source, build: zero}];

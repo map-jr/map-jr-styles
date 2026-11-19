@@ -1,5 +1,5 @@
 {
-  "elevation-color": [
+  "elevation": [
     ["world", 10, 30, 2],
     ["us", -98, 39, 4],
     ["alps", 9.5, 46.3, 6.5],
@@ -23,6 +23,11 @@
     ["tokyo-region", 139.7, 35.68, 9.5],
     ["seoul", 126.98, 37.56, 12],
     ["cairo", 31.24, 30.05, 11]
+  ],
+  "elevation-zero": [
+    ["alps", 9.5, 46.3, 6.5],
+    ["denver", -105, 39.74, 11],
+    ["chamonix", 6.87, 45.92, 12]
   ],
   "elevation-radar": [
     ["us", -98, 39, 4],

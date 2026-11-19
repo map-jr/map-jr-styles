@@ -78,7 +78,7 @@ rmSync(out, {recursive: true});
 // The style is served, as JSON, from the domain. (At the edge, a major version can still be the previous release for
 // a few minutes.)
 if (!dry) {
-    const url = `${HOST}/${folder}/elevation-color.json`, res = await fetch(url);
+    const url = `${HOST}/${folder}/elevation.json`, res = await fetch(url);
     const ok = res.ok && res.headers.get('content-type')?.startsWith('application/json') && (await res.json()).metadata?.['map-jr:images'];
     if (!ok) throw new Error(`${url}: ${res.status} ${res.headers.get('content-type')}`);
     console.log(`${url}: ${res.status}, cf-cache-status ${res.headers.get('cf-cache-status')}`);

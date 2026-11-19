@@ -8,7 +8,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
-const built = JSON.parse(readFileSync(join(root, 'dist/styles/elevation-color.json'), 'utf8'));
+const built = JSON.parse(readFileSync(join(root, 'dist/styles/elevation.json'), 'utf8'));
 const layer = (style, id) => style.layers.find(l => l.id === id);
 
 /** Runs the command on the edited style in a fresh copy, then the build. Returns the output and the files. */
@@ -19,10 +19,10 @@ function apply(edit) {
     const saved = structuredClone(built);
     edit(saved);
     writeFileSync(join(dir, 'saved.json'), JSON.stringify({...saved, id: 'abc123'}));
-    const run = spawnSync('node', ['scripts/apply-edit.mjs', 'saved.json', 'elevation-color'], {cwd: dir, encoding: 'utf8'});
+    const run = spawnSync('node', ['scripts/apply-edit.mjs', 'saved.json', 'elevation'], {cwd: dir, encoding: 'utf8'});
     assert.equal(spawnSync('node', ['build.mjs'], {cwd: dir}).status, 0);
     const read = f => readFileSync(join(dir, f), 'utf8');
-    return {saved, run, out: run.stdout, dist: JSON.parse(read('dist/styles/elevation-color.json')), source: JSON.parse(read('styles/src/elevation-color.json')), module: read('styles/elevation-color.mjs')};
+    return {saved, run, out: run.stdout, dist: JSON.parse(read('dist/styles/elevation.json')), source: JSON.parse(read('styles/src/elevation.json')), module: read('styles/elevation.mjs')};
 }
 
 test('a light color goes to the source, and its dark pair moves with it', () => {

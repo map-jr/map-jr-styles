@@ -9,7 +9,7 @@ The material below comes from other projects and keeps its own terms. `dist/` is
 | `icons/upstream/*.svg` | [openfreemap-styles](https://github.com/hyperknot/openfreemap-styles), the liberty and bright icon sets | `icons/upstream/LICENSE-liberty.md`, `icons/upstream/LICENSE-bright.md` |
 | `icons/extra/*.svg` | Glyphs of [Maki](https://github.com/mapbox/maki), on the disc of the sprite icons | CC0 1.0: `icons/extra/LICENSE-maki.txt` |
 | `styles/src/openfreemap/*.json` | [openfreemap-styles](https://github.com/hyperknot/openfreemap-styles), at the commit in `styles/src/openfreemap/COMMIT` | BSD 3-Clause for the style code and CC-BY 4.0 for the design: `styles/src/openfreemap/LICENSE*.md` |
-| `styles/src/elevation-color.json` | Based on [OSM Liberty](https://github.com/maputnik/osm-liberty), with the tiles and the sprite of OpenFreeMap | BSD 3-Clause for the style code and CC-BY 4.0 for the design, as `styles/src/openfreemap/LICENSE-liberty.md` |
+| `styles/src/elevation.json` | Based on [OSM Liberty](https://github.com/maputnik/osm-liberty), with the tiles and the sprite of OpenFreeMap | BSD 3-Clause for the style code and CC-BY 4.0 for the design, as `styles/src/openfreemap/LICENSE-liberty.md` |
 | `styles/src/elevation-radar.json` | Based on a style of the OpenMapTiles family; the closest is [MapTiler Basic](https://github.com/openmaptiles/maptiler-basic-gl-style) | BSD 3-Clause for the style code and CC-BY 4.0 for the design |
 | `shields/networks.json` | Made from the shield definitions of [OSM Americana](https://github.com/osm-americana/openstreetmap-americana) (`https://americanamap.org/shields.json`) | CC0 1.0 |
 

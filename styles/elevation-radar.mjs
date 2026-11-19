@@ -1,5 +1,6 @@
 // "Elevation · radar": a quiet neutral base for an overlay (a county or zip code choropleth, snowfall), with relief and peaks
-// for context. No hue except the peaks, and labels that survive a tint on top.
+// for context, which the global state `relief` switches off. No hue except the peaks, and labels that survive a tint
+// on top.
 import {useIcons, retune, scheme, peaks, layer, names, ssr} from '../lib/style.mjs';
 import {ICON_DARK, PLATE} from './shared.mjs';
 
@@ -39,6 +40,10 @@ export function build(style, icons) {
         'hillshade-highlight-color': scheme('#7b858e', '#FFFFFF'), 'hillshade-accent-color': scheme('#000000', '#000000'),
         'hillshade-exaggeration': ['interpolate', ['linear'], ['zoom'], 10, scheme(0.45, 0.2), 16, scheme(0.3, 0.1)],
     });
+    // The relief and the peaks can be switched off, with the global state `relief`. (A layer that is switched off
+    // loads no tiles: with the relief off, no elevation tiles.)
+    style.state.relief = {default: true};
+    for (const id of ['terrain-rgb-terrarium', 'poi_peak_1', 'poi_peak_2', 'poi_peak_3']) (layer(style, id).layout ??= {}).visibility = ['case', ['global-state', 'relief'], 'visible', 'none'];
     // Light: the airport label was a near-white grey on white.
     const airport = layer(style, 'label_airport').paint;
     airport['text-color'][3] = 'rgb(141, 148, 156)'; airport['text-halo-color'][3] = 'rgba(255, 255, 255, 0.75)';
