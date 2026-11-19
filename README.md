@@ -282,7 +282,7 @@ the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look
 | `language` | none (default), or a language code of the tiles such as `de`, `fr`, `ja` | The language of the names, for each feature that has a name in it. Without it, a place with a name in a script other than Latin shows its Latin name and that name, and other names are English. |
 
 `relief` switches layers with a `global-state` expression in `visibility`, which MapLibre GL JS reads from
-5.16.0, and map-jr-gl after 0.8.0 ([map-jr/map-jr-gl#998](https://github.com/map-jr/map-jr-gl/issues/998)). An
+5.16.0, and map-jr-gl from 0.9.0. An
 older map-jr-gl shows the layers and loads their tiles whatever the state is.
 
 **OpenFreeMap styles.** `styles/openfreemap.mjs` builds the five styles of OpenFreeMap with `inlineSprite`: the
@@ -306,13 +306,14 @@ gives the colors and the large shapes of the place. The map draws everything els
 | Roads: minor and service | the same, from zoom 15 | |
 | Names of countries, states, cities and towns | `{"filter": …}` | |
 | Everything else: buildings, casings, tunnels, railways, paths, rivers drawn as lines, other labels and icons, image patterns | `{"hidden": true}` | |
-| A layer below the zoom where its width or opacity can be seen (0.1 pixel, 5%) | `{"minzoom": …}` | map-jr-gl 0.8.0 writes the features of such a layer, which draw nothing. |
+| A layer below the zoom where its width or opacity can be seen (0.1 pixel, 5%) | `{"minzoom": …}` | The server does not fetch or read its tiles. (map-jr-gl 0.8.0 also wrote their paths, which draw nothing.) |
 
 The filter of a road layer draws each class from its zoom, and the layer gets `minzoom` of the most important class
-that its own filter names. (map-jr-gl 0.8.0 reads `["zoom"]` in a filter as the zoom of the tile, which is never above
-14 on OpenMapTiles: with it, minor roads do not show.)
+that its own filter names. The filters are written for map-jr-gl 0.9.0, which reads `["zoom"]` in a filter as the zoom
+of the render. (map-jr-gl 0.8.0 reads the zoom of the tile, which is never above 14 on OpenMapTiles: with it, minor
+roads do not show.)
 
-Render the placeholder with `tileZoomOffset: 2` (map-jr-gl after 0.8.0): the server builds it from tiles two zooms
+Render the placeholder with `tileZoomOffset: 2` (map-jr-gl 0.9.0 or later): the server builds it from tiles two zooms
 lower, which have fewer and longer features, and fetches fewer tiles.
 
 | Over six views and six styles, gzip | `overrides: false` | Placeholder | Placeholder, `tileZoomOffset: 2` |

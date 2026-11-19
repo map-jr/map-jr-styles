@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@map-jr/map-jr-gl':
-        specifier: '>=0.7.0'
-        version: 0.7.0
+        specifier: '>=0.9.0'
+        version: 0.9.0
     devDependencies:
       '@maplibre/maplibre-gl-style-spec':
         specifier: 26.8.0
@@ -27,8 +27,8 @@ importers:
 
 packages:
 
-  '@map-jr/map-jr-gl@0.7.0':
-    resolution: {integrity: sha512-hu+Uo9T/SR7ZtJzbHUoytLEt8IaCnxFUCO7SDVAsVFZz+z5u2/Y+GVrDqk/bN7sMMm8LBbu3b3AmtzFZeMluXA==}
+  '@map-jr/map-jr-gl@0.9.0':
+    resolution: {integrity: sha512-Vrtpwjfzosk+tFXpaZAO09J/s3YsjXE2loOsh3wLoFWd8jAISphIbma7fU2TWmbO45dhyBX4wycmX9+y1KElZg==}
     engines: {node: '>=22'}
     peerDependencies:
       '@nuxt/kit': ^3.0.0 || ^4.0.0
@@ -238,7 +238,7 @@ packages:
 
 snapshots:
 
-  '@map-jr/map-jr-gl@0.7.0': {}
+  '@map-jr/map-jr-gl@0.9.0': {}
 
   '@mapbox/jsonlint-lines-primitives@2.0.3': {}
 
