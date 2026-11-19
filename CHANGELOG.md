@@ -1,8 +1,8 @@
 # Changelog
 
 Each version has one entry. The styles are served at `https://styles.map-jr.org/<major>/`, so a version that breaks a
-map increases the first number, and its entry starts with a section "Breaking changes". Every other version
-increases the second number. The third number is always 0. See [Release](README.md#release).
+map increases the first number, and its entry starts with a section "Breaking changes". A version that adds to a
+map increases the second number, and a fix increases the third. See [Release](README.md#release).
 
 ## 1.2.0 (2026-11-19)
 
