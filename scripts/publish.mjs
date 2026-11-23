@@ -7,6 +7,8 @@
 //   maplibre/<name>.json   the style for MapLibre GL JS (dist/maplibre/<name>.min.json), whose sprite is in the folder
 //   maplibre/sprite*       the sprite of the MapLibre styles: .json and .png, and @2x of each
 //   version.json           {version, commit} of what the folder has
+// Both also upload data/ to /data/, outside the version folders: files that examples read, such as natural-earth-5.1.2.pmtiles (a
+// PMTiles archive, read with HTTP range requests). A file there is live at the merge: a new build gets a new name, with the version of its data.
 // A major version moves with each release of it. A new major version is a breaking change: a layer id renamed or
 // removed, a global state property changed, or a newer map-jr-gl needed. Every other change is a new minor or patch
 // version. A release that is not newer than the one in its folder stops the script.
@@ -87,6 +89,13 @@ for (const [type, filter] of [['image/png', ['--exclude', '*', '--include', '*.p
     if (!dry) aws(args, {stdio: 'inherit'});
 }
 rmSync(out, {recursive: true});
+
+// data/ goes to /data/, with the cache of a release, from main and from each release alike.
+for (const f of readdirSync('data').sort()) console.log(`${HOST}/data/${f}`);
+const dataArgs = ['s3', 'cp', 'data', `s3://${bucket}/data/`, '--recursive', '--content-type', 'application/octet-stream',
+    '--cache-control', 'public, max-age=86400, stale-while-revalidate=604800, s-maxage=300'];
+console.log(`\naws ${dataArgs.join(' ')}`);
+if (!dry) aws(dataArgs, {stdio: 'inherit'});
 
 // The style is served, as JSON, from the domain. (At the edge, a major version can still be the previous release for
 // a few minutes.)

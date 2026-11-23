@@ -4,6 +4,12 @@ Each version has one entry. The styles are served at `https://styles.map-jr.org/
 map increases the first number, and its entry starts with a section "Breaking changes". A version that adds to a
 map increases the second number, and a fix increases the third. See [Release](README.md#release).
 
+## Unreleased
+
+- `https://styles.map-jr.org/data/natural-earth-5.1.2.pmtiles`: a PMTiles archive of the countries and the states and
+  provinces of Natural Earth 5.1.2 (public domain), for the PMTiles example of map-jr-gl. Its name has the version of
+  the data, and each upload from `main` or a release writes it.
+
 ## 1.2.0 (2026-11-19)
 
 - The styles are for map-jr-gl 0.9.0 or later: the peer dependency is now `>=0.9.0`. The filters of `map-jr:ssr` read
