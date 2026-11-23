@@ -7,8 +7,8 @@
 //   maplibre/<name>.json   the style for MapLibre GL JS (dist/maplibre/<name>.min.json), whose sprite is in the folder
 //   maplibre/sprite*       the sprite of the MapLibre styles: .json and .png, and @2x of each
 //   version.json           {version, commit} of what the folder has
-// Both also upload data/ to /data/, which has no version: files that examples read, such as natural-earth.pmtiles (a
-// PMTiles archive, read with HTTP range requests). A changed file there is live at the merge, so give it a new name.
+// Both also upload data/ to /data/, outside the version folders: files that examples read, such as natural-earth-5.1.2.pmtiles (a
+// PMTiles archive, read with HTTP range requests). A file there is live at the merge: a new build gets a new name, with the version of its data.
 // A major version moves with each release of it. A new major version is a breaking change: a layer id renamed or
 // removed, a global state property changed, or a newer map-jr-gl needed. Every other change is a new minor or patch
 // version. A release that is not newer than the one in its folder stops the script.

@@ -6,9 +6,9 @@ map increases the second number, and a fix increases the third. See [Release](RE
 
 ## Unreleased
 
-- `https://styles.map-jr.org/data/natural-earth.pmtiles`: a PMTiles archive of the countries and the states and
-  provinces of Natural Earth 5.1.2 (public domain), for the PMTiles example of map-jr-gl. It has no version in its
-  path, and each upload from `main` or a release writes it.
+- `https://styles.map-jr.org/data/natural-earth-5.1.2.pmtiles`: a PMTiles archive of the countries and the states and
+  provinces of Natural Earth 5.1.2 (public domain), for the PMTiles example of map-jr-gl. Its name has the version of
+  the data, and each upload from `main` or a release writes it.
 
 ## 1.2.0 (2026-11-19)
 

@@ -155,8 +155,8 @@ and uploads nothing, when the changelog has no section for the version, when `/<
 another commit or a newer release, or when npm has the version and the tag `v<version>` does not exist. A run that stopped after the upload can be run again from the Actions tab
 (**Run workflow** on `main`): it does only what is left. To undo a release, release the earlier state as a newer
 version. `node scripts/publish.mjs --dry-run` lists the files that a release uploads, without uploading them. Each upload, from
-`main` and from a release, also writes `data/` to `/data/` (no version in the path), so a file there is live when its
-pull request merges.
+`main` and from a release, also writes `data/` to `/data/`, outside the version folders, so a file there is live when its
+pull request merges. A new build of a file gets a new name, such as `natural-earth-5.1.2.pmtiles` with the version of its data.
 
 It needs, in the repository:
 
