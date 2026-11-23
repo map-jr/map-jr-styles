@@ -1,6 +1,6 @@
 # map-jr-styles
 
-Map styles for [map-jr-gl](https://github.com/map-jr/map-jr-gl) that carry their own icons and road shields as SVG
+Map styles for [Map Jr. GL](https://github.com/map-jr/map-jr-gl) that carry their own icons and road shields as SVG
 templates, in place of a sprite sheet, and versions of the elevation styles for
 [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/). Each elevation style has a light and a dark branch, chosen by
 the global state property `color-scheme`.
@@ -9,7 +9,7 @@ the global state property `color-scheme`.
 
 Pass a link as the `style` of the map. Each one is the latest release of version 1.
 
-| Style | map-jr-gl | MapLibre GL JS 5.16+ | What it is |
+| Style | Map Jr. GL | MapLibre GL JS 5.16+ | What it is |
 |---|---|---|---|
 | Elevation | [elevation.json](https://styles.map-jr.org/1/elevation.json) | [maplibre/elevation.json](https://styles.map-jr.org/1/maplibre/elevation.json) | A full-color terrain map. Dark is the same map under bright moonlight. |
 | Elevation · zero | [elevation-zero.json](https://styles.map-jr.org/1/elevation-zero.json) | [maplibre/elevation-zero.json](https://styles.map-jr.org/1/maplibre/elevation-zero.json) | Elevation without the elevation tiles: no hillshade, no 3D terrain, no labels of peaks. It keeps the shaded relief of Natural Earth at low zooms. |
@@ -21,24 +21,24 @@ Pass a link as the `style` of the map. Each one is the latest release of version
 | OpenFreeMap Positron | [openfreemap-positron.json](https://styles.map-jr.org/1/openfreemap-positron.json) | [OpenFreeMap's](https://tiles.openfreemap.org/styles/positron) | 〃 |
 
 ```js
-createMap('map', {style: 'https://styles.map-jr.org/1/elevation.json'});                              // map-jr-gl
+createMap('map', {style: 'https://styles.map-jr.org/1/elevation.json'});                              // Map Jr. GL
 new maplibregl.Map({container: 'map', style: 'https://styles.map-jr.org/1/maplibre/elevation.json'}); // MapLibre GL JS
 ```
 
 The same styles are in the npm package [`@map-jr/styles`](#from-npm): `@map-jr/styles/<name>.json` and
 `@map-jr/styles/maplibre/<name>.json`. In this repository they are built to `dist/styles/` and `dist/maplibre/`.
 
-Each style also has a `.min.json` without white space. The styles need a map-jr-gl build that reads
+Each style also has a `.min.json` without white space. The styles need a Map Jr. GL build that reads
 `metadata["map-jr:images"]` and `params` of the `image` expression. MapLibre GL JS draws them without icons: use the
 MapLibre styles for it ([below](#maplibre-gl-js)).
 
-The three elevation styles have no `glyphs`: map-jr-gl draws their labels with the fonts of the browser, and makes no
+The three elevation styles have no `glyphs`: Map Jr. GL draws their labels with the fonts of the browser, and makes no
 requests for fonts. Each `text-font` is a stack of the fonts of the system, such as
 `["system-ui Semibold", "Segoe UI Semibold", "Roboto Medium", "sans-serif"]`: SF Pro on Apple systems, Segoe UI on
 Windows, Roboto on Android. The first name gives the weight and the style (Regular, Semibold, Bold, Italic, Semibold
-Italic). This needs a map-jr-gl with commit `bd4d4ea` (a `text-font` stack as a CSS family list, with `system-ui`
+Italic). This needs a Map Jr. GL with commit `bd4d4ea` (a `text-font` stack as a CSS family list, with `system-ui`
 unquoted); an older one draws the labels in the `fontFamily` of the map. To give every reader the same font, pass the
-font files in the `fonts` option of map-jr-gl. MapLibre GL JS does not load a style
+font files in the `fonts` option of Map Jr. GL. MapLibre GL JS does not load a style
 with text and no `glyphs`: its versions of these three styles have the glyphs of OpenFreeMap. The OpenFreeMap styles
 keep the glyphs of OpenFreeMap.
 
@@ -56,7 +56,7 @@ createMap('map', {style: 'https://styles.map-jr.org/1/elevation.json'});
 | `/1/version.json` | `{version, commit}` of the folder | As its folder |
 
 A new major version (`/2/`) breaks a map: a layer id is renamed or removed, a global state property changes, or the
-styles need a newer map-jr-gl. Every other release is a new minor version (`1.1`), and `/1/` moves to it. To keep
+styles need a newer Map Jr. GL. Every other release is a new minor version (`1.1`), and `/1/` moves to it. To keep
 one release as it is, host the zip of its GitHub release.
 
 ### MapLibre GL JS
@@ -74,14 +74,14 @@ map.setGlobalStateProperty('color-scheme', 'dark');
 | `/1/maplibre/{elevation,elevation-zero,elevation-radar}.json` | The style, without white space. |
 | `/1/maplibre/sprite.json`, `sprite.png`, `sprite@2x.json`, `sprite@2x.png` | The sprite that the three styles share: each icon and shield in the colors of the light and of the dark branch. |
 
-Each differs from the map-jr-gl style in three things:
+Each differs from the Map Jr. GL style in three things:
 
 - **The icons are in a sprite.** Each icon with `params` becomes one image of the sprite for each set of colors that it
   can have, named by the icon and a hash of its colors (`arrow-94b3af`). The `icon-image` of a layer chooses the name
   with a `match` on the class, for each branch of `color-scheme`. The sprite has 293 images: 63 KB at 1x, 154 KB at 2x.
 - **The labels use glyphs.** The fonts of the system become the Noto Sans fonts of OpenFreeMap
   (`https://tiles.openfreemap.org/fonts/`): Regular, and Bold for Semibold and Bold, and Italic for both italics. So
-  the labels look less like the platform than in map-jr-gl.
+  the labels look less like the platform than in Map Jr. GL.
 - **No `map-jr:` metadata.** MapLibre has no server render and no SVG images, so `map-jr:ssr` and `map-jr:images` are
   removed.
 
@@ -126,7 +126,7 @@ section as its text and `dist/` as a zip. Nobody pushes a tag or makes a release
      `1.2.1`.
    - A change that adds to a map without breaking it (a new layer, style or global state property) increases the second
      number: `1.2.1` → `1.3.0`.
-   - A change that breaks a map (a layer id renamed or removed, a global state property changed, a newer map-jr-gl
+   - A change that breaks a map (a layer id renamed or removed, a global state property changed, a newer Map Jr. GL
      needed) increases the first number: `1.3.0` → `2.0.0`. Its section in the changelog starts with "Breaking
      changes", which says what stopped working and what to do instead.
 3. **Open the pull request of the release.** On a branch from `main`, set `"version"` in `package.json`, and add
@@ -187,7 +187,7 @@ pnpm run build
 ```
 
 `dist/` is committed, so that a style has a URL. `pnpm run check` fails when `dist/` is not what the sources give;
-CI runs it, and `pnpm test`. The build writes the map-jr-gl styles to `dist/styles/`, and the MapLibre styles and
+CI runs it, and `pnpm test`. The build writes the Map Jr. GL styles to `dist/styles/`, and the MapLibre styles and
 their sprite to `dist/maplibre/`.
 
 ## Editing a style with Maputnik
@@ -195,19 +195,19 @@ their sprite to `dist/maplibre/`.
 An edit in Maputnik reaches the repository as a change to the sources, because the build writes `dist/` from them
 and overwrites an edit made there.
 
-1. Open the built style in the Maputnik of map-jr-gl:
+1. Open the built style in the Maputnik of Map Jr. GL:
    `https://map-jr.github.io/maputnik/?style=https://styles.map-jr.org/@main/elevation.json`.
 2. Edit it, and save it with **Save** (a file such as `elevation.json`).
 3. Apply it to the sources, and build:
 
    ```bash
-   ppnpm run apply-edit ~/Downloads/elevation.json
+   pnpm run apply-edit ~/Downloads/elevation.json
    pnpm run build
    ```
 
 The command builds the style from the sources in memory and compares it with the saved style, layer by layer and
 property by property. It finds the style by the file name, or by the layers when the name is not the name of a
-style. A second argument gives the name: `ppnpm run apply-edit saved.json elevation-radar`. For each difference it
+style. A second argument gives the name: `pnpm run apply-edit saved.json elevation-radar`. For each difference it
 tries the places that the value can come from, builds again, and keeps a change only when it removes differences and
 adds none.
 
@@ -279,21 +279,21 @@ the neutral plate here, unless `MANUAL` in `shields/shields.mjs` gives it a look
 
 | Property | Values | Effect |
 |---|---|---|
-| `color-scheme` | `light` (default), `dark` | The branch of the style. map-jr-gl sets it from `colorScheme`. |
+| `color-scheme` | `light` (default), `dark` | The branch of the style. Map Jr. GL sets it from `colorScheme`. |
 | `elevation-unit` | `ft` (default), `m` | The unit of the elevation in peak labels. Set it with `globalState: {'elevation-unit': 'm'}`. |
 | `relief` | `true` (default), `false` | Elevation · radar: the hillshade and the labels of peaks. With `false` they are hidden, and no elevation tiles load. |
-| `language` | none (default), or a language code of the tiles such as `de`, `fr`, `ja` | The language of the names, for each feature that has a name in it. Without it, a place with a name in a script other than Latin shows its Latin name and that name, and other names are English. |
+| `language` | none (default), or a language code of the tiles such as `de`, `fr`, `ja` | The language of the names; without it, a name in a script other than Latin also shows its Latin form, and other names are English. |
 
 `relief` switches layers with a `global-state` expression in `visibility`, which MapLibre GL JS reads from
-5.16.0, and map-jr-gl from 0.9.0. An
-older map-jr-gl shows the layers and loads their tiles whatever the state is.
+5.16.0, and Map Jr. GL from 0.9.0. An
+older Map Jr. GL shows the layers and loads their tiles whatever the state is.
 
 **OpenFreeMap styles.** `styles/openfreemap.mjs` builds the five styles of OpenFreeMap with `inlineSprite`: the
 images that a layer can ask for go into the style as plain SVG, and the layers are not changed, except for
 `map-jr:ssr` in their metadata (below).
 
 **Server render.** `ssr` in `lib/style.mjs` gives the layers of each style `metadata["map-jr:ssr"]`: changes for
-the first view that the server renderer of map-jr-gl writes (`renderToSVG`, `renderFirstView`, the `ssr` prop of
+the first view that the server renderer of Map Jr. GL writes (`renderToSVG`, `renderFirstView`, the `ssr` prop of
 the Vue component), which a page shows inline until the map draws. MapLibre GL JS and the map in the browser ignore
 them. The first view is a placeholder, like a blurred image while the full one loads: it must be small, and it only
 gives the colors and the large shapes of the place. The map draws everything else over it.
@@ -309,14 +309,14 @@ gives the colors and the large shapes of the place. The map draws everything els
 | Roads: minor and service | the same, from zoom 15 | |
 | Names of countries, states, cities and towns | `{"filter": …}` | |
 | Everything else: buildings, casings, tunnels, railways, paths, rivers drawn as lines, other labels and icons, image patterns | `{"hidden": true}` | |
-| A layer below the zoom where its width or opacity can be seen (0.1 pixel, 5%) | `{"minzoom": …}` | The server does not fetch or read its tiles. (map-jr-gl 0.8.0 also wrote their paths, which draw nothing.) |
+| A layer below the zoom where its width or opacity can be seen (0.1 pixel, 5%) | `{"minzoom": …}` | The server does not fetch or read its tiles. (Map Jr. GL 0.8.0 also wrote their paths, which draw nothing.) |
 
 The filter of a road layer draws each class from its zoom, and the layer gets `minzoom` of the most important class
-that its own filter names. The filters are written for map-jr-gl 0.9.0, which reads `["zoom"]` in a filter as the zoom
-of the render. (map-jr-gl 0.8.0 reads the zoom of the tile, which is never above 14 on OpenMapTiles: with it, minor
+that its own filter names. The filters are written for Map Jr. GL 0.9.0, which reads `["zoom"]` in a filter as the zoom
+of the render. (Map Jr. GL 0.8.0 reads the zoom of the tile, which is never above 14 on OpenMapTiles: with it, minor
 roads do not show.)
 
-Render the placeholder with `tileZoomOffset: 2` (map-jr-gl 0.9.0 or later): the server builds it from tiles two zooms
+Render the placeholder with `tileZoomOffset: 2` (Map Jr. GL 0.9.0 or later): the server builds it from tiles two zooms
 lower, which have fewer and longer features, and fetches fewer tiles.
 
 | Over six views and six styles, gzip | `overrides: false` | Placeholder | Placeholder, `tileZoomOffset: 2` |
@@ -326,10 +326,10 @@ lower, which have fewer and longer features, and fetches fewer tiles.
 | Paris at zoom 10 | 67 to 150 KB | 31 to 42 KB | 13 to 18 KB |
 
 The views are Manhattan at zoom 12 and 15, Oakland at 13.5, Paris at 10, the Alps at 11 and Atlanta's suburbs at 15,
-800 × 500, measured with map-jr-gl at c4d5e87. A layer whose source style has `map-jr:ssr` keeps it. To render
+800 × 500, measured with Map Jr. GL at c4d5e87. A layer whose source style has `map-jr:ssr` keeps it. To render
 without the changes, pass `overrides: false`; to change one layer, pass `overrides: {"<layer id>": {…}}`.
 
-**MapLibre styles.** `maplibre` in `lib/maplibre.mjs` builds them from the built map-jr-gl style of each style that
+**MapLibre styles.** `maplibre` in `lib/maplibre.mjs` builds them from the built Map Jr. GL style of each style that
 has a global state `color-scheme`. For each `image` expression it finds the values that the image and its colors can
 depend on: the labels of each `match` in it, and the names of the images, less those that the filter of the layer
 leaves out. It works out the name and the colors for each value, in light and in dark, with the expressions of
@@ -342,7 +342,7 @@ then checked with `validateStyleMin` of MapLibre.
 
 `pnpm run preview` draws each style in light and dark, side by side, at the views of `test/views.json` (a range of
 zoom levels and kinds of place), into `test/shots/`. Set `STATE` to try a global state: `STATE='{"elevation-unit":"m"}' node test/preview.mjs elevation chamonix`. It needs Playwright with Chromium, and the `dist/` folder of a
-map-jr-gl build in `test/lib/`. Pass a style and a view to draw one: `node test/preview.mjs elevation-radar rockies`.
+Map Jr. GL build in `test/lib/`. Pass a style and a view to draw one: `node test/preview.mjs elevation-radar rockies`.
 
 `test/maplibre.html` shows a MapLibre style in MapLibre GL JS, with the sprite of the checkout. Serve the repository
 root (`python3 -m http.server 8123`) and open
