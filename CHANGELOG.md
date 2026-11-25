@@ -4,14 +4,15 @@ Each version has one entry. The styles are served at `https://styles.map-jr.org/
 map increases the first number, and its entry starts with a section "Breaking changes". A version that adds to a
 map increases the second number, and a fix increases the third. See [Release](README.md#release).
 
-## Unreleased
+## 1.2.1 (2026-11-25)
 
 - `https://styles.map-jr.org/data/natural-earth-5.1.2.pmtiles`: a PMTiles archive of the countries and the states and
   provinces of Natural Earth 5.1.2 (public domain), for the PMTiles example of map-jr-gl. Its name has the version of
   the data, and each upload from `main` or a release writes it.
 - Elevation and Elevation · zero load the shaded relief of Natural Earth from OpenFreeMap as WebP
-  (`ne2sr/{z}/{x}/{y}.webp`) in place of PNG: the same 512-pixel tiles, about a sixteenth of the bytes. The source,
-  layer and paint are the same.
+  (`ne2sr/{z}/{x}/{y}.webp`) in place of PNG: the same 512-pixel tiles, with exactly the same pixels (the PNG tiles of
+  OpenFreeMap are its WebP tiles decoded), at about a sixteenth of the bytes. The source, layer and paint are the
+  same.
 
 ## 1.2.0 (2026-11-19)
 
